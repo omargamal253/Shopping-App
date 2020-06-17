@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:orientation="vertical"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".AddItemActivity">
+
+<com.google.android.material.appbar.AppBarLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/bar"
+    android:background="?android:attr/windowBackground">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tool_bar_style"
+        android:id="@+id/toolbar"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/ic_close"
+                android:id="@+id/close"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add"
+                android:id="@+id/post"
+                android:textSize="18sp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="15dp"
+                android:textColor="#333333"
+                android:layout_centerVertical="true"
+                android:onClick="AddProduct"
+                />
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+</com.google.android.material.appbar.AppBarLayout>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:scaleType="centerInside"
+        android:src="@drawable/uploadimage"
+        android:id="@+id/image_added"
+        android:onClick="SelectPhoto"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:hint="Title"
+        android:id="@+id/item_title"
+        android:layout_below="@+id/image_added"
+        android:background="@drawable/edit_text_background"
+        android:maxLines="3"
+        android:padding="8dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Description"
+        android:id="@+id/item_description"
+        android:layout_below="@+id/item_title"
+        android:background="@drawable/edit_text_background"
+        android:padding="8dp"
+        android:layout_marginTop="5dp"
+        android:maxLines="5"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="brand"
+        android:id="@+id/item_brand"
+        android:layout_below="@+id/item_description"
+        android:background="@drawable/edit_text_background"
+        android:padding="8dp"
+        android:layout_marginTop="5dp"
+        android:maxLines="1"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Color"
+        android:id="@+id/item_color"
+        android:layout_below="@+id/item_brand"
+        android:background="@drawable/edit_text_background"
+        android:padding="8dp"
+        android:layout_marginTop="5dp"
+        android:maxLines="1"
+        />
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Price"
+        android:id="@+id/item_price"
+        android:layout_below="@+id/item_color"
+        android:background="@drawable/edit_text_background"
+        android:padding="8dp"
+        android:layout_marginTop="5dp"
+        android:maxLines="1"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="%Discount"
+        android:id="@+id/item_discount"
+        android:layout_below="@+id/item_color"
+        android:layout_toEndOf="@+id/item_price"
+        android:background="@drawable/edit_text_background"
+        android:padding="8dp"
+        android:layout_marginTop="5dp"
+        android:maxLines="1"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_discount"
+        android:id="@+id/textview_categort"
+        android:text="Category : "
+        android:padding="8dp"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        />
+    <Spinner
+        android:id="@+id/planets_spinner"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/textview_categort"
+        android:layout_below="@+id/item_discount"
+        android:layout_marginTop="5dp"
+        android:padding="8dp"
+
+        />
+
+
+
+
+
+</RelativeLayout>
+
+</LinearLayout>

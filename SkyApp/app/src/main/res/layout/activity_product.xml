@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductActivity"
+    android:fitsSystemWindows="true"
+    android:id="@+id/drawer_layoutProduct">
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ProductToolbar"
+        android:layout_alignParentTop="true"
+        android:background="#53B4FF"
+        android:minHeight="?actionBarSize"
+        android:elevation="50dp"
+        android:scrollbarStyle="insideInset"
+        app:titleTextColor="#E6000000"
+        android:layout_margin="0dp"
+        />
+
+    <TextView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/textView"
+    android:text="empty"
+    />
+</RelativeLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>

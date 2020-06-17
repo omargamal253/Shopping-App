@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/group1">
+ <item
+     android:id="@+id/item_a"
+     android:checkable="true"
+     android:icon="@android:drawable/ic_dialog_email"
+     android:title="Action A"/>
+
+    <item
+        android:id="@+id/item_b"
+        android:checkable="true"
+        android:icon="@android:drawable/ic_delete"
+        android:title="Action B"/>
+    <item
+        android:id="@+id/item_c"
+        android:checkable="true"
+        android:icon="@android:drawable/ic_notification_clear_all"
+        android:title="Action C"/>
+    </group>
+    <group android:id="@+id/group2">
+    <item
+        android:id="@+id/item_d"
+        android:checkable="true"
+        android:icon="@android:drawable/ic_dialog_map"
+        android:title="Action A"/>
+    <item
+        android:id="@+id/item_e"
+        android:checkable="true"
+        android:icon="@android:drawable/ic_lock_silent_mode"
+        android:title="Action E"/>
+    </group>
+    <item
+        android:id="@+id/item_f"
+        android:checkable="true"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="Action F"/>
+
+    <item android:title="Admin">
+        <menu>
+            <item android:id="@+id/AddItem"
+                android:icon="@android:drawable/ic_menu_add"
+                android:title="Add Product" />
+            <item android:id="@+id/UpdateItem"
+                android:icon="@android:drawable/zoom_plate"
+                android:title="Update Product" />
+        </menu>
+    </item>
+</menu>

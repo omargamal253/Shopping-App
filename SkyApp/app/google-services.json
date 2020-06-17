@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "936239427151",
+    "firebase_url": "https://skyapp-f0431.firebaseio.com",
+    "project_id": "skyapp-f0431",
+    "storage_bucket": "skyapp-f0431.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:936239427151:android:a8761480291ac3c463043a",
+        "android_client_info": {
+          "package_name": "com.example.instagramapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "936239427151-7qn4do86k8ud1gs01sle8hqbb87jgf38.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.instagramapp",
+            "certificate_hash": "7141a5dab153eef2a8ecc6833df6bd2f6f563f9e"
+          }
+        },
+        {
+          "client_id": "936239427151-cenlhqhi410005ed9ogluda3r7ck3jq4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAenlaXSGTnCBBr_2ljIEcspY29Honhxk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "936239427151-cenlhqhi410005ed9ogluda3r7ck3jq4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

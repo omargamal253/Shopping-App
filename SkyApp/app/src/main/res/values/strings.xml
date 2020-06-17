@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Sky Shopping</string>
+    <string name="textview">TextView</string>
+    <string name="open" />
+    <string name="close" />
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="planets_array">
+        <item>Deals</item>
+        <item>Best Sales</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+</resources>

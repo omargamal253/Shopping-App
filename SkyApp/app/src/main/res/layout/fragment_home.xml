@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".fragments.HomeFragment"
+    android:orientation="horizontal">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ViewFlipper
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/flipperId"
+        android:layout_centerInParent="true"
+        android:flipInterval="2000"
+        android:elevation="5dp"
+        android:layout_alignParentTop="true"
+>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/sprorts"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitCenter"
+            />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/phones1"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitCenter"
+            />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/watches"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitCenter"
+            />
+
+
+
+    </ViewFlipper>
+
+
+    <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/dealRelativeLayout"
+       android:padding="5dp"
+       android:layout_below="@id/flipperId"
+       android:background="#FFF"
+       >
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="DEALS OF DAY"
+           android:id="@+id/dealTitle"
+           android:textStyle="bold"
+           android:textSize="12dp"
+           android:textColor="#000"
+
+           />
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Hot Deals Everyday"
+           android:layout_below="@id/dealTitle"
+           android:textSize="10dp"
+           android:textColor="#000"
+
+           />
+
+   </RelativeLayout>
+
+
+<androidx.recyclerview.widget.RecyclerView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+   android:layout_below="@+id/dealRelativeLayout"
+    android:id="@+id/DealsRecyclerView"
+    />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/BestSalesRelativeLayout"
+        android:padding="5dp"
+        android:layout_below="@id/DealsRecyclerView"
+        android:background="#FFF"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Best Sales"
+            android:id="@+id/BestTitle"
+            android:textStyle="bold"
+            android:textSize="12dp"
+            android:textColor="#000"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="The Best Sales Online "
+            android:layout_below="@id/BestTitle"
+            android:textSize="10dp"
+            android:textColor="#000"
+            />
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/BestSalesRelativeLayout"
+        android:id="@+id/BestRecyclerView"
+        />
+
+
+</RelativeLayout>
+</ScrollView>
