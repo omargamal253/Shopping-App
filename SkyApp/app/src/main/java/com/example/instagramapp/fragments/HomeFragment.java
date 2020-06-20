@@ -1,12 +1,10 @@
 package com.example.instagramapp.fragments;
 
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,7 +15,6 @@ import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.example.instagramapp.Adapter.RecyclerAdapter;
-import com.example.instagramapp.AddItemActivity;
 import com.example.instagramapp.R;
 import com.example.instagramapp.model.Product;
 import com.google.firebase.database.DataSnapshot;
@@ -25,16 +22,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 
 public class HomeFragment extends Fragment {
-    RecyclerView mreRecyclerView;
-    RecyclerAdapter myAdapter;
-    RecyclerView mreRecyclerView2;
-    RecyclerAdapter myAdapter2;
+    RecyclerView DealsRecyclerView;
+   public static RecyclerAdapter DealsAdapter;
+    RecyclerView BestSealsRecyclerView;
+    public static RecyclerAdapter BestSealsAdapter;
 
     ViewFlipper viewFlipper;
          ArrayList<Product> products = new ArrayList<>() ;
@@ -55,9 +51,9 @@ final FragmentActivity c =getActivity();
 
         viewFlipper = view.findViewById(R.id.flipperId);
         viewFlipper.startFlipping();
-        mreRecyclerView =view.findViewById(R.id.DealsRecyclerView);
+        DealsRecyclerView =view.findViewById(R.id.DealsRecyclerView);
 
-        mreRecyclerView2 =view.findViewById(R.id.BestRecyclerView);
+        BestSealsRecyclerView =view.findViewById(R.id.BestRecyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(
                 c ,LinearLayoutManager.HORIZONTAL,false
         );
@@ -68,22 +64,22 @@ final FragmentActivity c =getActivity();
                 c ,2
         );*/
 
-        mreRecyclerView.setLayoutManager(layoutManager);
-        mreRecyclerView2.setLayoutManager(layoutManager2);
+        DealsRecyclerView.setLayoutManager(layoutManager);
+        BestSealsRecyclerView.setLayoutManager(layoutManager2);
 
 
-        mreRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mreRecyclerView2.setItemAnimator(new DefaultItemAnimator());
+        DealsRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        BestSealsRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        myAdapter = new RecyclerAdapter( c, products);
-        myAdapter2 = new RecyclerAdapter( c, products2);
+        DealsAdapter = new RecyclerAdapter( c, products);
+        BestSealsAdapter = new RecyclerAdapter( c, products2);
 
-        mreRecyclerView.setAdapter(myAdapter);
-        mreRecyclerView2.setAdapter(myAdapter2);
+        DealsRecyclerView.setAdapter(DealsAdapter);
+        BestSealsRecyclerView.setAdapter(BestSealsAdapter);
 
 
-        getMyList("Deals",myAdapter);
-        getMyList("Best Sales",myAdapter2);
+        getMyList("Deals", DealsAdapter);
+        getMyList("Best Sales", BestSealsAdapter);
 
 
 

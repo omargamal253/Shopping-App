@@ -12,8 +12,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.instagramapp.Adapter.FireBase;
 import com.example.instagramapp.fragments.AccountFragment;
 import com.example.instagramapp.fragments.FavoriteFragment;
 import com.example.instagramapp.fragments.HomeFragment;
@@ -29,31 +31,17 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
 DrawerLayout drawerLayout ;
     TextView tvInfo ;
     Toolbar toolbar;
+   public static TextView CardCount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        // FirebaseAuth.getInstance().signOut();
 
         setContentView(R.layout.activity_main2);
-        FloatingActionButton floatingActionButton =( FloatingActionButton) findViewById(R.id.fab);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Snackbar snackbar =Snackbar.make(v ,"Write email",Snackbar.LENGTH_INDEFINITE);
-                snackbar.setAction("Yes", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Snackbar.make(v,"Done",Snackbar.LENGTH_SHORT).show();
-                    }
-                });
-                snackbar.show();;
-
-            }
-        });
 
 
         toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitleMargin(0,0,250,0);
+
         setSupportActionBar(toolbar);
 
         tvInfo =(TextView) findViewById(R.id.tv_info);
@@ -67,6 +55,20 @@ DrawerLayout drawerLayout ;
         drawerToggle.syncState();
 
         ManageButtonNav();
+        FireBase fireBase= new FireBase();
+
+        CardCount = findViewById(R.id.Card_Count);
+
+        FireBase.GetNumOf_Products_InCard();
+/*
+       if(FireBase.NumOf_Products_InCard>0)
+        {
+            CardCount.setVisibility(View.VISIBLE);
+            CardCount.setText(String.valueOf(FireBase.NumOf_Products_InCard));
+        }
+        else CardCount.setVisibility(View.INVISIBLE);
+       // CardCount.setText(String.valueOf(FireBase.NumOf_Products_InCard));*/
+
     }
 
     @Override
@@ -138,5 +140,11 @@ DrawerLayout drawerLayout ;
         });
         // so default fragment is home
         bottomNavigationView.setSelectedItemId(R.id.nav_home);
+    }
+
+    public void MoveToCardActivity(View view) {
+        Intent intent = new Intent(this, CardActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+
     }
 }

@@ -9,8 +9,9 @@
         android:roundIcon="@drawable/icon2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddItemActivity"></activity>
-        <activity android:name=".ProductActivity"></activity>
+        <activity android:name=".CardActivity"></activity>
+        <activity android:name=".AddItemActivity" />
+        <activity android:name=".ProductActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />

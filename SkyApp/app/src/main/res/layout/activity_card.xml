@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".CardActivity"
+android:fitsSystemWindows="true"
+android:id="@+id/drawer_layoutCard2">
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    tools:context=".ProductActivity"
+    android:id="@+id/parentRelative">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/CardToolbar"
+        android:layout_alignParentTop="true"
+        android:background="#53B4FF"
+        android:minHeight="?actionBarSize"
+        android:elevation="50dp"
+        android:scrollbarStyle="insideInset"
+        app:titleTextColor="#E6000000"
+        android:layout_margin="0dp"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="520dp"
+        android:layout_below="@+id/CardToolbar"
+        android:id="@+id/CardsRecyclerView"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        >
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Total"
+    android:textSize="20dp"
+    android:layout_marginLeft="115dp"
+    android:id="@+id/totalText"
+    android:layout_marginTop="5dp"
+    />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_toRightOf="@+id/totalText"
+            android:text="0 EGP"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/Total"
+            android:layout_marginTop="5dp"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/Total"
+            android:layout_margin="5dp"
+            android:background="#3ac569"
+            android:text="Complete Your Order"
+            android:textColor="#fff"
+            android:id="@+id/CompleteOrder"
+            />
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_below="@+id/CompleteOrder"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="5dp"
+    android:background="#E1EEF6"
+    android:text="Call to Order"
+    android:textColor="#3ac569"
+    android:id="@+id/CallToOrder"
+    />
+
+
+
+
+
+
+
+    </RelativeLayout>
+</RelativeLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+app:cardCornerRadius="10dp"
+
+app:cardElevation="3dp"
+app:cardUseCompatPadding="true"
+app:layout_optimizationLevel="chains"
+
+    >
+<!--  app:cardElevation="3dp"  is used to show the shadow of the CardView. -->
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:animateLayoutChanges="true"
+    android:background="#334BC2D1"
+    >
+
+    <ImageView
+        android:id="@+id/imageIv2"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_marginTop="10dp"
+
+        />
+    <TextView
+        android:layout_width="60dp"
+        android:layout_height="15dp"
+        android:text="16% OFF"
+        android:textSize="8dp"
+        android:background="#FF0000"
+        android:textColor="#fff"
+        android:id="@+id/discount2"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/titleIv2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="Title"
+        android:textColor="#000"
+        android:textSize="12dp"
+        android:maxHeight="70dp"
+        android:layout_toRightOf="@+id/imageIv2"
+        android:layout_marginTop="20dp"
+
+        />
+
+    <TextView
+        android:id="@+id/PriceBefore2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleIv2"
+        android:layout_marginLeft="10dp"
+        android:text="Price"
+        android:textColor="#a9a9a9"
+        android:textSize="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/imageIv2"
+
+        />
+
+    <TextView
+        android:id="@+id/PriceAfter2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/PriceBefore2"
+        android:layout_marginLeft="10dp"
+        android:text="Price"
+        android:textColor="#000"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:layout_toRightOf="@+id/imageIv2"
+
+        />
+
+<View
+    android:layout_width="350dp"
+    android:layout_height="1dp"
+    android:layout_below="@+id/imageIv2"
+    android:background="#FFFFFF"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="10dp"
+    android:id="@+id/line_"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/line_"
+        android:id="@+id/relative_card"
+        >
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_fav_border"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="20dp"
+            android:id="@+id/Add_toFav"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/Add_toFav"
+            android:text="Remove"
+            android:drawableLeft="@drawable/ic_remove"
+            android:textSize="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="15dp"
+            android:textAlignment="center"
+            android:id="@+id/remove_card_btn"
+            />
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="37dp"
+            android:layout_toRightOf="@+id/remove_card_btn"
+            android:src="@drawable/ic_subtract_qty"
+            android:layout_marginLeft="100dp"
+            android:id="@+id/subtract_Qty"
+            />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="55"
+            android:layout_toRightOf="@+id/subtract_Qty"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:id="@+id/EditText_Qty"
+            android:layout_marginLeft="5dp"
+
+            />
+
+
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_toRightOf="@+id/EditText_Qty"
+            android:src="@drawable/ic_add_qty"
+            android:id="@+id/add_Qty"
+            android:layout_marginLeft="5dp"
+
+            />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>

@@ -17,6 +17,7 @@
         android:checkable="true"
         android:icon="@android:drawable/ic_notification_clear_all"
         android:title="Action C"/>
+
     </group>
     <group android:id="@+id/group2">
     <item

@@ -1,9 +1,8 @@
 package com.example.instagramapp.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +13,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.instagramapp.ProductActivity;
 import com.example.instagramapp.R;
 import com.example.instagramapp.model.Product;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
+
+import static com.example.instagramapp.MainActivity.CardCount;
 
 public class RecyclerAdapter  extends RecyclerView.Adapter<MyHolder> {
     Context c ;
@@ -48,7 +56,7 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<MyHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final MyHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final MyHolder holder, final int position) {
         holder.mTitle.setText(products.get(position).getTitle());
 
         if(products.get(position).getDiscount()>0)
@@ -75,8 +83,79 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<MyHolder> {
 
          }
 
-       // holder.mImageView.setImageURI();
+         // to check if product in Fav or not
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("UserFav").child(user.getUid());
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.child(products.get(position).getTitle()+products.get(position).getBrand()+products.get(position).getColor()).exists()){
+                    holder.HomeFav.setImageResource(R.drawable.ic_fav);
+                    holder.AddedToFav =true;
+                }
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+        // to check if product in Card or not
+         ref = FirebaseDatabase.getInstance().getReference().child("UserCards").child(user.getUid());
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.child(products.get(position).getTitle()+products.get(position).getBrand()+products.get(position).getColor()).exists()){
+                    holder.AddToCard.setText("Added");
+                    holder.AddedToCard =true;
+                }else{
+                    holder.AddToCard.setText("Add TO CARD");
+                    holder.AddedToCard =false;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+        holder.AddToCard.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceAsColor")
+            @Override
+            public void onClick(View v) {
+              FireBase.AddToUser_Card(products.get(position));
+
+                Snackbar snackbar =Snackbar.make(v ,products.get(position).getTitle()+" Added to your card",Snackbar.LENGTH_LONG);
+                snackbar.setBackgroundTint(R.color.colorPrimaryDark);
+
+                snackbar.show();
+                  holder.AddToCard.setText("Added");
+                FireBase.GetNumOf_Products_InCard();
+
+            }
+        }
+        );
+        holder.HomeFav.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceAsColor")
+            @Override
+            public void onClick(View v) {
+
+                if(holder.AddedToFav ==false){
+                    holder.HomeFav.setImageResource(R.drawable.ic_fav);
+
+                    Snackbar snackbar =Snackbar.make(v ,products.get(position).getTitle()+" Saved to your Favorites ",Snackbar.LENGTH_LONG);
+                    snackbar.setBackgroundTint(R.color.colorPrimaryDark);
+                    snackbar.show();
+                    FireBase.AddToUser_Fav(products.get(position));
+                    holder.AddedToFav =true;
+
+                }
+            }
+        });
 
         holder.setItemClickListener(new ItemClickListener() {
             @Override
@@ -100,6 +179,8 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<MyHolder> {
                 c.startActivity(intent);
             }
         });
+
+
 
 
     /* holder.setItemClickListener(new ItemClickListener() {
