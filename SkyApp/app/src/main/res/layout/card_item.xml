@@ -20,7 +20,7 @@ app:layout_optimizationLevel="chains"
     >
 
     <ImageView
-        android:id="@+id/imageIv2"
+        android:id="@+id/imageIv3"
         android:layout_width="150dp"
         android:layout_height="100dp"
         android:layout_alignParentTop="true"
@@ -41,7 +41,7 @@ app:layout_optimizationLevel="chains"
         />
 
     <TextView
-        android:id="@+id/titleIv2"
+        android:id="@+id/titleIv3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -49,7 +49,7 @@ app:layout_optimizationLevel="chains"
         android:textColor="#000"
         android:textSize="12dp"
         android:maxHeight="70dp"
-        android:layout_toRightOf="@+id/imageIv2"
+        android:layout_toRightOf="@+id/imageIv3"
         android:layout_marginTop="20dp"
 
         />
@@ -58,18 +58,18 @@ app:layout_optimizationLevel="chains"
         android:id="@+id/PriceBefore2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/titleIv2"
+        android:layout_below="@+id/titleIv3"
         android:layout_marginLeft="10dp"
         android:text="Price"
         android:textColor="#a9a9a9"
         android:textSize="10dp"
         android:layout_marginTop="5dp"
-        android:layout_toRightOf="@+id/imageIv2"
+        android:layout_toRightOf="@+id/imageIv3"
 
         />
 
     <TextView
-        android:id="@+id/PriceAfter2"
+        android:id="@+id/PriceAfter3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/PriceBefore2"
@@ -78,14 +78,14 @@ app:layout_optimizationLevel="chains"
         android:textColor="#000"
         android:textSize="12dp"
         android:textStyle="bold"
-        android:layout_toRightOf="@+id/imageIv2"
+        android:layout_toRightOf="@+id/imageIv3"
 
         />
 
 <View
     android:layout_width="350dp"
     android:layout_height="1dp"
-    android:layout_below="@+id/imageIv2"
+    android:layout_below="@+id/imageIv3"
     android:background="#FFFFFF"
     android:layout_marginLeft="20dp"
     android:layout_marginTop="10dp"

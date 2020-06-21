@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.instagramapp">
+    package="com.example.skyapp">
 
     <application
         android:allowBackup="true"
@@ -9,13 +9,13 @@
         android:roundIcon="@drawable/icon2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CardActivity"></activity>
-        <activity android:name=".AddItemActivity" />
-        <activity android:name=".ProductActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".StartActivity">
+        <activity android:name="com.example.skyapp.CardActivity"></activity>
+        <activity android:name="com.example.skyapp.AddItemActivity" />
+        <activity android:name="com.example.skyapp.ProductActivity" />
+        <activity android:name="com.example.skyapp.MainActivity" />
+        <activity android:name="com.example.skyapp.LoginActivity" />
+        <activity android:name="com.example.skyapp.RegisterActivity" />
+        <activity android:name="com.example.skyapp.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,2 +1,2 @@
-rootProject.name='InstagramApp'
+rootProject.name='SkyApp'
 include ':app'

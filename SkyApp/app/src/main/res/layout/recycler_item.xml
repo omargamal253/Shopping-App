@@ -18,7 +18,7 @@
         >
 
         <ImageView
-            android:id="@+id/imageIv2"
+            android:id="@+id/imageIv3"
             android:layout_width="150dp"
             android:layout_height="100dp"
             android:layout_alignParentTop="true"
@@ -30,7 +30,7 @@
         <TextView
             android:layout_width="60dp"
             android:layout_height="15dp"
-            android:layout_below="@+id/imageIv2"
+            android:layout_below="@+id/imageIv3"
             android:text="16% OFF"
             android:textSize="8dp"
             android:background="#FF0000"
@@ -40,7 +40,7 @@
             />
 
         <TextView
-            android:id="@+id/titleIv2"
+            android:id="@+id/titleIv3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -57,7 +57,7 @@
             android:id="@+id/PriceBefore2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/titleIv2"
+            android:layout_below="@+id/titleIv3"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:text="Price"
@@ -67,7 +67,7 @@
             />
 
         <TextView
-            android:id="@+id/PriceAfter2"
+            android:id="@+id/PriceAfter3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/PriceBefore2"

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true"
+    app:layout_optimizationLevel="chains"
+
+    >
+    <!--  app:cardElevation="3dp"  is used to show the shadow of the CardView. -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:animateLayoutChanges="true"
+        android:background="#334BC2D1"
+        >
+
+        <ImageView
+            android:id="@+id/imageIv3"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_marginTop="10dp"
+
+            />
+
+
+        <TextView
+            android:id="@+id/titleIv3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="Title"
+            android:textColor="#000"
+            android:textSize="12dp"
+            android:maxHeight="70dp"
+            android:layout_toRightOf="@+id/imageIv3"
+            android:layout_marginTop="20dp"
+
+            />
+
+
+        <TextView
+            android:id="@+id/PriceAfter3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleIv3"
+            android:layout_marginLeft="10dp"
+            android:text="Price"
+            android:textColor="#E91E63"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:layout_toRightOf="@+id/imageIv3"
+
+            />
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/relative_card"
+            >
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="5dp"
+                android:background="#81FFFFFF"
+                android:id="@+id/AddCardRelative"
+                >
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_add_shopping_card"
+                    android:layout_centerInParent="true"
+                   android:id="@+id/AddFromFavToCard"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:layout_margin="5dp"
+                android:background="#81FFFFFF"
+                android:id="@+id/RemoveRelative"
+                android:layout_toLeftOf="@+id/AddCardRelative"
+
+                >
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_remove"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/RemoveFromFav"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:layout_margin="5dp"
+                android:background="#81FFFFFF"
+                android:id="@+id/FavRelative"
+                android:layout_toLeftOf="@+id/RemoveRelative"
+
+                >
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_fav_love"
+                    android:layout_centerInParent="true"
+
+                    />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>
