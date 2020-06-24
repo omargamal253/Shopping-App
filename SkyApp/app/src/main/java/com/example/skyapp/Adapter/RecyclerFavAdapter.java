@@ -6,8 +6,10 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.skyapp.ProductActivity;
@@ -30,11 +32,12 @@ import java.util.ArrayList;
 
 public class RecyclerFavAdapter  extends RecyclerView.Adapter<MyFavHolder> {
     Context c ;
-    ArrayList<Product> products;
+    public ArrayList<Product> products;
 
     public RecyclerFavAdapter(Context c, ArrayList<Product> products) {
         this.c = c;
         this.products = products;
+
     }
 
     public void addNewData(Product product){
@@ -53,6 +56,7 @@ public class RecyclerFavAdapter  extends RecyclerView.Adapter<MyFavHolder> {
     public MyFavHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fav_item, null) ;
+
         return new MyFavHolder(view) ;
     }
 
@@ -106,7 +110,7 @@ public class RecyclerFavAdapter  extends RecyclerView.Adapter<MyFavHolder> {
                                                 public void onClick(View v) {
                                                     FireBase.AddToUser_Card(products.get(position));
 
-                                                    Snackbar snackbar =Snackbar.make(v ,products.get(position).getTitle()+" Added to your card",Snackbar.LENGTH_LONG);
+                                                    Snackbar snackbar =Snackbar.make(v ,products.get(position).getTitle()+" Added to your card",Snackbar.LENGTH_SHORT);
                                                     snackbar.setBackgroundTint(R.color.colorPrimaryDark);
 
                                                     snackbar.show();
@@ -120,10 +124,9 @@ public class RecyclerFavAdapter  extends RecyclerView.Adapter<MyFavHolder> {
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
-                Snackbar snackbar =Snackbar.make(v ,products.get(position).getTitle()+" Removed from Favorite ",Snackbar.LENGTH_LONG);
+                Snackbar snackbar =Snackbar.make(v ,products.get(position).getTitle()+" Removed from Favorite ",Snackbar.LENGTH_SHORT);
                 snackbar.setBackgroundTint(R.color.colorPrimaryDark);
                 snackbar.show();
-
 
 
                 FireBase.RemoveProductFromFav(products.get(position));
@@ -133,6 +136,8 @@ public class RecyclerFavAdapter  extends RecyclerView.Adapter<MyFavHolder> {
 
                 HomeFragment.DealsAdapter.notifyDataSetChanged();
                 HomeFragment.BestSealsAdapter.notifyDataSetChanged();
+                HomeFragment.LaptopAdapter.notifyDataSetChanged();
+                HomeFragment.MobilesAdapter.notifyDataSetChanged();
                 FavoriteFragment.FavAdapter.notifyDataSetChanged();
 
             }
@@ -161,11 +166,20 @@ public class RecyclerFavAdapter  extends RecyclerView.Adapter<MyFavHolder> {
              }
          }
      });*/
+        if(products.size()>0){
+            FavoriteFragment.relativeLayout.setVisibility(View.INVISIBLE);
+        }
+
 
     }
 
     @Override
     public int getItemCount() {
+
+        if(products.size()>0){
+            FavoriteFragment.relativeLayout.setVisibility(View.INVISIBLE);
+        }
+
         return products.size();
     }
 }

@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.skyapp.Adapter.FireBase;
+import com.example.skyapp.Adapter.Utils;
 import com.example.skyapp.fragments.AccountFragment;
 import com.example.skyapp.fragments.FavoriteFragment;
 import com.example.skyapp.fragments.HomeFragment;
@@ -25,13 +26,16 @@ import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener {
 
 DrawerLayout drawerLayout ;
-    TextView tvInfo ;
+   // TextView tvInfo ;
     Toolbar toolbar;
    public static TextView CardCount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        // FirebaseAuth.getInstance().signOut();
+
+
+           Utils.getDatabase();
 
         setContentView(R.layout.activity_main2);
 
@@ -40,7 +44,7 @@ DrawerLayout drawerLayout ;
 
         setSupportActionBar(toolbar);
 
-        tvInfo =(TextView) findViewById(R.id.tv_info);
+       // tvInfo =(TextView) findViewById(R.id.tv_info);
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView =(NavigationView) findViewById(R.id.drawer);
         navigationView.setNavigationItemSelectedListener(this);
@@ -70,7 +74,51 @@ DrawerLayout drawerLayout ;
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         String itemName = (String) menuItem.getTitle();
-        tvInfo.setText(itemName);
+       // tvInfo.setText(itemName);
+
+
+        if(menuItem.getTitle().equals("Deals")){
+            Intent intent = new Intent(MainActivity.this , DealsActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+        if(menuItem.getTitle().equals("Supermarket")){
+            Intent intent = new Intent(MainActivity.this , SuperMarketActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+        if(menuItem.getTitle().equals("Laptop & Tablets")){
+            Intent intent = new Intent(MainActivity.this , LaptopActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+        if(menuItem.getTitle().equals("Mobiles")){
+            Intent intent = new Intent(MainActivity.this , MobilesActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+        if(menuItem.getTitle().equals("Electronics")){
+            Intent intent = new Intent(MainActivity.this , ElectronicsActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+        if(menuItem.getTitle().equals("Fashion")){
+            Intent intent = new Intent(MainActivity.this , FashionActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+        if(menuItem.getTitle().equals("Card")){
+            Intent intent = new Intent(MainActivity.this, CardActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+
+        if(menuItem.getTitle().equals("My Wishlist")){
+            FavoriteFragment favoriteFragment = new FavoriteFragment();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, favoriteFragment);
+            fragmentTransaction.commit();
+
+            BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+            bottomNavigationView.setSelectedItemId(R.id.nav_heart);
+
+        }
+
+
+
         if(menuItem.getTitle().equals("Add Product")){
             Intent intent = new Intent(MainActivity.this , AddItemActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);

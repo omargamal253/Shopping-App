@@ -86,7 +86,7 @@
 
 <androidx.recyclerview.widget.RecyclerView
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_height="280dp"
    android:layout_below="@+id/dealRelativeLayout"
     android:id="@+id/DealsRecyclerView"
     />
@@ -124,10 +124,88 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="280dp"
         android:layout_below="@+id/BestSalesRelativeLayout"
         android:id="@+id/BestRecyclerView"
         />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/LaptopForYouRelativeLayout"
+        android:padding="5dp"
+        android:layout_below="@id/BestRecyclerView"
+        android:background="#FFF"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Laptop and Tablets"
+            android:id="@+id/LaptopTitle"
+            android:textStyle="bold"
+            android:textSize="12dp"
+            android:textColor="#000"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="The Best Sales On laptops and tablets fro you "
+            android:layout_below="@id/LaptopTitle"
+            android:textSize="10dp"
+            android:textColor="#000"
+            />
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="280dp"
+        android:layout_below="@+id/LaptopForYouRelativeLayout"
+        android:id="@+id/LaptopRecyclerView"
+        />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/MobilesForYouRelativeLayout"
+        android:padding="5dp"
+        android:layout_below="@id/LaptopRecyclerView"
+        android:background="#FFF"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mobile Phones"
+            android:id="@+id/MobilesTitle"
+            android:textStyle="bold"
+            android:textSize="12dp"
+            android:textColor="#000"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="The Best Sales On Mobiles For You  "
+            android:layout_below="@id/MobilesTitle"
+            android:textSize="10dp"
+            android:textColor="#000"
+            />
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="280dp"
+        android:layout_below="@+id/MobilesForYouRelativeLayout"
+        android:id="@+id/MobilesRecyclerView"
+        />
+
 
 
 </RelativeLayout>

@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ProductActivity"
-    android:fitsSystemWindows="true"
-    android:id="@+id/drawer_layoutProduct">
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProductActivity">
+    tools:context=".ProductActivity"
+    android:background="#eee">
 
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
+    <androidx.appcompat.widget.Toolbar android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/ProductToolbar"
         android:layout_alignParentTop="true"
         android:background="#53B4FF"
@@ -28,13 +20,384 @@
         android:scrollbarStyle="insideInset"
         app:titleTextColor="#E6000000"
         android:layout_margin="0dp"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            >
+            <RelativeLayout
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:onClick="MoveToCardActivity">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_action_card"
+                    android:id="@+id/fab2"
+                    android:layout_margin="5dp">
+
+                </ImageView>
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="16dp"
+                    android:id="@+id/Count"
+                    android:text="1"
+                    android:textColor="#fff"
+                    android:textSize="10dp"
+                    android:layout_alignRight="@+id/fab2"
+                    android:layout_marginRight="6dp"
+                    android:background="@drawable/cart_text_background"
+                    android:textAlignment="center"
+                    android:visibility="invisible"
+
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ProductToolbar"
+        android:id="@+id/scrollView"
+        android:layout_above="@+id/bottomRelative"
+
+        >
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+
+        >
+
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+
+    android:id="@+id/ProductImage"
+    android:src="@drawable/watches"
+
+    />
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ProductImage"
+        android:padding="15dp"
+        android:background="#fff"
+        android:id="@+id/mainRelative">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/OfficialStore"
+            android:text="Official Store"
+            android:textColor="#fff"
+            android:background="#CC0000"
+            android:padding="2dp"
+            android:textSize="12dp"
+            android:textStyle="bold"
+
+            />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_fav_border"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:id="@+id/AddProduct_toFav"/>
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/ProductTitle"
+    android:layout_below="@+id/OfficialStore"
+    android:text="Lenove Ideapad L340 16g Ram 256 ssd Lenove Ideapad L340 16g Ram 256 ssd"
+    android:layout_marginTop="7dp"
+    android:textColor="#000"
+    android:textSize="17dp"
+
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ProductTitle"
+        android:text="Brand:"
+        android:textColor="#C0000000"
+        android:layout_marginTop="2dp"
+        android:textSize="13dp"
+        android:id="@+id/brand"
+
         />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="13dp"
+            android:id="@+id/ProductBrand"
+            android:layout_below="@+id/ProductTitle"
+            android:layout_toEndOf="@+id/brand"
+            android:text="Dell"
+            android:layout_marginLeft="2dp"
+            android:textColor="#004C99"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/brand"
+            android:text="Color:"
+            android:textColor="#C0000000"
+            android:layout_marginTop="2dp"
+            android:textSize="13dp"
+            android:id="@+id/color"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="13dp"
+            android:id="@+id/ProductColor"
+            android:layout_below="@+id/ProductBrand"
+            android:layout_toEndOf="@+id/brand"
+            android:text="Black"
+            android:layout_marginLeft="2dp"
+            android:textColor="#004C99"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/AnniversaryDeals"
+            android:text="ANNIVERSARY DEALS"
+            android:textColor="#fff"
+            android:background="@color/MainColor"
+            android:padding="2dp"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/color"
+            android:layout_marginTop="7dp"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/AnniversaryDeals"
+            android:text="3,999 EGP"
+            android:textColor="#F1000000"
+            android:textStyle="bold"
+            android:layout_marginTop="7dp"
+            android:id="@+id/ProductPriceAfter"
+            android:textSize="17dp"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ProductPriceAfter"
+            android:textColor="#938787"
+                android:text="4,599 EGP"
+            android:textSize="14dp"
+            android:id="@+id/ProductPriceBefore"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ProductPriceAfter"
+            android:layout_toEndOf="@+id/ProductPriceBefore"
+            android:layout_marginLeft="3dp"
+            android:text="-15%"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:textColor="#CC0000"
+            android:id="@+id/ProductPriceDiscount"/>
+
+    </RelativeLayout>
+
 
     <TextView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/textView"
-    android:text="empty"
-    />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DELIVERY AND RETURN INFO"
+        android:layout_below="@+id/mainRelative"
+        android:padding="10dp"
+        android:textSize="14dp"
+        android:id="@+id/INFO"
+        android:textColor="#696969"
+        android:textStyle="bold"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DeliveryAndReturnRelative"
+        android:background="#fff"
+        android:layout_below="@+id/INFO"
+        android:padding="10dp"
+        >
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_directions_bus_black_24dp"
+            android:id="@+id/BusIcon"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:text="Delivery Information "
+            android:textColor="#474646"
+            android:layout_toEndOf="@+id/BusIcon"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/D_Info"
+            android:textStyle="bold"
+
+            />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:layout_toEndOf="@+id/BusIcon"
+                android:layout_below="@+id/D_Info"
+                android:layout_marginLeft="5dp"
+
+                android:text="Get it in Cairo - Giza between 3 days and 7 days from now "
+               android:id="@+id/De_info"
+                />
+
+
+         <ImageView
+             android:layout_width="30dp"
+             android:layout_height="30dp"
+             android:src="@drawable/ic_keyboard_return_black_24dp"
+             android:layout_below="@+id/De_info"
+             android:layout_marginTop="12dp"
+             android:id="@+id/returnIcon"
+             />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:text="Return Policy"
+            android:textColor="#474646"
+            android:layout_toEndOf="@+id/returnIcon"
+            android:layout_below="@+id/De_info"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/R_Info"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:layout_toEndOf="@+id/BusIcon"
+            android:layout_below="@+id/R_Info"
+            android:layout_marginLeft="5dp"
+
+            android:text="14 days free return and up to 30 days for defective"
+            android:id="@+id/Re_info"
+            android:layout_marginBottom="10dp"
+            />
+
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PRODUCT DETAILS"
+        android:layout_below="@+id/DeliveryAndReturnRelative"
+        android:padding="10dp"
+        android:textSize="14dp"
+        android:id="@+id/Details"
+        android:textColor="#696969"
+        android:textStyle="bold"
+        />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:padding="10dp"
+            android:layout_below="@+id/Details">
+
+            <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textSize="14dp"
+            android:textColor="#474646"
+            android:textStyle="bold"
+            android:id="@+id/description"
+            />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/description"
+                android:background="#696969"
+
+                android:layout_marginTop="10dp"
+                android:id="@+id/line_2"/>
+
+             <TextView
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_below="@+id/line_2"
+                 android:id="@+id/ProductDescription"
+                 android:text="Lenove ideapad l340 16g ram 256 ssd  "
+                 android:layout_marginTop="7dp"
+                 android:layout_marginBottom="10dp"
+                 />
+        </RelativeLayout>
+    </RelativeLayout>
+</ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:id="@+id/bottomRelative"
+        android:background="#fff"
+        android:layout_alignParentBottom="true"
+        android:padding="10dp"
+        >
+        
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:drawableStart="@drawable/ic_call_black_24dp"
+            android:background="#fff"
+            android:elevation="100dp"
+            android:id="@+id/CallButton"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_toRightOf="@+id/CallButton"
+            android:background="#00FF7F"
+            android:drawableLeft="@drawable/ic_add_shopping_cart_black_white_24dp"
+            android:text="ADD TO CARD"
+            android:textAlignment="center"
+             android:textColor="#fff"
+            android:paddingLeft="5dp"
+            android:paddingRight="35dp"
+            android:id="@+id/AddProductToCard"
+            />
+
+    </RelativeLayout>
+
+
 </RelativeLayout>
-    </androidx.drawerlayout.widget.DrawerLayout>
+
+

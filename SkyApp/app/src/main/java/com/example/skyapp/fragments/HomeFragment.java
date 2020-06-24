@@ -1,16 +1,20 @@
 package com.example.skyapp.fragments;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.FileUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
@@ -32,9 +36,19 @@ public class HomeFragment extends Fragment {
     RecyclerView BestSealsRecyclerView;
     public static RecyclerAdapter BestSealsAdapter;
 
+    RecyclerView LaptopRecyclerView;
+    public static RecyclerAdapter LaptopAdapter;
+
+    RecyclerView MobilesRecyclerView;
+    public static RecyclerAdapter MobilesAdapter;
+
+
     ViewFlipper viewFlipper;
          ArrayList<Product> products = new ArrayList<>() ;
     ArrayList<Product> products2 = new ArrayList<>() ;
+    ArrayList<Product> products3 = new ArrayList<>() ;
+    ArrayList<Product> products4 = new ArrayList<>() ;
+
     public HomeFragment() {
         // Required empty public constructor
 
@@ -54,10 +68,19 @@ final FragmentActivity c =getActivity();
         DealsRecyclerView =view.findViewById(R.id.DealsRecyclerView);
 
         BestSealsRecyclerView =view.findViewById(R.id.BestRecyclerView);
+        LaptopRecyclerView = view.findViewById(R.id.LaptopRecyclerView);
+        MobilesRecyclerView = view.findViewById(R.id.MobilesRecyclerView);
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(
                 c ,LinearLayoutManager.HORIZONTAL,false
         );
         LinearLayoutManager layoutManager2 = new LinearLayoutManager(
+                c ,LinearLayoutManager.HORIZONTAL,false
+        );
+        LinearLayoutManager layoutManager3 = new LinearLayoutManager(
+                c ,LinearLayoutManager.HORIZONTAL,false
+        );
+        LinearLayoutManager layoutManager4 = new LinearLayoutManager(
                 c ,LinearLayoutManager.HORIZONTAL,false
         );
         /*LinearLayoutManager layoutManager = new GridLayoutManager(
@@ -66,20 +89,31 @@ final FragmentActivity c =getActivity();
 
         DealsRecyclerView.setLayoutManager(layoutManager);
         BestSealsRecyclerView.setLayoutManager(layoutManager2);
+        LaptopRecyclerView.setLayoutManager(layoutManager3);
+        MobilesRecyclerView.setLayoutManager(layoutManager4);
 
 
         DealsRecyclerView.setItemAnimator(new DefaultItemAnimator());
         BestSealsRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        LaptopRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        MobilesRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        DealsAdapter = new RecyclerAdapter( c, products);
-        BestSealsAdapter = new RecyclerAdapter( c, products2);
+        DealsAdapter = new RecyclerAdapter( c, products , 1);
+        BestSealsAdapter = new RecyclerAdapter( c, products2, 1);
+        LaptopAdapter =new RecyclerAdapter( c, products3, 1);
+        MobilesAdapter = new RecyclerAdapter( c, products4, 1);
 
         DealsRecyclerView.setAdapter(DealsAdapter);
         BestSealsRecyclerView.setAdapter(BestSealsAdapter);
+        LaptopRecyclerView.setAdapter(LaptopAdapter);
+        MobilesRecyclerView.setAdapter(MobilesAdapter);
 
 
         getMyList("Deals", DealsAdapter);
         getMyList("Best Sales", BestSealsAdapter);
+        getMyList("Laptop and Tablets",LaptopAdapter);
+        getMyList("Mobiles",MobilesAdapter);
+
 
 
 
@@ -95,6 +129,8 @@ final FragmentActivity c =getActivity();
       final  RecyclerAdapter MyAdapt = Adapter;
         products.clear();
         products2.clear();
+        products3.clear();
+        products4.clear();
 
         Product product = new Product();
 
@@ -130,41 +166,6 @@ final FragmentActivity c =getActivity();
         });
 
        products.clear();
-
-/*
-
-
-        product.setTitle("Michael Kors Brinkley Men's Gold Dial Stainless Steel Band Watch - MK6187");
-        product.setDescription("Description:\n" +
-                "Product Features:\n" +
-                "\n" +
-                "Brand: Michael Kors\n" +
-                "Watch Shape: Round\n" );
-
-        //product.setImg("https://firebasestorage.googleapis.com/v0/b/skyapp-f0431.appspot.com/o/uploads%2FDell%20G3dellblack?alt=media&token=62d79d77-069f-43c9-b5f0-ce3d98ce7581");
-        //Picasso.get().load(products.get(position).getImage_url()).into(holder.mImageView);
-
-        product.setPrice(15700);
-product.setDiscount(16);
-
-        products.add(product);
-        for(int i=1 ;i< 4;i++){
-             product = new Product();
-            product.setTitle("Michael Kors Brinkley Men's Gold Dial Stainless Steel Band Watch - MK6187");
-            product.setDescription("Description:\n" +
-                    "Product Features:\n" +
-                    "\n" +
-                    "Brand: Michael Kors\n" +
-                    "Watch Shape: Round\n" );
-            //product.setImg(R.drawable.watch1);
-            product.setPrice(1000);
-            product.setDiscount(16);
-
-            products.add(product);
-
-
-        }*/
-        //return products;
 
     }
 

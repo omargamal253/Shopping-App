@@ -1,41 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:id="@+id/group1">
+
+    <group android:id="@+id/group1"
+        >
  <item
-     android:id="@+id/item_a"
+     android:id="@+id/item_Deals"
      android:checkable="true"
-     android:icon="@android:drawable/ic_dialog_email"
-     android:title="Action A"/>
+     android:icon="@drawable/hotsale2"
+     android:title="Deals"
+     />
 
     <item
-        android:id="@+id/item_b"
+        android:id="@+id/item_Supermarket"
         android:checkable="true"
-        android:icon="@android:drawable/ic_delete"
-        android:title="Action B"/>
-    <item
-        android:id="@+id/item_c"
-        android:checkable="true"
-        android:icon="@android:drawable/ic_notification_clear_all"
-        android:title="Action C"/>
+        android:icon="@drawable/basket"
+        android:title="Supermarket"/>
 
+    <item
+        android:id="@+id/item_Laptop"
+        android:checkable="true"
+        android:icon="@drawable/tabletandlaptop"
+        android:title="Laptop &amp; Tablets"/>
+
+        <item
+            android:id="@+id/item_Mobiles"
+            android:checkable="true"
+            android:icon="@drawable/mobilephone"
+            android:title="Mobiles"/>
+        <item
+            android:id="@+id/item_Electronics"
+            android:checkable="true"
+            android:icon="@drawable/headphones"
+            android:title="Electronics"/>
+
+        <item
+            android:id="@+id/item_Fashion"
+            android:checkable="true"
+            android:icon="@drawable/fashion"
+            android:title="Fashion"/>
     </group>
     <group android:id="@+id/group2">
     <item
         android:id="@+id/item_d"
         android:checkable="true"
-        android:icon="@android:drawable/ic_dialog_map"
-        android:title="Action A"/>
+        android:icon="@drawable/shoppingcart"
+        android:title="Card"/>
     <item
         android:id="@+id/item_e"
         android:checkable="true"
-        android:icon="@android:drawable/ic_lock_silent_mode"
-        android:title="Action E"/>
+        android:icon="@drawable/heart"
+        android:title="My Wishlist"/>
     </group>
-    <item
-        android:id="@+id/item_f"
-        android:checkable="true"
-        android:icon="@android:drawable/ic_input_add"
-        android:title="Action F"/>
 
     <item android:title="Admin">
         <menu>

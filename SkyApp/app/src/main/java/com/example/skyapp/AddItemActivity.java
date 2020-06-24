@@ -37,6 +37,7 @@ public class AddItemActivity extends AppCompatActivity {
     String imageName , DownloadUrl ;
     Product product ;
 
+    ImageView CloseBtn;
     private static final int IMAGE_REQUEST =  2 ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +55,7 @@ public class AddItemActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
 
-                Toast.makeText(AddItemActivity.this, spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
+              //  Toast.makeText(AddItemActivity.this, spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
                 Category = spinner.getSelectedItem().toString() ;
             }
 
@@ -74,6 +75,13 @@ public class AddItemActivity extends AppCompatActivity {
         imageAdded = findViewById(R.id.image_added);
 
 
+        CloseBtn = findViewById(R.id.close);
+        CloseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
 

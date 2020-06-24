@@ -6,8 +6,10 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.skyapp.CardActivity;
@@ -29,9 +31,9 @@ import java.util.ArrayList;
 
 public class RecyclerCardAdapter extends RecyclerView.Adapter<MyCardHolder>{
     Context c ;
-    ArrayList<Product> products;
+    public ArrayList<Product> products;
 
-    double TotalPrice;
+    public double TotalPrice;
     public RecyclerCardAdapter(Context c, ArrayList<Product> products) {
         this.c = c;
         this.products = products;
@@ -167,7 +169,7 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<MyCardHolder>{
                 if(holder.AddedToFav ==false){
                     holder.FavProduct.setImageResource(R.drawable.ic_fav);
 
-                    Snackbar snackbar =Snackbar.make(v ,products.get(position).getTitle()+" Saved to your Favorites ",Snackbar.LENGTH_LONG);
+                    Snackbar snackbar =Snackbar.make(v ,products.get(position).getTitle()+" Saved to your Favorites ",Snackbar.LENGTH_SHORT);
                     snackbar.setBackgroundTint(R.color.colorPrimaryDark);
                     snackbar.show();
                      FireBase.AddToUser_Fav(products.get(position));
@@ -180,7 +182,7 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<MyCardHolder>{
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
-                Snackbar snackbar =Snackbar.make(v ,products.get(position).getTitle()+" Removed from Card ",Snackbar.LENGTH_LONG);
+                Snackbar snackbar =Snackbar.make(v ,products.get(position).getTitle()+" Removed from Card ",Snackbar.LENGTH_SHORT);
                 snackbar.setBackgroundTint(R.color.colorPrimaryDark);
                 snackbar.show();
 
@@ -199,6 +201,9 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<MyCardHolder>{
 
                 HomeFragment.DealsAdapter.notifyDataSetChanged();
                 HomeFragment.BestSealsAdapter.notifyDataSetChanged();
+                HomeFragment.LaptopAdapter.notifyDataSetChanged();
+                HomeFragment.MobilesAdapter.notifyDataSetChanged();
+
              //   FavoriteFragment.FavAdapter.notifyDataSetChanged();
 
 
@@ -222,7 +227,10 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<MyCardHolder>{
 
 
 
+
+
     }
+
 
     @Override
     public int getItemCount() {

@@ -27,11 +27,12 @@ import java.util.ArrayList;
 
 public class RecyclerAdapter  extends RecyclerView.Adapter<MyHolder> {
     Context c ;
-    ArrayList<Product> products;
-
-    public RecyclerAdapter(Context c, ArrayList<Product> products) {
+    public ArrayList<Product> products;
+    int layout;
+    public RecyclerAdapter(Context c, ArrayList<Product> products , int layout) {
         this.c = c;
         this.products = products;
+        this.layout = layout;
     }
 
     public void addNewData(Product product){
@@ -50,7 +51,24 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<MyHolder> {
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item, null) ;
+
+        if(layout == 1)
         return new MyHolder(view) ;
+        else if (layout == 2)
+        {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.deal_item, null) ;
+            return new MyHolder(view) ;
+        }else if (layout == 3)
+        {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.mobile_item, null) ;
+            return new MyHolder(view) ;
+        }
+        else if (layout == 4)
+        {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fashion_item, null) ;
+            return new MyHolder(view) ;
+        }
+        else return  null;
     }
 
     @Override
@@ -127,8 +145,9 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<MyHolder> {
             public void onClick(View v) {
               FireBase.AddToUser_Card(products.get(position));
 
-                Snackbar snackbar =Snackbar.make(v ,products.get(position).getTitle()+" Added to your card",Snackbar.LENGTH_LONG);
+                Snackbar snackbar =Snackbar.make(v ,products.get(position).getTitle()+" Added to your card",Snackbar.LENGTH_SHORT);
                 snackbar.setBackgroundTint(R.color.colorPrimaryDark);
+
 
                 snackbar.show();
                   holder.AddToCard.setText("Added");
@@ -145,7 +164,7 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<MyHolder> {
                 if(holder.AddedToFav ==false){
                     holder.HomeFav.setImageResource(R.drawable.ic_fav);
 
-                    Snackbar snackbar =Snackbar.make(v ,products.get(position).getTitle()+" Saved to your Favorites ",Snackbar.LENGTH_LONG);
+                    Snackbar snackbar =Snackbar.make(v ,products.get(position).getTitle()+" Saved to your Favorites ",Snackbar.LENGTH_SHORT);
                     snackbar.setBackgroundTint(R.color.colorPrimaryDark);
                     snackbar.show();
                     FireBase.AddToUser_Fav(products.get(position));
@@ -159,22 +178,12 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<MyHolder> {
             @Override
             public void onItemClickListener(View v, int position) {
 
-                /*String gTitle = products.get(position).getTitle();
-                String gDesc = products.get(position).getDescription();
-
-                BitmapDrawable bitmapDrawable = (BitmapDrawable) holder.mImageView.getDrawable();
-                Bitmap bitmap = bitmapDrawable.getBitmap();
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.WEBP,100,stream);
-                byte[] bytes = stream.toByteArray();
-
-                Intent intent = new Intent(c,ClickedActivity.class);
-                intent.putExtra("iTitle" , gTitle);
-                intent.putExtra("iDesc" ,gDesc);
-                intent.putExtra("iImage" , bytes);*/
                 Intent intent = new Intent( c, ProductActivity.class);
                 intent.putExtra("ProductObject", products.get(position));
+                intent.putExtra("AddedToCardOrNot", holder.AddedToCard);
+                intent.putExtra("AddedToFavOrNot",holder.AddedToFav);
                 c.startActivity(intent);
+
             }
         });
 

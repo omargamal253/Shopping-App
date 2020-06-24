@@ -1,26 +1,21 @@
 package com.example.skyapp;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.skyapp.Adapter.FireBase;
-import com.example.skyapp.Adapter.RecyclerCardAdapter;
-import com.example.skyapp.fragments.HomeFragment;
+import com.example.skyapp.Adapter.RecyclerAdapter;
 import com.example.skyapp.model.Product;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,22 +24,24 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class CardActivity extends AppCompatActivity {
+public class LaptopActivity extends AppCompatActivity {
     Toolbar toolbar;
-    RecyclerView mreRecyclerView;
-    RecyclerCardAdapter myAdapter;
+    public static TextView LaptopCardCount_;
+androidx.recyclerview.widget.RecyclerView RecyclerView;
+    RecyclerAdapter Adapter;
     ArrayList<Product> products = new ArrayList<>() ;
-
-    public static TextView TotalTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_card);
-        toolbar = findViewById(R.id.CardToolbar);
-        toolbar.setTitle("Card");
+        setContentView(R.layout.activity_labtop);
+
+        toolbar = findViewById(R.id.ProductToolbar);
+        // add this in this activity tag  android:parentActivityName=".MainActivity"
         setSupportActionBar(toolbar);
 
+        toolbar.setTitle("Laptop and tablets");
+        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -54,32 +51,29 @@ public class CardActivity extends AppCompatActivity {
             }
         });
 
-        mreRecyclerView =findViewById(R.id.CardsRecyclerView);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(
-                this ,LinearLayoutManager.VERTICAL,false
+        LaptopCardCount_ = findViewById(R.id.Count);
+
+        FireBase.GetNumOf_Products_InCard();
+        RecyclerView =findViewById(R.id.LaptopRecyclerView);
+        LinearLayoutManager layoutManager = new GridLayoutManager(
+                this ,2
         );
-        mreRecyclerView.setLayoutManager(layoutManager);
-        mreRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        myAdapter = new RecyclerCardAdapter( this, products);
-        mreRecyclerView.setAdapter(myAdapter);
-        TotalTextView = findViewById(R.id.Total);
-        TotalTextView.setText(String.format("%,.2f",new Double(0))+" EGP");
+        RecyclerView.setLayoutManager(layoutManager);
+        RecyclerView.setItemAnimator(new DefaultItemAnimator());
+        Adapter = new RecyclerAdapter( this, products , 2);
+        RecyclerView.setAdapter(Adapter);
+        getMyList("Laptop and Tablets", Adapter);
 
 
-
-        getMyList(myAdapter);
     }
+    private void getMyList(String category , RecyclerAdapter Adapter) {
 
-
-    private void getMyList( RecyclerCardAdapter Adapter) {
-
-        final  RecyclerCardAdapter MyAdapt = Adapter;
+        final  RecyclerAdapter MyAdapt = Adapter;
         products.clear();
 
-
         Product product = new Product();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference().child("UserCards").child(user.getUid());
+
+        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference().child("products").child(category);
 
 
         // Read from the database
@@ -105,14 +99,19 @@ public class CardActivity extends AppCompatActivity {
             @Override
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
-                Toast.makeText(getBaseContext(), "fail to load Card List",Toast.LENGTH_SHORT).show();
+                Toast.makeText(LaptopActivity.this, "fail to load list",Toast.LENGTH_SHORT).show();
 
             }
         });
 
         products.clear();
 
-
     }
 
+
+    public void MoveToCardActivity(View view) {
+        Intent intent = new Intent(this, CardActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+
+    }
 }

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.skyapp.ElectronicsActivity">
+
+    <androidx.appcompat.widget.Toolbar android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/ProductToolbar"
+        android:layout_alignParentTop="true"
+        android:background="#53B4FF"
+        android:minHeight="?actionBarSize"
+        android:elevation="50dp"
+        android:scrollbarStyle="insideInset"
+        app:titleTextColor="#E6000000"
+        android:layout_margin="0dp"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            >
+            <RelativeLayout
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:onClick="MoveToCardActivity">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_action_card"
+                    android:id="@+id/fab2"
+                    android:layout_margin="5dp">
+
+                </ImageView>
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="16dp"
+                    android:id="@+id/Count"
+                    android:text="1"
+                    android:textColor="#fff"
+                    android:textSize="10dp"
+                    android:layout_alignRight="@+id/fab2"
+                    android:layout_marginRight="6dp"
+                    android:background="@drawable/cart_text_background"
+                    android:textAlignment="center"
+                    android:visibility="invisible"
+
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ProductToolbar"
+        android:id="@+id/ElectronicsRecyclerView"
+        />
+</RelativeLayout>

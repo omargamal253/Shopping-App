@@ -8,11 +8,10 @@
     <string-array name="planets_array">
         <item>Deals</item>
         <item>Best Sales</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
+        <item>Supermarket</item>
+        <item>Laptop and Tablets</item>
+        <item>Mobiles</item>
+        <item>Electronics</item>
+        <item>Fashion</item>
     </string-array>
 </resources>

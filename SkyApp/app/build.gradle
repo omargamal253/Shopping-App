@@ -11,6 +11,7 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -45,5 +46,12 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview-selection:1.1.0-rc01"
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+
+    implementation "com.hendraanggrian.appcompat:socialview:0.2"
+    implementation "com.hendraanggrian.appcompat:socialview-commons:0.2"
+
+    implementation 'com.android.support:multidex:1.0.1'
+
 
 }

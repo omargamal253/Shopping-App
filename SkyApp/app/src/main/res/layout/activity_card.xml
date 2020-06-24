@@ -67,7 +67,7 @@ android:id="@+id/drawer_layoutCard2">
             android:layout_height="60dp"
             android:layout_below="@+id/Total"
             android:layout_margin="5dp"
-            android:background="#3ac569"
+            android:background="#00FF7F"
             android:text="Complete Your Order"
             android:textColor="#fff"
             android:id="@+id/CompleteOrder"
@@ -81,7 +81,7 @@ android:id="@+id/drawer_layoutCard2">
     android:layout_marginBottom="5dp"
     android:background="#E1EEF6"
     android:text="Call to Order"
-    android:textColor="#3ac569"
+    android:textColor="#00FF7F"
     android:id="@+id/CallToOrder"
     />
 

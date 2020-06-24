@@ -4,7 +4,14 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
+import com.example.skyapp.DealsActivity;
+import com.example.skyapp.ElectronicsActivity;
+import com.example.skyapp.FashionActivity;
+import com.example.skyapp.LaptopActivity;
 import com.example.skyapp.MainActivity;
+import com.example.skyapp.MobilesActivity;
+import com.example.skyapp.ProductActivity;
+import com.example.skyapp.SuperMarketActivity;
 import com.example.skyapp.model.Product;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -91,9 +98,61 @@ public class FireBase {
                 {
                     MainActivity.CardCount.setVisibility(View.VISIBLE);
                     MainActivity.CardCount.setText(String.valueOf(FireBase.NumOf_Products_InCard));
+                   if(ProductActivity.CardCount_!= null){
+                       ProductActivity.CardCount_.setVisibility(View.VISIBLE);
+                    ProductActivity.CardCount_.setText(String.valueOf(FireBase.NumOf_Products_InCard));
+                   }
+                    if(DealsActivity.DealsCardCount_!= null){
+                        DealsActivity.DealsCardCount_.setVisibility(View.VISIBLE);
+                        DealsActivity.DealsCardCount_.setText(String.valueOf(FireBase.NumOf_Products_InCard));
+                    }
+                    if(SuperMarketActivity.SupermarketCardCount_!= null){
+                        SuperMarketActivity.SupermarketCardCount_.setVisibility(View.VISIBLE);
+                        SuperMarketActivity.SupermarketCardCount_.setText(String.valueOf(FireBase.NumOf_Products_InCard));
+                    }
+                    if(LaptopActivity.LaptopCardCount_!= null){
+                        LaptopActivity.LaptopCardCount_.setVisibility(View.VISIBLE);
+                        LaptopActivity.LaptopCardCount_.setText(String.valueOf(FireBase.NumOf_Products_InCard));
+                    }
+                    if(MobilesActivity.MobilesCardCount_!= null){
+                        MobilesActivity.MobilesCardCount_.setVisibility(View.VISIBLE);
+                        MobilesActivity.MobilesCardCount_.setText(String.valueOf(FireBase.NumOf_Products_InCard));
+                    }
+                    if(ElectronicsActivity.ElectronicsCardCount_!= null){
+                        ElectronicsActivity.ElectronicsCardCount_.setVisibility(View.VISIBLE);
+                        ElectronicsActivity.ElectronicsCardCount_.setText(String.valueOf(FireBase.NumOf_Products_InCard));
+                    }
+                    if(FashionActivity.FashionCardCount_!= null){
+                        FashionActivity.FashionCardCount_.setVisibility(View.VISIBLE);
+                        FashionActivity.FashionCardCount_.setText(String.valueOf(FireBase.NumOf_Products_InCard));
+                    }
                 }
-                else MainActivity.CardCount.setVisibility(View.INVISIBLE);
-               // MainActivity.CardCount.setText(String.valueOf(FireBase.NumOf_Products_InCard));
+                else {
+                    MainActivity.CardCount.setVisibility(View.INVISIBLE);
+                    if(ProductActivity.CardCount_!= null) {
+                        ProductActivity.CardCount_.setVisibility(View.INVISIBLE);
+                    }
+
+                    if(DealsActivity.DealsCardCount_!= null) {
+                        DealsActivity.DealsCardCount_.setVisibility(View.INVISIBLE);
+                    }
+                    if(SuperMarketActivity.SupermarketCardCount_!= null) {
+                        SuperMarketActivity.SupermarketCardCount_.setVisibility(View.INVISIBLE);
+                    }
+                    if(LaptopActivity.LaptopCardCount_!= null) {
+                        LaptopActivity.LaptopCardCount_.setVisibility(View.INVISIBLE);
+                    }
+                    if(MobilesActivity.MobilesCardCount_!= null) {
+                        MobilesActivity.MobilesCardCount_.setVisibility(View.INVISIBLE);
+                    }
+                    if(ElectronicsActivity.ElectronicsCardCount_!= null) {
+                        ElectronicsActivity.ElectronicsCardCount_.setVisibility(View.INVISIBLE);
+                    }
+                    if(FashionActivity.FashionCardCount_!= null) {
+                        FashionActivity.FashionCardCount_.setVisibility(View.INVISIBLE);
+                    }
+
+                }
 
             }
 

@@ -70,16 +70,7 @@
 
 
         </androidx.appcompat.widget.Toolbar>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:textStyle="bold"
-            android:text=""
-            android:textSize="40dp"
-            android:id="@+id/tv_info"
-            />
+
 
 
 
@@ -125,7 +116,8 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/drawer_header"
         app:menu="@menu/drawer_menu"
-        app:itemIconTint= "#B93374FF"
-        app:itemTextColor="#E6000000"/>
+        app:itemIconTint= "#000000"
+        app:itemTextColor="#696969"
+        />
 
      </androidx.drawerlayout.widget.DrawerLayout>
