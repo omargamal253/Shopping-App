@@ -328,7 +328,8 @@
             android:layout_height="wrap_content"
             android:background="#fff"
             android:padding="10dp"
-            android:layout_below="@+id/Details">
+            android:layout_below="@+id/Details"
+            android:id="@+id/RelativeDes">
 
             <TextView
             android:layout_width="match_parent"
@@ -359,6 +360,64 @@
                  android:layout_marginBottom="10dp"
                  />
         </RelativeLayout>
+
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/RelativeDes"
+            android:layout_marginTop="10dp"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:src="@drawable/return_free"
+                android:layout_marginStart="0dp"
+                android:id="@+id/returnIcon2"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Free Return"
+                android:layout_toRightOf="@+id/returnIcon2"
+                android:layout_marginLeft="3dp"
+                android:textStyle="bold"
+                android:textSize="12dp"
+                android:textColor="#808080"
+                android:id="@+id/ReturnText"
+                />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:src="@drawable/cash"
+                android:layout_marginLeft="30dp"
+                android:id="@+id/CashIcon"
+                android:layout_toRightOf="@+id/ReturnText"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cash On Delivery"
+                android:layout_toRightOf="@+id/CashIcon"
+                android:layout_marginLeft="3dp"
+                android:textStyle="bold"
+                android:textSize="12dp"
+                android:textColor="#808080"
+                />
+
+        </RelativeLayout>
+
+
+
+
+
+
+
+
     </RelativeLayout>
 </ScrollView>
 

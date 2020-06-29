@@ -28,7 +28,7 @@ import com.google.firebase.database.DatabaseReference;
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText username;
-    private EditText name;
+    private EditText phone;
     private EditText email;
     private EditText password;
     private Button register;
@@ -45,7 +45,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         username = findViewById(R.id.username);
-        name = findViewById(R.id.name);
+        phone = findViewById(R.id.phone);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         register = findViewById(R.id.register);
@@ -66,23 +66,23 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String txtUsername = username.getText().toString();
-                String txtName = name.getText().toString();
+                String txtPhone = phone.getText().toString();
                 String txtEmail = email.getText().toString();
                 String txtPassword = password.getText().toString();
 
-                if (TextUtils.isEmpty(txtUsername) || TextUtils.isEmpty(txtName)
+                if (TextUtils.isEmpty(txtUsername) || TextUtils.isEmpty(txtPhone)
                         || TextUtils.isEmpty(txtEmail) || TextUtils.isEmpty(txtPassword)){
                     Toast.makeText(RegisterActivity.this, "Empty credentials!", Toast.LENGTH_SHORT).show();
                 } else if (txtPassword.length() < 6){
                     Toast.makeText(RegisterActivity.this, "Password too short!", Toast.LENGTH_SHORT).show();
                 } else {
-                    registerUser(txtUsername , txtName , txtEmail , txtPassword);
+                    registerUser(txtUsername , txtPhone , txtEmail , txtPassword);
                 }
             }
         });
     }
 
-    private void registerUser(final String username, final String name, final String email, String password) {
+    private void registerUser(final String username, final String phone, final String email, String password) {
 
         pd.setMessage("Please Wail!");
         pd.show();
@@ -90,22 +90,23 @@ public class RegisterActivity extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(email , password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
-
+              String link = "https://firebasestorage.googleapis.com/v0/b/skyapp-f0431.appspot.com/o/uploads%2Fprofil%20icon%20urliconicon?alt=media&token=4e16afc8-7c83-45e9-92a6-6685ff03b71b";
                 HashMap<String , Object> map = new HashMap<>();
-                map.put("name" , name);
-                map.put("email", email);
-                map.put("username" , username);
-                map.put("id" , mAuth.getCurrentUser().getUid());
-                map.put("phone" , "");
-                map.put("imageurl" , "default");
+                map.put("user_email", email);
+               map.put("user_username" , username);
+                map.put("user_phone" , phone);
+                map.put("user_id" , mAuth.getCurrentUser().getUid());
+                map.put("user_url" , link);
 
-                mRootRef.child("Users").child(mAuth.getCurrentUser().getUid()).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+
+                mRootRef.child("Users").child(mAuth.getCurrentUser().getUid()).updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
                             pd.dismiss();
                             Toast.makeText(RegisterActivity.this, "Update the profile " +
-                                    "for better expereince", Toast.LENGTH_SHORT).show();
+                                    "for better experience", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(RegisterActivity.this , MainActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
@@ -113,6 +114,7 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 });
+                map.clear();
 
             }
         }).addOnFailureListener(new OnFailureListener() {

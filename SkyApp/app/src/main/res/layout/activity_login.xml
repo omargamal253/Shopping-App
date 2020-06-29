@@ -21,8 +21,17 @@ tools:context=".LoginActivity">
     android:background="@drawable/edit_text_background"
     android:layout_marginTop="15dp"
     android:hint="Email"
-    android:padding="10dp"
-    android:id="@+id/email"/>
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:paddingLeft="0dp"
+    android:paddingStart="15dp"
+    android:id="@+id/email"
+    android:drawableLeft="@drawable/email_icon"
+    android:drawablePadding="10dp"
+    android:inputType="textEmailAddress"
+
+
+    />
 
 <EditText
     android:layout_width="match_parent"
@@ -30,8 +39,15 @@ tools:context=".LoginActivity">
     android:background="@drawable/edit_text_background"
     android:layout_marginTop="15dp"
     android:hint="Password"
-    android:padding="10dp"
-    android:id="@+id/password"/>
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:paddingLeft="15dp"
+    android:id="@+id/password"
+    android:drawableLeft="@drawable/password_icon4"
+    android:drawablePadding="10dp"
+    android:inputType="textPassword"
+
+    />
 
 <Button
     android:layout_width="match_parent"

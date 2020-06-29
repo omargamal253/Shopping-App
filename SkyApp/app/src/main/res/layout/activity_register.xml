@@ -20,17 +20,16 @@
         android:background="@drawable/edit_text_background"
         android:layout_marginTop="15dp"
         android:hint="Username"
-        android:padding="10dp"
-        android:id="@+id/username"/>
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="15dp"
+        android:id="@+id/username"
+        android:drawableLeft="@drawable/name_icon"
+        android:drawablePadding="10dp"
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edit_text_background"
-        android:layout_marginTop="15dp"
-        android:hint="Name"
-        android:padding="10dp"
-        android:id="@+id/name"/>
+
+        />
+
 
     <EditText
         android:layout_width="match_parent"
@@ -38,8 +37,14 @@
         android:background="@drawable/edit_text_background"
         android:layout_marginTop="15dp"
         android:hint="Email"
-        android:padding="10dp"
-        android:id="@+id/email"/>
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="15dp"        android:id="@+id/email"
+        android:drawableLeft="@drawable/email_icon"
+android:inputType="textEmailAddress"
+        android:drawablePadding="10dp"
+
+        />
 
     <EditText
         android:layout_width="match_parent"
@@ -47,8 +52,32 @@
         android:background="@drawable/edit_text_background"
         android:layout_marginTop="15dp"
         android:hint="Password"
-        android:padding="10dp"
-        android:id="@+id/password"/>
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="15dp"
+        android:id="@+id/password"
+        android:drawableLeft="@drawable/password_icon4"
+        android:inputType="textPassword"
+        android:drawablePadding="10dp"
+
+
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_background"
+        android:layout_marginTop="15dp"
+        android:hint="Phone"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="15dp"
+        android:id="@+id/phone"
+        android:drawableLeft="@drawable/call_icon"
+        android:inputType="phone"
+        android:drawablePadding="10dp"
+
+        />
+
 
     <Button
         android:layout_width="match_parent"

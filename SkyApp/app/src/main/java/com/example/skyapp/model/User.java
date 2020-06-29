@@ -2,71 +2,61 @@ package com.example.skyapp.model;
 
 public class User {
 
-    private String name;
-    private String email;
-    private String username;
-    private String bio;
-    private String imageurl;
-    private String id;
+    public String user_email;
+   public String user_id;
+    public String user_url;
+    public String user_phone;
+    public String user_username;
 
     public User() {
-
     }
 
-    public User(String name, String email, String username, String bio, String imageurl, String id) {
-        this.name = name;
-        this.email = email;
-        this.username = username;
-        this.bio = bio;
-        this.imageurl = imageurl;
-        this.id = id;
+
+public User(String user_email, String user_id, String user_url, String user_phone, String user_username) {
+        this.user_email = user_email;
+        this.user_id = user_id;
+        this.user_url = user_url;
+        this.user_phone = user_phone;
+        this.user_username = user_username;
     }
 
-    public String getName() {
-        return name;
+    public String getUser_email() {
+        return user_email;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUser_email(String user_email) {
+        this.user_email = user_email;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUser_id() {
+        return user_id;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUser_url() {
+        return user_url;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUser_url(String user_url) {
+        this.user_url = user_url;
     }
 
-    public String getBio() {
-        return bio;
+    public String getUser_phone() {
+        return user_phone;
     }
 
-    public void setBio(String bio) {
-        this.bio = bio;
+    public void setUser_phone(String user_phone) {
+        this.user_phone = user_phone;
     }
 
-    public String getImageurl() {
-        return imageurl;
+    public String getUser_username() {
+        return user_username;
     }
 
-    public void setImageurl(String imageurl) {
-        this.imageurl = imageurl;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+    public void setUser_username(String user_username) {
+        this.user_username = user_username;
     }
 }

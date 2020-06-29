@@ -57,9 +57,9 @@
             <item android:id="@+id/AddItem"
                 android:icon="@android:drawable/ic_menu_add"
                 android:title="Add Product" />
-            <item android:id="@+id/UpdateItem"
+            <item android:id="@+id/Orders"
                 android:icon="@android:drawable/zoom_plate"
-                android:title="Update Product" />
+                android:title="Orders" />
         </menu>
     </item>
 </menu>

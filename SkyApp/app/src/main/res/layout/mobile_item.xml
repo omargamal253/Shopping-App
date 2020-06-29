@@ -86,21 +86,32 @@
             android:layout_alignParentBottom="true"
             android:text="Add To Cart"
             android:id="@+id/AddToCart_btn"
-            android:layout_toRightOf="@+id/Home_Fav"
+            android:layout_toRightOf="@+id/Home_Fav2"
             android:textColor="#fff"
             android:drawableLeft="@drawable/ic_add_shopping_cart_black2_24dp"
             android:textAlignment="center"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             />
+
+    <RelativeLayout
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="#FFDFDF"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/Home_Fav2"
+
+        >
         <ImageView
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@drawable/ic_fav_border"
             android:layout_alignParentBottom="true"
-
             android:id="@+id/Home_Fav"
+
             android:layout_marginRight="2dp"/>
+
+    </RelativeLayout>
 
 
     </RelativeLayout>

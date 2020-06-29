@@ -10,9 +10,9 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/icon2"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        >
-        <activity android:name=".FashionActivity"></activity>
+        android:theme="@style/AppTheme">
+        <activity android:name=".OrdersActivity"></activity>
+        <activity android:name=".FashionActivity" />
         <activity android:name=".ElectronicsActivity" />
         <activity android:name=".MobilesActivity" />
         <activity android:name=".LaptopActivity" />

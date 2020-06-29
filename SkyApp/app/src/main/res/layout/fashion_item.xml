@@ -93,7 +93,7 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:layout_marginTop="50dp"
-
+android:layout_toLeftOf="@+id/HeartRelative"
 
             />
     <RelativeLayout
@@ -101,9 +101,10 @@
         android:layout_height="30dp"
         android:layout_below="@+id/PriceAfter3"
         android:layout_marginTop="50dp"
-        android:layout_toRightOf="@+id/AddToCart_btn"
         android:layout_marginLeft="4dp"
-        android:background="#CCC0C0C0"
+        android:background="#89FFDFDF"
+        android:layout_alignParentRight="true"
+        android:id="@+id/HeartRelative"
         >
 
         <ImageView

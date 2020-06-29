@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true"
+    app:layout_optimizationLevel="chains"
+
+    >
+
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:background="#7A00FF00"
+
+        android:padding="5dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Order Description"
+            android:id="@+id/Order_Description"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="2dp"
+            android:textColor="#fff"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date : "
+            android:id="@+id/Date"
+            android:layout_below="@+id/Order_Description"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/OrderDate"
+            android:layout_below="@+id/Order_Description"
+            android:layout_toRightOf="@+id/Date"
+            android:text="Default"
+            />
+
+        <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Number Of Products : "
+    android:id="@+id/numText"
+    android:layout_below="@+id/Date"
+    />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3"
+        android:id="@+id/numOfItems"
+        android:layout_toRightOf="@+id/numText"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/Date"
+
+        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Price : "
+            android:id="@+id/total_price"
+            android:layout_below="@+id/numText"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/TotalPrice"
+            android:text="15000$"
+            android:layout_toEndOf="@+id/total_price"
+            android:layout_below="@+id/numText"
+
+
+
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/products_Title_Qty"
+            android:layout_below="@+id/total_price"
+            android:text="Dell G3 16 giga ra"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Information"
+            android:id="@+id/User_Description"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/products_Title_Qty"
+            android:textColor="#fff"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="2dp"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User"
+            android:layout_below="@+id/User_Description"
+            android:id="@+id/User_Info"
+            />
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:text="Accepted"
+            android:layout_below="@+id/User_Info"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/AcceptOrder"
+/>
+
+
+
+</RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>

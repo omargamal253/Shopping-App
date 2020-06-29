@@ -98,6 +98,7 @@ app:layout_optimizationLevel="chains"
         android:layout_alignParentBottom="true"
         android:layout_below="@+id/line_"
         android:id="@+id/relative_card"
+        android:paddingRight="15dp"
         >
 
         <ImageView
@@ -122,7 +123,7 @@ app:layout_optimizationLevel="chains"
         <ImageView
             android:layout_width="35dp"
             android:layout_height="37dp"
-            android:layout_toRightOf="@+id/remove_card_btn"
+            android:layout_toLeftOf="@+id/EditText_Qty"
             android:src="@drawable/ic_subtract_qty"
             android:layout_marginLeft="100dp"
             android:id="@+id/subtract_Qty"
@@ -131,7 +132,7 @@ app:layout_optimizationLevel="chains"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:text="55"
-            android:layout_toRightOf="@+id/subtract_Qty"
+            android:layout_toLeftOf="@+id/add_Qty"
             android:textSize="12dp"
             android:textStyle="bold"
             android:id="@+id/EditText_Qty"
@@ -144,10 +145,9 @@ app:layout_optimizationLevel="chains"
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_toRightOf="@+id/EditText_Qty"
             android:src="@drawable/ic_add_qty"
             android:id="@+id/add_Qty"
-            android:layout_marginLeft="5dp"
+            android:layout_alignParentRight="true"
 
             />
 

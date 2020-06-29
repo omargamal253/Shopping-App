@@ -32,6 +32,7 @@ import java.util.ArrayList;
 public class RecyclerCardAdapter extends RecyclerView.Adapter<MyCardHolder>{
     Context c ;
     public ArrayList<Product> products;
+   public ArrayList<Integer>  productQtu=new ArrayList<>();
 
     public double TotalPrice;
     public RecyclerCardAdapter(Context c, ArrayList<Product> products) {
@@ -50,6 +51,7 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<MyCardHolder>{
         }
         if(add == true)  {
             products.add(product);
+            productQtu.add(1);
             double price_before = product.getPrice();
             double discount =   product.getDiscount() ;
             double price_after =  price_before - (price_before * (  discount/100));
@@ -108,6 +110,7 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<MyCardHolder>{
             @Override
             public void onClick(View v) {
                 holder.UserQTY++;
+                productQtu.set(position,holder.UserQTY);
                 holder.ProductQty.setText(String.valueOf(holder.UserQTY));
                //TotalPrice+=Double.valueOf(holder.price_after.getText().toString()) ;
 
@@ -128,6 +131,8 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<MyCardHolder>{
             public void onClick(View v) {
                 if (holder.UserQTY > 1) {
                     holder.UserQTY--;
+                    productQtu.set(position,holder.UserQTY);
+
                     holder.ProductQty.setText(String.valueOf(holder.UserQTY));
 
 
@@ -196,6 +201,8 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<MyCardHolder>{
 
                 FireBase.RemoveProductFromCard(products.get(position));
                 products.remove(position);
+                productQtu.remove(position);
+
                 notifyDataSetChanged();
                 FireBase.GetNumOf_Products_InCard();
 
@@ -205,7 +212,6 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<MyCardHolder>{
                 HomeFragment.MobilesAdapter.notifyDataSetChanged();
 
              //   FavoriteFragment.FavAdapter.notifyDataSetChanged();
-
 
 
             }

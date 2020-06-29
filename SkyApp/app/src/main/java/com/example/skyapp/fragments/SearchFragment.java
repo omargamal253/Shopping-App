@@ -156,15 +156,16 @@ public class SearchFragment extends Fragment {
                         Adapter7.products.clear();
                         Adapter7.notifyDataSetChanged();
 
+
                     } else {
                         try {
-                            if(s.toString().length()%2!=0) {
+                            if(s.toString().length()%3 ==0) {
 
                                 searchProducts(s.toString(), "Deals", Adapter);
                                 searchProducts(s.toString(), "Best Sales", Adapter2);
-                                searchProducts(s.toString(), "Supermarket", Adapter3);
-                                searchProducts(s.toString(), "Laptop and Tablets", Adapter4);
-                                searchProducts(s.toString(), "Mobiles", Adapter5);
+                               searchProducts(s.toString(), "Supermarket", Adapter3);
+                               searchProducts(s.toString(), "Laptop and Tablets", Adapter4);
+                               searchProducts(s.toString(), "Mobiles", Adapter5);
                                 searchProducts(s.toString(), "Electronics", Adapter6);
                                 searchProducts(s.toString(), "Fashion", Adapter7);
                             }

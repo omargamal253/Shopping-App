@@ -8,10 +8,12 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.skyapp.Adapter.FireBase;
@@ -22,6 +24,7 @@ import com.example.skyapp.fragments.HomeFragment;
 import com.example.skyapp.fragments.SearchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener {
 
@@ -29,13 +32,25 @@ DrawerLayout drawerLayout ;
    // TextView tvInfo ;
     Toolbar toolbar;
    public static TextView CardCount;
+
+    TextView Username , Email;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // FirebaseAuth.getInstance().signOut();
+     //  FirebaseAuth.getInstance().signOut();
 
 
-           Utils.getDatabase();
+        //   Utils.getDatabase();
+        ProgressDialog pd = new ProgressDialog(MainActivity.this);
+        pd.setMessage("Please Wait");
+
+        pd.show();
+        if(FireBase.isNetworkAvailable(MainActivity.this))
+            pd.dismiss();
+
+
 
         setContentView(R.layout.activity_main2);
 
@@ -60,15 +75,18 @@ DrawerLayout drawerLayout ;
         CardCount = findViewById(R.id.Card_Count);
 
         FireBase.GetNumOf_Products_InCard();
-/*
-       if(FireBase.NumOf_Products_InCard>0)
-        {
-            CardCount.setVisibility(View.VISIBLE);
-            CardCount.setText(String.valueOf(FireBase.NumOf_Products_InCard));
-        }
-        else CardCount.setVisibility(View.INVISIBLE);
-       // CardCount.setText(String.valueOf(FireBase.NumOf_Products_InCard));*/
+View view = navigationView.getHeaderView(0);
 
+        SetDrawerHeader setDrawerHeader = new SetDrawerHeader(view);
+
+/*
+      Username = findViewById(R.id.user_username);
+        Email = findViewById(R.id.user_email);
+
+        Username.setText("CurrentUser.getUsername()");
+        Email.setText("CurrentUser.getEmail()");
+
+*/
     }
 
     @Override
@@ -121,6 +139,10 @@ DrawerLayout drawerLayout ;
 
         if(menuItem.getTitle().equals("Add Product")){
             Intent intent = new Intent(MainActivity.this , AddItemActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+        if(menuItem.getTitle().equals("Orders")){
+            Intent intent = new Intent(MainActivity.this , OrdersActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
         CloseDrawer();

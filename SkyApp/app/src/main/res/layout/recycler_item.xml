@@ -91,15 +91,25 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             />
+        <RelativeLayout
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#89FFDFDF"
+            android:layout_toRightOf="@+id/AddToCart_btn"
+            android:layout_toEndOf="@+id/AddToCart_btn"
+            android:layout_alignParentBottom="true"
+
+            >
+
         <ImageView
             android:layout_width="30dp"
             android:layout_height="35dp"
             android:src="@drawable/ic_fav_border"
             android:layout_alignParentBottom="true"
 
-            android:layout_toEndOf="@+id/AddToCart_btn"
             android:id="@+id/Home_Fav"/>
 
+        </RelativeLayout>
 
     </RelativeLayout>
 

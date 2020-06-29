@@ -3,16 +3,83 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.AccountFragment">
+    tools:context=".fragments.AccountFragment"
+    android:background="#241333"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Account"
-        android:gravity="center"
-        android:layout_centerInParent="false"
-        android:textSize="38dp"
-        android:textColor="#000"/>
+        android:layout_height="350dp"
+        android:background="@drawable/second_layer"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@drawable/frist_layer"
+            >
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerHorizontal="true"
+                >
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/user_profile_image"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/pp"
+                    android:layout_marginBottom="15dp"
+
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="#53B4FF"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Omar Gamal"
+                    android:textColor="#C5292323"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-condensed"
+                    android:id="@+id/user_username"
+                    android:layout_marginBottom="3dp"
+                    android:textAlignment="center"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="omargamal253@gmail.com"
+                    android:textColor="#000"
+                    android:textSize="16sp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:id="@+id/user_email"
+
+                    />
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
 
 </RelativeLayout>
