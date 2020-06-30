@@ -4,73 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.AccountFragment"
-    android:background="#241333"
+    android:background="#fff"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="300dp"
         android:background="@drawable/second_layer"
+
+        android:id="@+id/ParentRelative"
         >
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="200dp"
             android:background="@drawable/frist_layer"
             >
-
-
-
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_centerHorizontal="true"
-                >
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/user_profile_image"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:src="@drawable/pp"
-                    android:layout_marginBottom="15dp"
-
-                    app:civ_border_width="2dp"
-                    app:civ_border_color="#53B4FF"
-                    android:layout_gravity="center"
-                    />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Omar Gamal"
-                    android:textColor="#C5292323"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:fontFamily="sans-serif-condensed"
-                    android:id="@+id/user_username"
-                    android:layout_marginBottom="3dp"
-                    android:textAlignment="center"
-
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="omargamal253@gmail.com"
-                    android:textColor="#000"
-                    android:textSize="16sp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:id="@+id/user_email"
-
-                    />
-
-
-
-
-            </LinearLayout>
 
 
 
@@ -79,7 +28,260 @@
 
         </RelativeLayout>
 
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/select_photo"
+            android:layout_marginTop="25dp"
+         android:layout_alignEnd="@+id/linear_profile"
+            android:id="@+id/SelectPhotoIcon"
+            />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/linear_profile"
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/user_profile_photo"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/pp"
+                android:layout_marginBottom="40dp"
+               android:layout_marginTop="25dp"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#53B4FF"
+                android:layout_gravity="center"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="empty"
+                android:textColor="#fff"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:id="@+id/user_username"
+                android:layout_marginBottom="3dp"
+                android:textAlignment="center"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="empty"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-condensed"
+                android:id="@+id/user_email"
+
+                />
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/logRelative"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            >
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:src="@drawable/logout"
+
+                android:id="@+id/LOGOUT_LOGO"
+
+
+                android:layout_marginTop="2dp"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LogOut"
+                android:textColor="@color/MainColor"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:id="@+id/LOGOUT_Text"
+                android:layout_toEndOf="@+id/LOGOUT_LOGO"
+                />
+
+
+        </RelativeLayout>
+
+
     </RelativeLayout>
 
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ParentRelative"
+        >
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/Order_Relative"
+            >
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/delivery_box"
+                android:id="@+id/Order_Icon"
+
+                android:layout_marginLeft="40dp"
+                android:layout_centerVertical="true"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Orders"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:layout_toRightOf="@+id/Order_Icon"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_centerVertical="true"
+
+                />
+
+
+
+        </RelativeLayout>
+
+
+
+
+
+        <View
+            android:layout_width="350dp"
+            android:layout_height="2dp"
+            android:background="#CCFFFF"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/line_"
+            android:layout_below="@+id/Order_Relative"/>
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/Wish_Relative"
+            android:layout_below="@+id/line_"
+            >
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/heart"
+                android:id="@+id/Wish_Icon"
+                android:layout_marginLeft="40dp"
+                android:layout_centerVertical="true"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wish List"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:layout_toRightOf="@+id/Wish_Icon"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="7dp"
+                android:layout_centerVertical="true"
+
+                />
+
+
+
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="350dp"
+            android:layout_height="2dp"
+            android:background="#CCFFFF"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/line_2"
+            android:layout_below="@+id/Wish_Relative"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="#000"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/User_Email"
+            android:layout_below="@+id/line_2"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/User_Email"
+            android:text="empty"
+            android:textSize="15dp"
+            android:textColor="#000"
+            android:layout_marginStart="40dp"
+            android:id="@+id/UserEmail"
+
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="#000"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/User_Phone"
+            android:layout_below="@+id/UserEmail"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/User_Phone"
+            android:text="empty"
+            android:textSize="15dp"
+            android:textColor="#000"
+            android:layout_marginStart="40dp"
+            android:id="@+id/UserPhone"
+
+            />
+
+
+
+
+    </RelativeLayout>
+    
+    
 
 </RelativeLayout>

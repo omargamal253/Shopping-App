@@ -29,6 +29,7 @@ public class SetDrawerHeader {
 
     CircleImageView userImage;
     TextView Username , Email;
+
     View view ;
     HashMap <String,Object> map;
     User CurrentUser ;
@@ -67,19 +68,6 @@ public class SetDrawerHeader {
 
         }
 
-            //    Log.e("Users",map.toString());;
-/*
- for(DataSnapshot data :  dataSnapshot.getChildren()){
-
-                   // if (data.getKey().toString().equals(user.getUid()))
-                    CurrentUser  = data.getValue(User.class);
-                           User u =  data.getValue(User.class);
-                    users.add(u);
-                    //  Toast.makeText(getContext(), product.getImage_url() ,Toast.LENGTH_SHORT).show();
-
-
-                }
-                Username.setText(String.valueOf(map.size()))*/
 
 
             }

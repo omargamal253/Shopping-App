@@ -88,6 +88,7 @@ public class AddItemActivity extends AppCompatActivity {
     }
 
     public void SelectPhoto(View view) {
+
         OpedImage();
     }
     public void OpedImage(){
@@ -114,6 +115,8 @@ public class AddItemActivity extends AppCompatActivity {
         return minMimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
 
     }
+
+
     private void UploadData() {
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setMessage("Uploading");

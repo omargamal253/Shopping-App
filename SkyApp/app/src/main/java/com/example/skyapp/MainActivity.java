@@ -34,6 +34,9 @@ DrawerLayout drawerLayout ;
    public static TextView CardCount;
 
     TextView Username , Email;
+  public static   FragmentTransaction fragmentTransaction ;
+
+  public  static  BottomNavigationView bottomNavigationView;
 
 
     @Override
@@ -87,6 +90,8 @@ View view = navigationView.getHeaderView(0);
         Email.setText("CurrentUser.getEmail()");
 
 */
+
+
     }
 
     @Override
@@ -168,35 +173,38 @@ View view = navigationView.getHeaderView(0);
 
     public void ManageButtonNav(){
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                 if(id == R.id.nav_home){
                     HomeFragment homeFragment = new HomeFragment();
-                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.fragment_container, homeFragment);
                     fragmentTransaction.commit();
 
                 }
                 else if(id == R.id.nav_heart){
                     FavoriteFragment favoriteFragment = new FavoriteFragment();
-                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                   // FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.fragment_container, favoriteFragment);
                     fragmentTransaction.commit();
 
                 }
                 else if(id == R.id.nav_profile){
                     AccountFragment profileFragment = new AccountFragment();
-                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                  //  FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.fragment_container, profileFragment);
                     fragmentTransaction.commit();
 
                 }
                 else if(id == R.id.nav_search){
                     SearchFragment searchFragment = new SearchFragment();
-                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                   // FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.fragment_container, searchFragment);
                     fragmentTransaction.commit();
 

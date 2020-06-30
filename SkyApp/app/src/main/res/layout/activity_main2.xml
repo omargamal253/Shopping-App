@@ -119,6 +119,7 @@
         app:menu="@menu/drawer_menu"
         app:itemIconTint= "#000000"
         app:itemTextColor="#696969"
+
         />
 
      </androidx.drawerlayout.widget.DrawerLayout>
