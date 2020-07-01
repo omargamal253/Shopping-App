@@ -378,17 +378,17 @@
                 android:layout_marginStart="0dp"
                 android:id="@+id/returnIcon2"
                 />
+
             <TextView
+                android:id="@+id/ReturnText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Free Return"
-                android:layout_toRightOf="@+id/returnIcon2"
                 android:layout_marginLeft="3dp"
-                android:textStyle="bold"
-                android:textSize="12dp"
+                android:layout_toRightOf="@+id/returnIcon2"
+                android:text="Free Return"
                 android:textColor="#808080"
-                android:id="@+id/ReturnText"
-                />
+                android:textSize="12dp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="30dp"
@@ -444,7 +444,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_toRightOf="@+id/CallButton"
-            android:background="#00FF7F"
+            android:background="#6ef29b"
             android:drawableLeft="@drawable/ic_add_shopping_cart_black_white_24dp"
             android:text="ADD TO CARD"
             android:textAlignment="center"

@@ -84,7 +84,7 @@ public class StartActivity extends AppCompatActivity {
         super.onStart();
        // if user already login
         if (FirebaseAuth.getInstance().getCurrentUser() != null){
-            startActivity(new Intent(StartActivity.this , MainActivity.class));
+            startActivity(new Intent(StartActivity.this , StartScreenActivity.class));
             finish();
         }
     }

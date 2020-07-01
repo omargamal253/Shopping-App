@@ -245,7 +245,7 @@ public class CardActivity extends AppCompatActivity {
                 productMap.put(products.get(i).getTitle(), productsQty.get(i));
             }
         }
-        HashMap<String,Object> map = new HashMap<>();
+        final HashMap<String,Object> map = new HashMap<>();
 
         map.put("userId",user.getUid());
         map.put("totalPrice",Total_Price);
@@ -254,8 +254,10 @@ public class CardActivity extends AppCompatActivity {
         map.put("orderDate",OrderDate);
 
         final ProgressDialog pd = new ProgressDialog(CardActivity.this);
-        pd.setMessage("Please Wail!");
         pd.show();
+        pd.setContentView(R.layout.progress_dialog);
+        pd.getWindow().setBackgroundDrawableResource(R.color.transparent);
+
 
 
         FirebaseDatabase.getInstance().getReference().child("Orders").child(user.getUid()+String.valueOf((int)Total_Price)+String.valueOf(products.size()))
@@ -276,6 +278,10 @@ public class CardActivity extends AppCompatActivity {
 
                     FireBase.NumOf_Products_InCard = 0;
                     FireBase.GetNumOf_Products_InCard();
+
+                    FirebaseDatabase.getInstance().getReference().child("MyOrders").child(user.getUid()).push()
+                            .updateChildren(map);
+
                     pd.dismiss();
                     Toast.makeText(CardActivity.this, "The Order was made Successfully ", Toast.LENGTH_SHORT).show();
                     finish();

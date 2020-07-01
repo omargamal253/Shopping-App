@@ -84,8 +84,10 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void registerUser(final String username, final String phone, final String email, String password) {
 
-        pd.setMessage("Please Wail!");
         pd.show();
+        pd.setContentView(R.layout.progress_dialog);
+        pd.getWindow().setBackgroundDrawableResource(R.color.transparent);
+
 
         mAuth.createUserWithEmailAndPassword(email , password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
@@ -107,7 +109,7 @@ public class RegisterActivity extends AppCompatActivity {
                             pd.dismiss();
                             Toast.makeText(RegisterActivity.this, "Update the profile " +
                                     "for better experience", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(RegisterActivity.this , MainActivity.class);
+                            Intent intent = new Intent(RegisterActivity.this , StartScreenActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
                             finish();

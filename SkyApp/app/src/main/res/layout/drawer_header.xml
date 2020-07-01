@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="190dp"
+    android:layout_height="220dp"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/drawer_header_background"
     tools:context=".MainActivity"
@@ -11,10 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_alignParentBottom="true"
         android:paddingLeft="16dp"
         android:paddingBottom="16dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp"
         >
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -22,9 +22,8 @@
             android:id="@+id/user_profile_image"
             android:layout_width="96dp"
             android:layout_height="96dp"
-            android:src="@drawable/pp"
+            android:src="@drawable/profil_icon_url"
             android:layout_marginTop="0dp"
-            android:layout_marginLeft="10dp"
 
             app:civ_border_width="2dp"
             app:civ_border_color="#53B4FF"/>
@@ -32,21 +31,23 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Username empty"
+            android:text=" -- "
             android:textColor="#C5292323"
             android:textSize="20sp"
             android:textStyle="bold"
             android:fontFamily="sans-serif-condensed"
             android:id="@+id/user_username"
+            android:layout_marginTop="5dp"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email empty"
+            android:text="--"
             android:textColor="#fff"
             android:textSize="16sp"
             android:fontFamily="sans-serif-condensed"
             android:id="@+id/user_email"
+            android:layout_marginTop="3dp"
 
             />
         

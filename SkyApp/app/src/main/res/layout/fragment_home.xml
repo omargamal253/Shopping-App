@@ -90,6 +90,7 @@
     android:layout_height="280dp"
    android:layout_below="@+id/dealRelativeLayout"
     android:id="@+id/DealsRecyclerView"
+    android:background="#eee"
     />
 
     <RelativeLayout
@@ -128,6 +129,8 @@
         android:layout_height="280dp"
         android:layout_below="@+id/BestSalesRelativeLayout"
         android:id="@+id/BestRecyclerView"
+        android:background="#eee"
+
         />
 
     <RelativeLayout
@@ -166,6 +169,8 @@
         android:layout_height="280dp"
         android:layout_below="@+id/LaptopForYouRelativeLayout"
         android:id="@+id/LaptopRecyclerView"
+        android:background="#eee"
+
         />
 
 
@@ -205,6 +210,8 @@
         android:layout_height="280dp"
         android:layout_below="@+id/MobilesForYouRelativeLayout"
         android:id="@+id/MobilesRecyclerView"
+        android:background="#eee"
+
         />
 
     <RelativeLayout

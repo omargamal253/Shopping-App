@@ -1,6 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true"
+    app:layout_optimizationLevel="chains"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#B3000000"
+
+        android:padding="5dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Order Description"
+            android:id="@+id/Order_Description"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="2dp"
+            android:textColor="#00FF00"
+            android:layout_marginLeft="5dp"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date : "
+            android:id="@+id/Date"
+            android:layout_below="@+id/Order_Description"
+            android:textColor="#00FFFF"
+            android:layout_marginLeft="10dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/OrderDate"
+            android:layout_below="@+id/Order_Description"
+            android:layout_toRightOf="@+id/Date"
+            android:text="Default"
+            android:textColor="#fff"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number Of Products : "
+            android:id="@+id/numText"
+            android:layout_below="@+id/Date"
+            android:textColor="#00FFFF"
+            android:layout_marginLeft="10dp"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:id="@+id/numOfItems"
+            android:layout_toRightOf="@+id/numText"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/Date"
+            android:textColor="#fff"
+
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Price : "
+            android:id="@+id/total_price"
+            android:layout_below="@+id/numText"
+            android:textColor="#00FFFF"
+            android:layout_marginLeft="10dp"
+
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/TotalPrice"
+            android:text="15000$"
+            android:layout_toEndOf="@+id/total_price"
+            android:layout_below="@+id/numText"
+            android:textColor="#fff"
+
+
+
+
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/products_Title_Qty"
+            android:layout_below="@+id/total_price"
+            android:text="Dell G3 16 giga ra"
+            android:textColor="#fff"
+            android:layout_marginLeft="10dp"
+
+            />
+
+
+
+    </RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>

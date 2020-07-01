@@ -10,24 +10,20 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.skyapp.Adapter.RecyclerCardAdapter;
 import com.example.skyapp.Adapter.RecyclerOrderAdapter;
 import com.example.skyapp.model.Order;
-import com.example.skyapp.model.Product;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
 
-public class OrdersActivity extends AppCompatActivity {
+public class MyOrdersActivity extends AppCompatActivity {
     Toolbar toolbar;
 
     TextView textView ;
@@ -35,14 +31,13 @@ public class OrdersActivity extends AppCompatActivity {
 
     RecyclerView mreRecyclerView;
     RecyclerOrderAdapter myAdapter;
-    ArrayList<Order>  ordersList = new ArrayList<>();
 
-    ArrayList<Order> Orders = new ArrayList<>() ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_orders);
+        setContentView(R.layout.activity_my_orders);
+
         textView = findViewById(R.id.TestClass);
 
         toolbar = findViewById(R.id.OrderToolbar);
@@ -62,70 +57,30 @@ public class OrdersActivity extends AppCompatActivity {
         });
 
 
-
         mreRecyclerView =findViewById(R.id.OrderRecyclerview);
         LinearLayoutManager layoutManager = new LinearLayoutManager(
                 this ,LinearLayoutManager.VERTICAL,false
         );
         mreRecyclerView.setLayoutManager(layoutManager);
         mreRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        myAdapter = new RecyclerOrderAdapter( this ,1);
+        myAdapter = new RecyclerOrderAdapter( this ,2);
         mreRecyclerView.setAdapter(myAdapter);
 
 
         getMyList(myAdapter);
 
-        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference().child("Orders");
+
+    }
 
 
-        // Read from the database
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                for(DataSnapshot data :  dataSnapshot.getChildren()){
-               /*   Order order  = data.getValue(Order.class);
-                    ordersList.add(order);
-                    String s;
-                    HashMap H = (HashMap) data.child("ProductsInfo").getValue();
-                  //  HashMap H = (HashMap) order.getProducts();
-                    Log.d("HashMap : ", String.valueOf(H));
-
-                    //HashMap H = (HashMap) data.child("ProductsInfo").getValue();
-
-
-                        for(Object name : H.keySet()){
-                        String key =  name.toString();
-                        String  value =(String) H.get(name).toString();
-                        textView.append(key +" : "+value+"\n");
-                    }*/
-                  //  textView.setText(order.getUserId());
-                    //  Toast.makeText(getContext(), product.getImage_url() ,Toast.LENGTH_SHORT).show();
-
-
-                }
-
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-
-            }
-        });
-
-
-
-
-        }
 
     private void getMyList( RecyclerOrderAdapter Adapter) {
 
         final  RecyclerOrderAdapter MyAdapt = Adapter;
 
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference().child("Orders");
+        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference().child("MyOrders").child(user.getUid());
 
 
         // Read from the database
@@ -163,6 +118,4 @@ public class OrdersActivity extends AppCompatActivity {
 
     }
 
-
 }
-

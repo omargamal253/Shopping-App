@@ -145,6 +145,8 @@ public class ProductActivity extends AppCompatActivity implements Serializable {
                     HomeFragment.BestSealsAdapter.notifyDataSetChanged();
                     if(FavoriteFragment.FavAdapter!=null)
                     FavoriteFragment.FavAdapter.notifyDataSetChanged();
+                    FireBase.GetNumOf_Products_InCard();
+
 
                 }
             }

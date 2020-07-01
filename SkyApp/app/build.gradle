@@ -53,5 +53,7 @@ dependencies {
 
     implementation 'com.android.support:multidex:1.0.1'
 
+    implementation 'com.agrawalsuneet.androidlibs:dotsloader:1.4'
+
 
 }

@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.example.skyapp.Adapter.FireBase;
 import com.example.skyapp.AddItemActivity;
 import com.example.skyapp.MainActivity;
+import com.example.skyapp.MyOrdersActivity;
 import com.example.skyapp.R;
 import com.example.skyapp.StartActivity;
 import com.example.skyapp.model.Product;
@@ -62,12 +63,13 @@ public class AccountFragment extends Fragment {
     HashMap<String,Object> map;
     User CurrentUser ;
     ImageView SelectIcon;
-    RelativeLayout LogOut, WishList;
+    RelativeLayout LogOut, WishList, MyOrders;
     Uri imageUri ;
     String imageName , DownloadUrl ;
     private static final int IMAGE_REQUEST =  2 ;
-
+    ProgressDialog pd;
     public AccountFragment() {
+
         // Required empty public constructor
     }
 
@@ -79,6 +81,10 @@ public class AccountFragment extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_account, container, false);
         c =getActivity();
 
+        pd = new ProgressDialog(c);
+
+
+
         userImage = view.findViewById(R.id.user_profile_photo);
         Username = view.findViewById(R.id.user_username);
         Email = view.findViewById(R.id.user_email);
@@ -87,6 +93,7 @@ public class AccountFragment extends Fragment {
         SelectIcon = view.findViewById(R.id.SelectPhotoIcon);
         LogOut = view.findViewById(R.id.logRelative);
         WishList = view.findViewById(R.id.Wish_Relative);
+        MyOrders = view.findViewById(R.id.Order_Relative);
 
 
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -162,6 +169,16 @@ public class AccountFragment extends Fragment {
 
             }
         });
+        MyOrders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(c , MyOrdersActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+
 
 
 
@@ -206,6 +223,11 @@ public class AccountFragment extends Fragment {
         pd.setMessage("Uploading");
 
         pd.show();*/
+
+        pd.show();
+        pd.setContentView(R.layout.progress_dialog);
+        pd.getWindow().setBackgroundDrawableResource(R.color.transparent);
+
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         if(imageUri!= null){
@@ -257,6 +279,7 @@ public class AccountFragment extends Fragment {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
+                    pd.dismiss();
                     Toast.makeText(c, "Profile Photo Updated Successfully",Toast.LENGTH_SHORT).show();
                     userImage.setImageURI(imageUri);
 

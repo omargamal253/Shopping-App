@@ -118,9 +118,12 @@ public class AddItemActivity extends AppCompatActivity {
 
 
     private void UploadData() {
-        final ProgressDialog pd = new ProgressDialog(this);
-        pd.setMessage("Uploading");
+       final ProgressDialog pd = new ProgressDialog(AddItemActivity.this);
+
         pd.show();
+        pd.setContentView(R.layout.progress_dialog);
+        pd.getWindow().setBackgroundDrawableResource(R.color.transparent);
+
         if(imageUri!= null){
              imageName = System.currentTimeMillis()+"."+getFileExtension(imageUri);
             final StorageReference fileRef = FirebaseStorage.getInstance().getReference().child("uploads").child(

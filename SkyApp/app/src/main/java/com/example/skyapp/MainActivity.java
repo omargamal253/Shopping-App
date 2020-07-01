@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -47,9 +48,11 @@ DrawerLayout drawerLayout ;
 
         //   Utils.getDatabase();
         ProgressDialog pd = new ProgressDialog(MainActivity.this);
-        pd.setMessage("Please Wait");
 
         pd.show();
+        pd.setContentView(R.layout.progress_dialog);
+        pd.getWindow().setBackgroundDrawableResource(R.color.transparent);
+
         if(FireBase.isNetworkAvailable(MainActivity.this))
             pd.dismiss();
 
