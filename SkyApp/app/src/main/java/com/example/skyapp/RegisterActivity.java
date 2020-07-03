@@ -20,6 +20,7 @@ import androidx.annotation.NonNull;
         import com.google.android.gms.tasks.Task;
         import com.google.firebase.auth.AuthResult;
         import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
         import com.google.firebase.database.FirebaseDatabase;
 
@@ -107,9 +108,7 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
                             pd.dismiss();
-                            Toast.makeText(RegisterActivity.this, "Update the profile " +
-                                    "for better experience", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(RegisterActivity.this , StartScreenActivity.class);
+                            Intent intent = new Intent(RegisterActivity.this , LoginActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
                             finish();
@@ -117,6 +116,7 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 });
                 map.clear();
+                sendEmailVerification();
 
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -146,5 +146,21 @@ public class RegisterActivity extends AppCompatActivity {
         });
         // to check Email Verification use user.isEmailVerified()
  */
+public void sendEmailVerification(){
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+          user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+      @Override
+      public void onComplete(@NonNull Task<Void> task) {
+                           if (task.isSuccessful()){
+                               Toast.makeText(RegisterActivity.this, "Check Your Email To Verify It " +
+                                                   "", Toast.LENGTH_SHORT).show();
+
+                                       }
+
+                               }
+    });
+
+
+                        }
 
 }

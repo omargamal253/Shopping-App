@@ -63,4 +63,19 @@
         android:layout_below="@+id/ProductToolbar"
         android:id="@+id/ElectronicsRecyclerView"
         />
+
+    <com.agrawalsuneet.dotsloader.loaders.ZeeLoader
+            android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           app:zee_animDuration="300"
+           app:zee_distanceMultiplier="3"
+          app:zee_dotsRadius="14dp"
+           app:zee_firstDotsColor="#802DAEFF"
+           app:zee_secondDotsColor="#2DAEFF"
+
+            android:layout_centerVertical="true"
+           android:layout_centerHorizontal="true"
+           android:id="@+id/ZeeLoader"
+           />
+
 </RelativeLayout>

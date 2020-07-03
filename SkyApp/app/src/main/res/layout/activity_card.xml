@@ -38,6 +38,20 @@ android:id="@+id/drawer_layoutCard2">
         android:id="@+id/CardsRecyclerView"
         android:layout_above="@+id/OrderRelative"
         />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/CardEmptyOrNot"
+            android:layout_below="@+id/CardToolbar"
+           android:text="Your Card Is Empty "
+           android:layout_centerHorizontal="true"
+           android:layout_marginTop="30dp"
+        android:visibility="invisible"
+           android:textSize="18dp"
+            />
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -69,7 +83,7 @@ android:id="@+id/drawer_layoutCard2">
             android:layout_height="60dp"
             android:layout_below="@+id/Total"
             android:layout_margin="5dp"
-            android:background="#00FF7F"
+            android:background="#E600FF7F"
             android:text="Complete Your Order"
             android:textColor="#fff"
             android:id="@+id/CompleteOrder"

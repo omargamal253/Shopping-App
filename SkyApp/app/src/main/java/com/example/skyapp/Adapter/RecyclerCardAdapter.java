@@ -213,6 +213,8 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<MyCardHolder>{
 
              //   FavoriteFragment.FavAdapter.notifyDataSetChanged();
 
+                if(products.size()==0) CardActivity.CardEmpty.setVisibility(View.VISIBLE);
+                           else CardActivity.CardEmpty.setVisibility(View.INVISIBLE);
 
             }
 

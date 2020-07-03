@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.skyapp.AboutUsActivity">
+        <androidx.appcompat.widget.Toolbar android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/AboutUs_Toolbar"
+            android:layout_alignParentTop="true"
+            android:background="#53B4FF"
+            android:minHeight="?actionBarSize"
+            android:elevation="50dp"
+            android:scrollbarStyle="insideInset"
+            app:titleTextColor="#E6000000"
+            android:layout_margin="0dp"
+            xmlns:android="http://schemas.android.com/apk/res/android"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_below="@+id/AboutUs_Toolbar"
+            android:background="@drawable/about_cover"
+            android:id="@+id/aboutCover"
+            >
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/event_cover"
+                android:layout_marginLeft="160dp"
+                />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="About Me"
+        android:textColor="#fff"
+        android:textSize="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginBottom="25dp"
+        android:textStyle="bold"
+
+        />
+
+    </RelativeLayout>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/star"
+            android:layout_marginTop="275dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="40dp"
+
+
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/aboutCover"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/CallRelative"
+            >
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_call_black_24dp_about"
+                android:id="@+id/about_Call"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+002 01148694280"
+                android:textColor="#000"
+                android:textSize="18dp"
+                android:layout_toRightOf="@+id/about_Call"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/Call_Mobile"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mobile"
+                android:layout_below="@+id/Call_Mobile"
+                android:layout_toRightOf="@+id/about_Call"
+                android:layout_marginLeft="12dp"
+                />
+
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/chat"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="25dp"
+        />
+
+
+        </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CallRelative"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        >
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_email_black_about_24dp"
+            android:id="@+id/mail_icon_"
+            />
+
+        <TextView
+           android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="omargamal253@gmail.com"
+            android:textColor="#000"
+            android:textSize="18dp"
+            android:layout_toRightOf="@+id/mail_icon_"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/about_email"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Work"
+            android:layout_below="@+id/about_email"
+            android:layout_toRightOf="@+id/mail_icon_"
+            android:layout_marginLeft="12dp"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="omar2018170252@cis.asu.edu.eg"
+            android:textColor="#000"
+            android:textSize="18dp"
+          android:layout_toRightOf="@+id/mail_icon_"
+           android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/about_email2"
+            android:layout_below="@+id/about_email"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personal"
+            android:layout_below="@+id/about_email2"
+            android:layout_toRightOf="@+id/mail_icon_"
+            android:layout_marginLeft="12dp"
+            />
+
+
+
+    </RelativeLayout>
+
+
+    </RelativeLayout>

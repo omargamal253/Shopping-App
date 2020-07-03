@@ -12,20 +12,27 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.agrawalsuneet.dotsloader.loaders.CircularDotsLoader;
 import com.example.skyapp.Adapter.FireBase;
 import com.example.skyapp.Adapter.Utils;
 import com.example.skyapp.fragments.AccountFragment;
 import com.example.skyapp.fragments.FavoriteFragment;
 import com.example.skyapp.fragments.HomeFragment;
 import com.example.skyapp.fragments.SearchFragment;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener {
 
@@ -38,7 +45,7 @@ DrawerLayout drawerLayout ;
   public static   FragmentTransaction fragmentTransaction ;
 
   public  static  BottomNavigationView bottomNavigationView;
-
+    CircularDotsLoader circularDotsLoader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +100,26 @@ View view = navigationView.getHeaderView(0);
         Email.setText("CurrentUser.getEmail()");
 
 */
+        set_AdminBlock_Visible(false);
+               FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+              if(user.getEmail().equals("omar2018170252@cis.asu.edu.eg")){
+                      set_AdminBlock_Visible(true);
+                         }
+              // sendEmailVerification();
+
+
+               circularDotsLoader = findViewById(R.id.CircularDotsLoader);
+
+                        circularDotsLoader.startAnimation();
+
+                                Handler handler = new Handler();
+               handler.postDelayed(new Runnable() {
+            @Override
+           public void run() {
+
+                                        circularDotsLoader.setVisibility(View.INVISIBLE);
+                            }
+       },2000);
 
 
     }
@@ -142,6 +169,10 @@ View view = navigationView.getHeaderView(0);
             bottomNavigationView.setSelectedItemId(R.id.nav_heart);
 
         }
+        if(menuItem.getTitle().equals("About Us")){
+                        Intent intent = new Intent(MainActivity.this, AboutUsActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                    }
 
 
 
@@ -149,7 +180,7 @@ View view = navigationView.getHeaderView(0);
             Intent intent = new Intent(MainActivity.this , AddItemActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
-        if(menuItem.getTitle().equals("Orders")){
+        if(menuItem.getTitle().equals("Users Orders")){
             Intent intent = new Intent(MainActivity.this , OrdersActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
@@ -224,4 +255,34 @@ View view = navigationView.getHeaderView(0);
         startActivity(intent);
 
     }
+
+    public void sendEmailVerification(){
+               FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+              user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+          @Override
+          public void onComplete(@NonNull Task<Void> task) {
+                               if (task.isSuccessful()){
+                                      Toast.makeText(MainActivity.this, "Check Your Email To Verify It " +
+                                              "", Toast.LENGTH_SHORT).show();
+
+                                           }
+
+                                   }
+       });
+
+
+    }
+
+    private void set_AdminBlock_Visible(boolean x)
+   {
+              NavigationView  navigationView = (NavigationView) findViewById(R.id.drawer);
+               Menu nav_Menu = navigationView.getMenu();
+
+
+               nav_Menu.findItem(R.id.Admin_Block).setVisible(x);
+
+
+           }
+
+
 }

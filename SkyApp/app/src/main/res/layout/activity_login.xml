@@ -65,4 +65,14 @@ tools:context=".LoginActivity">
     android:layout_marginTop="15dp"
     android:id="@+id/register_user"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please Verify Your Email"
+        android:textColor="#C00"
+        android:layout_marginTop="50dp"
+        android:id="@+id/VerifyEmail"
+        android:visibility="invisible"
+        />
+
 </LinearLayout>

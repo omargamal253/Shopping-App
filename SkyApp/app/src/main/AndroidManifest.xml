@@ -11,9 +11,8 @@
         android:roundIcon="@drawable/icon2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StartScreenActivity">
-
-        </activity>
+        <activity android:name=".AboutUsActivity"></activity>
+        <activity android:name=".StartScreenActivity"></activity>
         <activity android:name=".MyOrdersActivity" />
         <activity android:name=".OrdersActivity" />
         <activity android:name=".FashionActivity" />
@@ -29,14 +28,11 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".StartActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
     </application>
 

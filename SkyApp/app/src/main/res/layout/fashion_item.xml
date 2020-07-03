@@ -102,7 +102,7 @@ android:layout_toLeftOf="@+id/HeartRelative"
         android:layout_below="@+id/PriceAfter3"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="4dp"
-        android:background="#89FFDFDF"
+        android:background="#fff"
         android:layout_alignParentRight="true"
         android:id="@+id/HeartRelative"
         >

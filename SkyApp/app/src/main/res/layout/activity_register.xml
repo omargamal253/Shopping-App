@@ -95,4 +95,7 @@ android:inputType="textEmailAddress"
         android:layout_marginTop="15dp"
         android:id="@+id/login_user"/>
 
+
+
+
 </LinearLayout>

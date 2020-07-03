@@ -8,14 +8,17 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.agrawalsuneet.dotsloader.loaders.CircularDotsLoader;
 import com.example.skyapp.Adapter.RecyclerAdapter;
 import com.example.skyapp.Adapter.Utils;
 import com.example.skyapp.FashionActivity;
@@ -49,6 +52,8 @@ public class SearchFragment extends Fragment {
 
    // private SocialAutoCompleteTextView search_bar; //com.hendraanggrian.appcompat.widget.SocialAutoCompleteTextView
    private EditText search_bar;
+    ImageView SearchDelete;
+    CircularDotsLoader circularDotsLoader;
 
     public SearchFragment() {
         // Required empty public constructor
@@ -130,6 +135,33 @@ public class SearchFragment extends Fragment {
 
         search_bar = view.findViewById(R.id.search_bar);
         search_bar.setFocusable(true);
+        circularDotsLoader=view.findViewById(R.id.CircularDotsLoader);
+
+                        circularDotsLoader.startAnimation();
+                circularDotsLoader.setVisibility(View.INVISIBLE);
+
+                SearchDelete = view.findViewById(R.id.search_delete);
+                SearchDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                                search_bar.setText("");
+                                Adapter.products.clear();
+                                Adapter.notifyDataSetChanged();
+                                Adapter2.products.clear();
+                                Adapter2.notifyDataSetChanged();
+                                Adapter3.products.clear();
+                                Adapter3.notifyDataSetChanged();
+                                Adapter4.products.clear();
+                                Adapter4.notifyDataSetChanged();
+                                Adapter5.products.clear();
+                                Adapter5.notifyDataSetChanged();
+                                Adapter6.products.clear();
+                                Adapter6.notifyDataSetChanged();
+                                Adapter7.products.clear();
+                                Adapter7.notifyDataSetChanged();
+
+                                    }
+        });
 
         search_bar.addTextChangedListener(new TextWatcher() {
             @Override
@@ -140,6 +172,8 @@ public class SearchFragment extends Fragment {
                 }
             @Override
             public void afterTextChanged(Editable s) {
+
+                circularDotsLoader.setVisibility(View.VISIBLE);
                     if (s.toString().equals("")) {
                         Adapter.products.clear();
                         Adapter.notifyDataSetChanged();
@@ -177,9 +211,22 @@ public class SearchFragment extends Fragment {
 
                     }
 
-            }
-        });
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
 
+                        circularDotsLoader.setVisibility(View.INVISIBLE);
+                    }
+                },500);
+
+
+
+            }
+
+
+
+        });
 
 
 

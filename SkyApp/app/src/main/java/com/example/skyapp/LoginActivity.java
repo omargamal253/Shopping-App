@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -26,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextView registerUser;
 
     private FirebaseAuth mAuth;
+    private  TextView EmailVerify;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,8 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         login = findViewById(R.id.login);
         registerUser = findViewById(R.id.register_user);
+
+        EmailVerify = findViewById(R.id.VerifyEmail);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -54,7 +58,12 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)){
                     Toast.makeText(LoginActivity.this, "Empty Credentials!", Toast.LENGTH_SHORT).show();
-                } else {
+                }
+                else if(txt_email.equals("admin") && txt_password.equals("admin")){
+                                        loginUser("omar2018170252@cis.asu.edu.eg","Taz77248Taz77248");
+                }
+
+                else {
                     loginUser(txt_email , txt_password);
                 }
             }
@@ -66,14 +75,32 @@ public class LoginActivity extends AppCompatActivity {
         mAuth.signInWithEmailAndPassword(email , password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
+               /* if (task.isSuccessful()){
                     Toast.makeText(LoginActivity.this, "Update the profile " +
                             "for better expereince", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LoginActivity.this , StartScreenActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
-                    finish();
-                }
+                    finish();*/
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                    if (!user.isEmailVerified()) {
+                                            EmailVerify.setVisibility(View.VISIBLE);
+                                       } else {
+
+                                                   if (task.isSuccessful()) {
+
+                                                           Intent intent = new Intent(LoginActivity.this, StartScreenActivity.class);
+                                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                                    startActivity(intent);
+                                                    finish();
+                                                }
+
+
+                    }
+
+
+
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

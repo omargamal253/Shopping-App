@@ -67,6 +67,21 @@
         android:id="@+id/DealsRecyclerView"
         />
 
+    <com.agrawalsuneet.dotsloader.loaders.CircularDotsLoader
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:loader_animDur="150"
+            app:loader_bigCircleRadius="30dp"
+           app:loader_circleRadius="10dp"
+            app:loader_defaultColor="#1A2DAEFF"
+            app:loader_firstShadowColor="#CC2DAEFF"
+           app:loader_secondShadowColor="#802DAEFF"
+           app:loader_selectedColor="#2DAEFF"
+           app:loader_showRunningShadow="true"
+           android:layout_centerVertical="true"
+          android:layout_centerHorizontal="true"
+           android:id="@+id/CircularDotsLoader"
+            />
 
 
 

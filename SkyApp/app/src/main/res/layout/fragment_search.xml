@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.SearchFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.SearchFragment"
+    android:background="#fff">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -21,9 +23,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/toolbar"
-            android:background="#eee"
-
+            android:background="@drawable/search_bg"
             >
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -39,6 +44,16 @@
                 android:hint="Search"
                 android:layout_marginStart="35dp"
                 android:maxLines="1"/>
+
+            <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                           android:src="@drawable/ic_close"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginRight="15dp"
+                          android:id="@+id/search_delete"
+                          />
+            </RelativeLayout>
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -96,6 +111,20 @@
 
     </androidx.core.widget.NestedScrollView>
 
-
+    <com.agrawalsuneet.dotsloader.loaders.CircularDotsLoader
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:loader_animDur="150"
+        app:loader_bigCircleRadius="25dp"
+        app:loader_circleRadius="8dp"
+        app:loader_defaultColor="#1A2DAEFF"
+        app:loader_firstShadowColor="#CC2DAEFF"
+        app:loader_secondShadowColor="#802DAEFF"
+        app:loader_selectedColor="#2DAEFF"
+        app:loader_showRunningShadow="true"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/CircularDotsLoader"
+        />
 
 </RelativeLayout>

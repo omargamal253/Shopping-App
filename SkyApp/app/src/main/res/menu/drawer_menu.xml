@@ -52,14 +52,27 @@
         android:title="My Wishlist"/>
     </group>
 
-    <item android:title="Admin">
+    <group android:id="@+id/about_us">
+
+               <item
+                   android:id="@+id/about_item"
+                    android:checkable="true"
+                   android:icon="@drawable/question"
+                   android:title="About Us"/>
+           </group>
+
+
+    <item android:title="Admin"
+        android:id="@+id/Admin_Block"
+        >
         <menu>
             <item android:id="@+id/AddItem"
-                android:icon="@android:drawable/ic_menu_add"
+                android:icon="@drawable/add_product"
                 android:title="Add Product" />
             <item android:id="@+id/Orders"
-                android:icon="@android:drawable/zoom_plate"
-                android:title="Orders" />
+                android:icon="@drawable/delivery_box"
+                android:title="Users Orders" />
+
         </menu>
     </item>
 </menu>

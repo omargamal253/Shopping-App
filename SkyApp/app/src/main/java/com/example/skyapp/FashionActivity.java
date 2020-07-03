@@ -9,10 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.agrawalsuneet.dotsloader.loaders.ZeeLoader;
 import com.example.skyapp.Adapter.FireBase;
 import com.example.skyapp.Adapter.RecyclerAdapter;
 import com.example.skyapp.model.Product;
@@ -30,7 +32,7 @@ public class FashionActivity extends AppCompatActivity {
     androidx.recyclerview.widget.RecyclerView RecyclerView;
     RecyclerAdapter Adapter;
     ArrayList<Product> products = new ArrayList<>() ;
-
+    ZeeLoader zeeLoader;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +65,18 @@ public class FashionActivity extends AppCompatActivity {
         Adapter = new RecyclerAdapter( this, products , 4);
         RecyclerView.setAdapter(Adapter);
         getMyList("Fashion", Adapter);
+
+        zeeLoader = findViewById(R.id.ZeeLoader);
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+           @Override
+           public void run() {
+
+                                        zeeLoader.setVisibility(View.INVISIBLE);
+                            }
+        },2000);
+
 
     }
 

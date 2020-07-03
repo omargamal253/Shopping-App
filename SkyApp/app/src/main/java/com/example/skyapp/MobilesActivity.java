@@ -9,10 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.agrawalsuneet.dotsloader.loaders.CircularDotsLoader;
 import com.example.skyapp.Adapter.FireBase;
 import com.example.skyapp.Adapter.RecyclerAdapter;
 import com.example.skyapp.model.Product;
@@ -30,6 +32,7 @@ public class MobilesActivity extends AppCompatActivity {
     androidx.recyclerview.widget.RecyclerView RecyclerView;
     RecyclerAdapter Adapter;
     ArrayList<Product> products = new ArrayList<>() ;
+    CircularDotsLoader circularDotsLoader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +66,22 @@ public class MobilesActivity extends AppCompatActivity {
         Adapter = new RecyclerAdapter( this, products , 2);
         RecyclerView.setAdapter(Adapter);
         getMyList("Mobiles", Adapter);
+
+       circularDotsLoader = findViewById(R.id.CircularDotsLoader);
+
+                       circularDotsLoader.startAnimation();
+
+
+                                Handler handler = new Handler();
+               handler.postDelayed(new Runnable() {
+           @Override
+            public void run() {
+
+                                        circularDotsLoader.setVisibility(View.INVISIBLE);
+                            }
+        },1500);
+
+
 
     }
     private void getMyList(String category , RecyclerAdapter Adapter) {

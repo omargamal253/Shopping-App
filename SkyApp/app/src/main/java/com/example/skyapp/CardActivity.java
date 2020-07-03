@@ -53,6 +53,7 @@ public class CardActivity extends AppCompatActivity {
     ArrayList<Product> products = new ArrayList<>() ;
 
     public static TextView TotalTextView;
+    public static TextView   CardEmpty;
 
     Button CallBtn, CompleteOrderBtn;
     @Override
@@ -173,6 +174,9 @@ public class CardActivity extends AppCompatActivity {
 
 
 
+        CardEmpty = findViewById(R.id.CardEmptyOrNot);
+        if(myAdapter.products.size()==0) CardEmpty.setVisibility(View.VISIBLE);
+               else CardEmpty.setVisibility(View.INVISIBLE);
 
 
     }

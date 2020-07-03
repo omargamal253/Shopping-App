@@ -429,17 +429,16 @@
         android:layout_alignParentBottom="true"
         android:padding="10dp"
         >
-        
+
         <Button
+            android:id="@+id/CallButton"
             android:layout_width="50dp"
             android:layout_height="60dp"
-            android:drawableStart="@drawable/ic_call_black_24dp"
-            android:background="#fff"
-            android:elevation="100dp"
-            android:id="@+id/CallButton"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            />
+            android:background="#fff"
+            android:drawableStart="@drawable/ic_call_black_24dp"
+            android:elevation="100dp" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="60dp"
