@@ -36,6 +36,7 @@
             android:layout_marginTop="25dp"
          android:layout_alignEnd="@+id/linear_profile"
             android:id="@+id/SelectPhotoIcon"
+            android:layout_marginRight="12dp"
             />
 
 
@@ -180,6 +181,7 @@
             android:layout_height="2dp"
             android:background="#CCFFFF"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
             android:id="@+id/line_"
             android:layout_below="@+id/Order_Relative"/>
@@ -224,6 +226,8 @@
             android:layout_height="2dp"
             android:background="#CCFFFF"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+
             android:layout_marginTop="10dp"
             android:id="@+id/line_2"
             android:layout_below="@+id/Wish_Relative"/>

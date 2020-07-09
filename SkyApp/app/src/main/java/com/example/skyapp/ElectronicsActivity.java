@@ -62,7 +62,7 @@ public class ElectronicsActivity extends AppCompatActivity {
         );
         RecyclerView.setLayoutManager(layoutManager);
         RecyclerView.setItemAnimator(new DefaultItemAnimator());
-        Adapter = new RecyclerAdapter( this, products , 4);
+        Adapter = new RecyclerAdapter( this, products , 4,6);
         RecyclerView.setAdapter(Adapter);
         getMyList("Electronics", Adapter);
 

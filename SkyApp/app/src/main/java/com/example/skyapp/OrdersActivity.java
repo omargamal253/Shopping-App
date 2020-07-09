@@ -84,24 +84,6 @@ public class OrdersActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 for(DataSnapshot data :  dataSnapshot.getChildren()){
-               /*   Order order  = data.getValue(Order.class);
-                    ordersList.add(order);
-                    String s;
-                    HashMap H = (HashMap) data.child("ProductsInfo").getValue();
-                  //  HashMap H = (HashMap) order.getProducts();
-                    Log.d("HashMap : ", String.valueOf(H));
-
-                    //HashMap H = (HashMap) data.child("ProductsInfo").getValue();
-
-
-                        for(Object name : H.keySet()){
-                        String key =  name.toString();
-                        String  value =(String) H.get(name).toString();
-                        textView.append(key +" : "+value+"\n");
-                    }*/
-                  //  textView.setText(order.getUserId());
-                    //  Toast.makeText(getContext(), product.getImage_url() ,Toast.LENGTH_SHORT).show();
-
 
                 }
 

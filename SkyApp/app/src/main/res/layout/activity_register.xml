@@ -1,19 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="12dp"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:background="@drawable/sky_bg"
+        />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:src="@drawable/logo2"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="12dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/login_bg"
+        android:elevation="20dp"
+        android:layout_centerVertical="true"
 
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="REGISTER"
+            android:textStyle="bold"
+            android:textColor="@color/MainColor"
+            android:textSize="28dp"
+            android:layout_marginBottom="15dp"
+            />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -84,6 +105,7 @@ android:inputType="textEmailAddress"
         android:layout_height="wrap_content"
         android:background="@drawable/button_background"
         android:layout_marginTop="15sp"
+
         android:text="REGISTER"
         android:padding="10dp"
         android:id="@+id/register"/>
@@ -94,8 +116,8 @@ android:inputType="textEmailAddress"
         android:text="Already a user? LogIn"
         android:layout_marginTop="15dp"
         android:id="@+id/login_user"/>
+    </LinearLayout>
 
 
 
-
-</LinearLayout>
+</RelativeLayout>

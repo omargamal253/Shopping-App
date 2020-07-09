@@ -4,7 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -18,7 +18,7 @@
 
     <ViewFlipper
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
         android:id="@+id/flipperId"
         android:layout_centerInParent="true"
         android:flipInterval="2000"
@@ -52,54 +52,234 @@
     </ViewFlipper>
 
 
+
+
+
+
     <RelativeLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:id="@+id/dealRelativeLayout"
-       android:padding="5dp"
-       android:layout_below="@id/flipperId"
-       android:background="#FFF"
-       >
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/dealRelativeLayout"
+        android:padding="5dp"
+        android:layout_below="@id/flipperId"
+        android:background="#FFF"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
 
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="DEALS OF DAY"
-           android:id="@+id/dealTitle"
-           android:textStyle="bold"
-           android:textSize="12dp"
-           android:textColor="#000"
+        >
 
-           />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DEALS OF DAY"
+            android:id="@+id/dealTitle"
+            android:textStyle="bold"
+            android:textSize="12dp"
+            android:textColor="#000"
 
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="Hot Deals Everyday"
-           android:layout_below="@id/dealTitle"
-           android:textSize="10dp"
-           android:textColor="#000"
+            />
 
-           />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hot Deals Everyday"
+            android:layout_below="@id/dealTitle"
+            android:textSize="10dp"
+            android:textColor="#000"
 
-   </RelativeLayout>
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SEE ALL"
+            android:layout_alignParentRight="true"
+            android:textColor="#000"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:id="@+id/SeeAllDeals"
+            />
+
+    </RelativeLayout>
 
 
-<androidx.recyclerview.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="280dp"
+        android:layout_below="@+id/dealRelativeLayout"
+        android:id="@+id/DealsRecyclerView"
+        android:background="#eee"
+        />
+
+
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+android:id="@+id/Category_Relative"
+    android:layout_below="@+id/DealsRecyclerView"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/CategoryRelativeLayout"
+        android:padding="5dp"
+        android:background="#FFF"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Top Category"
+            android:id="@+id/CategoryTitle"
+            android:textStyle="bold"
+            android:textSize="13dp"
+            android:textColor="#000"
+
+            />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/fashionRelative"
+        android:background="@drawable/category_bg"
+        android:layout_below="@+id/CategoryRelativeLayout"
+        android:layout_margin="5dp"
+
+        >
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:src="@drawable/fashion_text"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/fashionText"
+            />
+
+
+<androidx.cardview.widget.CardView
     android:layout_width="wrap_content"
-    android:layout_height="280dp"
-   android:layout_below="@+id/dealRelativeLayout"
-    android:id="@+id/DealsRecyclerView"
-    android:background="#eee"
+    android:layout_height="147dp"
+    android:layout_below="@+id/fashionText"
+app:cardCornerRadius="12dp"
+
+    android:elevation="10dp"
+    >
+
+        <ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/fashion_pic"
+
     />
+
+</androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/MarketRelative"
+        android:background="@drawable/category_bg"
+        android:layout_below="@+id/CategoryRelativeLayout"
+        android:layout_toRightOf="@+id/fashionRelative"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        >
+
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:id="@+id/MarketText"
+ android:text="Supermarket"
+    android:textColor="#000"
+    android:textSize="11dp"
+    />
+
+
+
+            <ImageView
+
+                android:layout_width="100dp"
+                android:layout_height="75dp"
+                android:src="@drawable/market_img"
+                android:layout_below="@+id/MarketText"
+                android:layout_centerHorizontal="true"
+
+                />
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tabletsRelative"
+        android:background="@drawable/category_bg"
+        android:layout_below="@+id/MarketRelative"
+        android:layout_toRightOf="@+id/fashionRelative"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/tabletsText"
+            android:text="Mobiles and tablets"
+            android:textColor="#000"
+            android:textSize="11dp"
+            />
+
+
+
+        <ImageView
+
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:src="@drawable/tablets_pic"
+            android:layout_below="@+id/tabletsText"
+            android:layout_centerHorizontal="true"
+
+            />
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+</RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/BestSalesRelativeLayout"
         android:padding="5dp"
-        android:layout_below="@id/DealsRecyclerView"
+        android:layout_below="@id/Category_Relative"
         android:background="#FFF"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         >
 
         <TextView
@@ -121,7 +301,17 @@
             android:textSize="10dp"
             android:textColor="#000"
             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SEE ALL"
+            android:layout_alignParentRight="true"
+            android:textColor="#000"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:id="@+id/SeeAllBest"
 
+            />
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -140,6 +330,8 @@
         android:padding="5dp"
         android:layout_below="@id/BestRecyclerView"
         android:background="#FFF"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         >
 
         <TextView
@@ -160,6 +352,17 @@
             android:layout_below="@id/LaptopTitle"
             android:textSize="10dp"
             android:textColor="#000"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SEE ALL"
+            android:layout_alignParentRight="true"
+            android:textColor="#000"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:id="@+id/SeeAllLaptop"
+
             />
 
     </RelativeLayout>
@@ -201,6 +404,18 @@
             android:layout_below="@id/MobilesTitle"
             android:textSize="10dp"
             android:textColor="#000"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SEE ALL"
+            android:layout_alignParentRight="true"
+            android:textColor="#000"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:id="@+id/SeeAllMobiles"
+
             />
 
     </RelativeLayout>

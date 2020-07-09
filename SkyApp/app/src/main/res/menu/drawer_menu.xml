@@ -8,6 +8,7 @@
      android:checkable="true"
      android:icon="@drawable/hotsale2"
      android:title="Deals"
+
      />
 
     <item

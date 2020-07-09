@@ -8,11 +8,14 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.ActivityOptions;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
+import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,6 +37,9 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
+import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
+
 public class MainActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener {
 
 DrawerLayout drawerLayout ;
@@ -46,6 +52,7 @@ DrawerLayout drawerLayout ;
 
   public  static  BottomNavigationView bottomNavigationView;
     CircularDotsLoader circularDotsLoader;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,9 +109,12 @@ View view = navigationView.getHeaderView(0);
 */
         set_AdminBlock_Visible(false);
                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-              if(user.getEmail().equals("omar2018170252@cis.asu.edu.eg")){
-                      set_AdminBlock_Visible(true);
-                         }
+
+               if(user.getEmail()!=null) {
+                   if (user.getEmail().equals("omar2018170252@cis.asu.edu.eg"))
+                       set_AdminBlock_Visible(true);
+
+               }
               // sendEmailVerification();
 
 
@@ -121,6 +131,21 @@ View view = navigationView.getHeaderView(0);
                             }
        },2000);
 
+
+        KeyboardVisibilityEvent.setEventListener(
+                this,
+                new KeyboardVisibilityEventListener() {
+                    @Override
+                    public void onVisibilityChanged(boolean isOpen) {
+                        if(isOpen){
+                            Log.d("KeyboardVisibilityEvent", "onVisibilityChanged: Keyboard is open");
+                            bottomNavigationView.setVisibility(View.INVISIBLE);
+                        }else{
+                            Log.d("KeyboardVisibilityEvent", "onVisibilityChanged: Keyboard is closed");
+                            bottomNavigationView.setVisibility(View.VISIBLE);
+                        }
+                    }
+                });
 
     }
 
@@ -205,6 +230,7 @@ View view = navigationView.getHeaderView(0);
         super.onBackPressed();
     }
 
+
     public void ManageButtonNav(){
 
          bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -214,9 +240,13 @@ View view = navigationView.getHeaderView(0);
                 int id = item.getItemId();
                 if(id == R.id.nav_home){
                     HomeFragment homeFragment = new HomeFragment();
+
+                 //   homeFragment.SetBase_Activity((MainActivity.this).getParent());
+
                     fragmentTransaction = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.fragment_container, homeFragment);
                     fragmentTransaction.commit();
+
 
                 }
                 else if(id == R.id.nav_heart){

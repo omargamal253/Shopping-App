@@ -165,6 +165,8 @@ public class AddItemActivity extends AppCompatActivity {
         product.setImage_url(DownloadUrl);
 
         FireBase.AddProductTo_FireBase(product, Category);
+
+        FireBase.AddProductTo_FireBase(product, "Deals");
         //product.getTitle()+product.getBrand()+product.getColor()
        // title.getText().toString()+brand.getText().toString()+color.getText().toString()
 

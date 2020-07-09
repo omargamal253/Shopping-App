@@ -62,7 +62,7 @@ androidx.recyclerview.widget.RecyclerView RecyclerView;
         );
         RecyclerView.setLayoutManager(layoutManager);
         RecyclerView.setItemAnimator(new DefaultItemAnimator());
-        Adapter = new RecyclerAdapter( this, products , 2);
+        Adapter = new RecyclerAdapter( this, products , 2,4);
         RecyclerView.setAdapter(Adapter);
         getMyList("Laptop and Tablets", Adapter);
 

@@ -175,8 +175,6 @@ public class CardActivity extends AppCompatActivity {
 
 
         CardEmpty = findViewById(R.id.CardEmptyOrNot);
-        if(myAdapter.products.size()==0) CardEmpty.setVisibility(View.VISIBLE);
-               else CardEmpty.setVisibility(View.INVISIBLE);
 
 
     }
@@ -206,6 +204,8 @@ public class CardActivity extends AppCompatActivity {
 
                     }
                     //  Toast.makeText(getContext(), product.getImage_url() ,Toast.LENGTH_SHORT).show();
+                    if(myAdapter.products.size()==0) CardEmpty.setVisibility(View.VISIBLE);
+                    else CardEmpty.setVisibility(View.INVISIBLE);
 
 
                 }

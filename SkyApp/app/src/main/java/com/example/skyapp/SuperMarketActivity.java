@@ -62,7 +62,7 @@ public class SuperMarketActivity extends AppCompatActivity {
         );
         RecyclerView.setLayoutManager(layoutManager);
         RecyclerView.setItemAnimator(new DefaultItemAnimator());
-        Adapter = new RecyclerAdapter( this, products , 2);
+        Adapter = new RecyclerAdapter( this, products , 2,3);
         RecyclerView.setAdapter(Adapter);
         getMyList("Supermarket", Adapter);
 

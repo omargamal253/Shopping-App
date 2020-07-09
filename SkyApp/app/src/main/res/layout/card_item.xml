@@ -26,6 +26,7 @@ app:layout_optimizationLevel="chains"
         android:layout_alignParentTop="true"
         android:src="@drawable/ic_launcher_background"
         android:layout_marginTop="10dp"
+        android:transitionName="ImageTransition"
 
         />
     <TextView
@@ -51,6 +52,7 @@ app:layout_optimizationLevel="chains"
         android:maxHeight="70dp"
         android:layout_toRightOf="@+id/imageIv3"
         android:layout_marginTop="20dp"
+        android:transitionName="TitleTransition"
 
         />
 

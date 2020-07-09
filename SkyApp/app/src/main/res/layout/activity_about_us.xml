@@ -30,13 +30,14 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/event_cover"
-                android:layout_marginLeft="160dp"
+                android:src="@drawable/cover2"
+                android:layout_marginLeft="140dp"
+                android:layout_marginTop="10dp"
                 />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="About Me"
+        android:text="About me"
         android:textColor="#fff"
         android:textSize="30dp"
         android:layout_alignParentBottom="true"
@@ -54,7 +55,7 @@
             android:src="@drawable/star"
             android:layout_marginTop="275dp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="40dp"
+            android:layout_marginRight="20dp"
 
 
             />
@@ -100,7 +101,7 @@
         android:layout_height="35dp"
         android:src="@drawable/chat"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="25dp"
+        android:layout_marginRight="40dp"
         />
 
 
@@ -112,6 +113,7 @@
         android:layout_below="@+id/CallRelative"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="20dp"
+        android:id="@+id/mail_Relative"
         >
 
         <ImageView
@@ -164,6 +166,43 @@
             android:layout_marginLeft="12dp"
             />
 
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mail_Relative"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        >
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/git_hubicon"
+            android:id="@+id/gitIcon_icon_"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="github.com/omargamal253"
+            android:textColor="#000"
+            android:textSize="18dp"
+            android:layout_toRightOf="@+id/gitIcon_icon_"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/Git_email"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Github"
+            android:layout_below="@+id/Git_email"
+            android:layout_toRightOf="@+id/gitIcon_icon_"
+            android:layout_marginLeft="12dp"
+            />
 
 
     </RelativeLayout>

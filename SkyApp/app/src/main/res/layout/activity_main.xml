@@ -6,7 +6,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
 <ImageView
     android:layout_width="100dp"
     android:layout_height="100dp"
-    android:src="@drawable/icon2"
+    android:src="@drawable/newapp_icon"
     android:layout_centerInParent="true"
     android:id="@+id/icon_image"/>
 
@@ -19,21 +19,18 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     android:id="@+id/linear_layout"
     >
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:src="@drawable/logo2"/>
+
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/button_background"
-        android:text="Log In"
+        android:text="LogIn"
         android:textAllCaps="false"
         android:id="@+id/login"
         android:layout_marginTop="20dp"
 
-        android:textColor="#455cde"/>
+        android:textColor="@color/MainColor"/>
 
 
     <Button
@@ -45,8 +42,15 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         android:id="@+id/register"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:textColor="#455cde"
-        />
+        android:textColor="@color/MainColor"        />
+
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="30dp" />
 
 </LinearLayout>
 

@@ -66,7 +66,7 @@ public class DealsActivity extends AppCompatActivity {
         );
         DealsRecyclerView.setLayoutManager(layoutManager);
         DealsRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        DealsAdapter = new RecyclerAdapter( this, products , 3);
+        DealsAdapter = new RecyclerAdapter( this, products , 3,2);
         DealsRecyclerView.setAdapter(DealsAdapter);
         getMyList("Deals", DealsAdapter);
 

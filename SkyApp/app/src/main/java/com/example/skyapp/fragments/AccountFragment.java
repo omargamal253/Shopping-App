@@ -30,6 +30,7 @@ import com.example.skyapp.R;
 import com.example.skyapp.StartActivity;
 import com.example.skyapp.model.Product;
 import com.example.skyapp.model.User;
+import com.facebook.login.LoginManager;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -151,6 +152,7 @@ public class AccountFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
+                LoginManager.getInstance().logOut();
                 Intent intent = new Intent(c , StartActivity.class);
                 startActivity(intent);
                 c.finish();

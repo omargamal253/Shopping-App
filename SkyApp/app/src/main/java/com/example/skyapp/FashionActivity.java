@@ -62,7 +62,7 @@ public class FashionActivity extends AppCompatActivity {
         );
         RecyclerView.setLayoutManager(layoutManager);
         RecyclerView.setItemAnimator(new DefaultItemAnimator());
-        Adapter = new RecyclerAdapter( this, products , 4);
+        Adapter = new RecyclerAdapter( this, products , 4,7);
         RecyclerView.setAdapter(Adapter);
         getMyList("Fashion", Adapter);
 

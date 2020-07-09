@@ -1,19 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
-android:orientation="vertical"
-android:gravity="center"
-android:padding="12dp"
+
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".LoginActivity">
 
-<ImageView
-    android:layout_width="wrap_content"
-    android:layout_height="50dp"
-    android:src="@drawable/logo2"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:background="@drawable/sky_bg"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="12dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/login_bg"
+        android:elevation="20dp"
+        android:layout_centerVertical="true"
+
+        >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOGIN"
+        android:textStyle="bold"
+        android:textColor="@color/MainColor"
+        android:textSize="28dp"
+        android:layout_marginBottom="15dp"
+        />
 
 <EditText
     android:layout_width="match_parent"
@@ -53,6 +78,7 @@ tools:context=".LoginActivity">
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/button_background"
+
     android:layout_marginTop="15sp"
     android:text="LOGIN"
     android:padding="10dp"
@@ -61,7 +87,7 @@ tools:context=".LoginActivity">
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="New to Sky? Register"
+    android:text="New to Shoppers? Register"
     android:layout_marginTop="15dp"
     android:id="@+id/register_user"/>
 
@@ -75,4 +101,10 @@ tools:context=".LoginActivity">
         android:visibility="invisible"
         />
 
-</LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

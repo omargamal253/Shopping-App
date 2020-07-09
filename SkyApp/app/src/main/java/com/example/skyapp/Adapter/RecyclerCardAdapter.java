@@ -1,8 +1,10 @@
 package com.example.skyapp.Adapter;
 
 import android.annotation.SuppressLint;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +15,15 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.skyapp.CardActivity;
+import com.example.skyapp.DealsActivity;
+import com.example.skyapp.ElectronicsActivity;
+import com.example.skyapp.FashionActivity;
+import com.example.skyapp.LaptopActivity;
+import com.example.skyapp.MainActivity;
+import com.example.skyapp.MobilesActivity;
 import com.example.skyapp.ProductActivity;
 import com.example.skyapp.R;
+import com.example.skyapp.SuperMarketActivity;
 import com.example.skyapp.fragments.HomeFragment;
 import com.example.skyapp.model.Product;
 import com.google.android.material.snackbar.Snackbar;
@@ -228,7 +237,13 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<MyCardHolder>{
 
                 Intent intent = new Intent( c, ProductActivity.class);
                 intent.putExtra("ProductObject", products.get(position));
-                c.startActivity(intent);
+                Pair[] pairs = new Pair[2];
+                pairs[0]= new Pair<View , String>(holder.mImageView,"ImageTransition");
+                pairs[1]= new Pair<View , String>(holder.mTitle,"TitleTransition");
+                /* pairs[2]= new Pair<View , String>(holder.mTitle,"PriceTransition");*/
+
+                ActivityOptions   options = ActivityOptions.makeSceneTransitionAnimation(  (CardActivity)c ,pairs);
+                c.startActivity(intent , options.toBundle());
             }
         });
 

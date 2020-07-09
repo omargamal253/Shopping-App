@@ -16,6 +16,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.agrawalsuneet.dotsloader.loaders.CircularDotsLoader;
@@ -54,6 +56,7 @@ public class SearchFragment extends Fragment {
    private EditText search_bar;
     ImageView SearchDelete;
     CircularDotsLoader circularDotsLoader;
+RelativeLayout SearchBackground;
 
     public SearchFragment() {
         // Required empty public constructor
@@ -100,37 +103,37 @@ public class SearchFragment extends Fragment {
         );
         RecyclerView.setLayoutManager(layoutManager);
         RecyclerView.setItemAnimator(new DefaultItemAnimator());
-        Adapter = new RecyclerAdapter( c, products , 4);
+        Adapter = new RecyclerAdapter( c, products , 4,1);
         RecyclerView.setAdapter(Adapter);
 
         RecyclerView2.setLayoutManager(layoutManager2);
         RecyclerView2.setItemAnimator(new DefaultItemAnimator());
-        Adapter2 = new RecyclerAdapter( c, products2 , 4);
+        Adapter2 = new RecyclerAdapter( c, products2 , 4,1);
         RecyclerView2.setAdapter(Adapter2);
 
         RecyclerView3.setLayoutManager(layoutManager3);
         RecyclerView3.setItemAnimator(new DefaultItemAnimator());
-        Adapter3 = new RecyclerAdapter( c, products3 , 4);
+        Adapter3 = new RecyclerAdapter( c, products3 , 4,1);
         RecyclerView3.setAdapter(Adapter3);
 
         RecyclerView4.setLayoutManager(layoutManager4);
         RecyclerView4.setItemAnimator(new DefaultItemAnimator());
-        Adapter4 = new RecyclerAdapter( c, products4 , 4);
+        Adapter4 = new RecyclerAdapter( c, products4 , 4,1);
         RecyclerView4.setAdapter(Adapter4);
 
         RecyclerView5.setLayoutManager(layoutManager5);
         RecyclerView5.setItemAnimator(new DefaultItemAnimator());
-        Adapter5 = new RecyclerAdapter( c, products5 , 4);
+        Adapter5 = new RecyclerAdapter( c, products5 , 4,1);
         RecyclerView5.setAdapter(Adapter5);
 
         RecyclerView6.setLayoutManager(layoutManager6);
         RecyclerView6.setItemAnimator(new DefaultItemAnimator());
-        Adapter6 = new RecyclerAdapter( c, products6 , 4);
+        Adapter6 = new RecyclerAdapter( c, products6 , 4,1);
         RecyclerView6.setAdapter(Adapter6);
 
         RecyclerView7.setLayoutManager(layoutManager7);
         RecyclerView7.setItemAnimator(new DefaultItemAnimator());
-        Adapter7 = new RecyclerAdapter( c, products7 , 4);
+        Adapter7 = new RecyclerAdapter( c, products7 , 4,1);
         RecyclerView7.setAdapter(Adapter7);
 
         search_bar = view.findViewById(R.id.search_bar);
@@ -140,7 +143,12 @@ public class SearchFragment extends Fragment {
                         circularDotsLoader.startAnimation();
                 circularDotsLoader.setVisibility(View.INVISIBLE);
 
-                SearchDelete = view.findViewById(R.id.search_delete);
+        SearchBackground = view.findViewById(R.id.SearchBackground);
+        SearchBackground.setVisibility(View.VISIBLE);
+
+
+
+        SearchDelete = view.findViewById(R.id.search_delete);
                 SearchDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -172,6 +180,7 @@ public class SearchFragment extends Fragment {
                 }
             @Override
             public void afterTextChanged(Editable s) {
+                SearchBackground.setVisibility(View.INVISIBLE);
 
                 circularDotsLoader.setVisibility(View.VISIBLE);
                     if (s.toString().equals("")) {
@@ -189,6 +198,7 @@ public class SearchFragment extends Fragment {
                         Adapter6.notifyDataSetChanged();
                         Adapter7.products.clear();
                         Adapter7.notifyDataSetChanged();
+                        SearchBackground.setVisibility(View.VISIBLE);
 
 
                     } else {

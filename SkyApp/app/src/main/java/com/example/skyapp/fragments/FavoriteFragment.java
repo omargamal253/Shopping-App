@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.agrawalsuneet.dotsloader.loaders.CircularDotsLoader;
 import com.example.skyapp.Adapter.FireBase;
 import com.example.skyapp.Adapter.RecyclerFavAdapter;
 import com.example.skyapp.R;
@@ -40,7 +42,8 @@ public class FavoriteFragment extends Fragment {
     RecyclerView FavRecyclerView;
     public static RecyclerFavAdapter FavAdapter;
     ArrayList<Product> products = new ArrayList<>() ;
-    public static  RelativeLayout relativeLayout ;
+    public static  RelativeLayout RelativeLayoutNoItem;
+    CircularDotsLoader circularDotsLoader;
 
     public FavoriteFragment() {
         // Required empty public constructor
@@ -64,6 +67,11 @@ public class FavoriteFragment extends Fragment {
         FavRecyclerView.setAdapter(FavAdapter);
 
         getMyList(FavAdapter);
+
+        RelativeLayoutNoItem = view.findViewById(R.id.RelativeNoItem);
+
+        if(FavAdapter.products.size()==0) RelativeLayoutNoItem.setVisibility(View.VISIBLE);
+        else RelativeLayoutNoItem.setVisibility(View.INVISIBLE);
 
 
 
@@ -93,6 +101,10 @@ public class FavoriteFragment extends Fragment {
                 HomeFragment.BestSealsAdapter.notifyDataSetChanged();
                 FavAdapter.notifyDataSetChanged();
 
+                if(FavAdapter.products.size()==0) RelativeLayoutNoItem.setVisibility(View.VISIBLE);
+                else RelativeLayoutNoItem.setVisibility(View.INVISIBLE);
+
+
             }
         };
         ItemTouchHelper itemTouchHelper =new ItemTouchHelper(simpleCallback) ;
@@ -101,7 +113,19 @@ public class FavoriteFragment extends Fragment {
 TextView t = view.findViewById(R.id.noSaved);
 
 
-        relativeLayout = view.findViewById(R.id.RelativeNoItem);
+        circularDotsLoader=view.findViewById(R.id.CircularDotsLoader);
+
+        circularDotsLoader.startAnimation();
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                circularDotsLoader.setVisibility(View.INVISIBLE);
+            }
+        },700);
+
 
         // Inflate the layout for this fragment
 

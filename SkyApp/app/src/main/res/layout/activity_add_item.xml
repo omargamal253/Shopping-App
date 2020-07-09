@@ -72,8 +72,8 @@ tools:context=".AddItemActivity">
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:src="@drawable/select_photo"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="90dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="75dp"
         android:layout_alignEnd="@+id/image_added"
         android:id="@+id/SelectPhotoIcon"
         />

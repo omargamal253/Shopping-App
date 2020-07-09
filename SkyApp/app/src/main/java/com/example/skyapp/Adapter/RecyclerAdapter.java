@@ -1,8 +1,11 @@
 package com.example.skyapp.Adapter;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +13,15 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.skyapp.DealsActivity;
+import com.example.skyapp.ElectronicsActivity;
+import com.example.skyapp.FashionActivity;
+import com.example.skyapp.LaptopActivity;
+import com.example.skyapp.MainActivity;
+import com.example.skyapp.MobilesActivity;
 import com.example.skyapp.ProductActivity;
 import com.example.skyapp.R;
+import com.example.skyapp.SuperMarketActivity;
 import com.example.skyapp.model.Product;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,10 +39,15 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<MyHolder> {
     Context c ;
     public ArrayList<Product> products;
     int layout;
-    public RecyclerAdapter(Context c, ArrayList<Product> products , int layout) {
+    int BaseActivity;
+    ActivityOptions options;
+    public RecyclerAdapter(Context c, ArrayList<Product> products , int layout, int BaseActivity) {
         this.c = c;
         this.products = products;
         this.layout = layout;
+        this.BaseActivity = BaseActivity;
+        // 1 -> MainActivity / 2 -> DealActivity /  3 ->Supermarket  / 4 -> Laptop /  5 -> Mobiles / 6 -> Electronics / 7-> Fashion
+
     }
 
     public void addNewData(Product product){
@@ -182,7 +197,21 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<MyHolder> {
                 intent.putExtra("ProductObject", products.get(position));
                 intent.putExtra("AddedToCardOrNot", holder.AddedToCard);
                 intent.putExtra("AddedToFavOrNot",holder.AddedToFav);
-                c.startActivity(intent);
+
+
+                Pair[] pairs = new Pair[2];
+                pairs[0]= new Pair<View , String>(holder.mImageView,"ImageTransition");
+                pairs[1]= new Pair<View , String>(holder.mTitle,"TitleTransition");
+               /* pairs[2]= new Pair<View , String>(holder.mTitle,"PriceTransition");*/
+
+              if(BaseActivity==1)   options = ActivityOptions.makeSceneTransitionAnimation(  (MainActivity)c ,pairs);
+              else if(BaseActivity==2)   options = ActivityOptions.makeSceneTransitionAnimation(  (DealsActivity)c ,pairs);
+              else if(BaseActivity==3)   options = ActivityOptions.makeSceneTransitionAnimation(  (SuperMarketActivity)c ,pairs);
+              else if(BaseActivity==4)   options = ActivityOptions.makeSceneTransitionAnimation(  (LaptopActivity)c ,pairs);
+              else if(BaseActivity==5)   options = ActivityOptions.makeSceneTransitionAnimation(  (MobilesActivity)c ,pairs);
+              else if(BaseActivity==6)   options = ActivityOptions.makeSceneTransitionAnimation(  (ElectronicsActivity)c ,pairs);
+              else if(BaseActivity==7)   options = ActivityOptions.makeSceneTransitionAnimation(  (FashionActivity)c ,pairs);
+                c.startActivity(intent , options.toBundle());
 
             }
         });
@@ -205,4 +234,5 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<MyHolder> {
     public int getItemCount() {
         return products.size();
     }
+
 }

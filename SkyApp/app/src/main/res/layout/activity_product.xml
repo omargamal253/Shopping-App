@@ -84,6 +84,8 @@
 
     android:id="@+id/ProductImage"
     android:src="@drawable/watches"
+    android:transitionName="ImageTransition"
+
 
     />
 
@@ -125,6 +127,8 @@
     android:layout_marginTop="7dp"
     android:textColor="#000"
     android:textSize="17dp"
+    android:transitionName="TitleTransition"
+
 
     />
     <TextView
@@ -198,6 +202,7 @@
             android:layout_marginTop="7dp"
             android:id="@+id/ProductPriceAfter"
             android:textSize="17dp"
+            android:transitionName="PriceTransition"
 
             />
         <TextView
@@ -346,7 +351,8 @@
                 android:layout_height="0.5dp"
                 android:layout_below="@+id/description"
                 android:background="#696969"
-
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
                 android:id="@+id/line_2"/>
 

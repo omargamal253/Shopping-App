@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sky Shopping</string>
+    <string name="app_name">Shopavo</string>
     <string name="open" />
     <string name="close" />
 
@@ -14,4 +14,9 @@
         <item>Electronics</item>
         <item>Fashion</item>
     </string-array>
+
+
+    <string name="facebook_app_id">2732809856823466</string>
+    <string name="fb_login_protocol_scheme">fb2732809856823466</string>
+
 </resources>
