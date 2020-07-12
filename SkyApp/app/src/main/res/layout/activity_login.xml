@@ -27,6 +27,9 @@ tools:context=".LoginActivity">
         android:elevation="20dp"
         android:layout_centerVertical="true"
 
+        android:id="@+id/LoginLinear"
+        android:visibility="visible"
+
         >
 
 
@@ -39,47 +42,75 @@ tools:context=".LoginActivity">
         android:textSize="28dp"
         android:layout_marginBottom="15dp"
         />
+        <com.google.android.material.textfield.TextInputLayout
 
-<EditText
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/edit_text_background"
-    android:layout_marginTop="15dp"
-    android:hint="Email"
-    android:paddingTop="10dp"
-    android:paddingBottom="10dp"
-    android:paddingLeft="0dp"
-    android:paddingStart="15dp"
-    android:id="@+id/email"
-    android:drawableLeft="@drawable/email_icon"
-    android:drawablePadding="10dp"
-    android:inputType="textEmailAddress"
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:hintTextAppearance="@style/HintText"
+>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:paddingStart="10dp"
+                android:id="@+id/email"
+                android:background="@drawable/edit_text_background"
 
 
-    />
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
-<EditText
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/edit_text_background"
-    android:layout_marginTop="15dp"
-    android:hint="Password"
-    android:paddingTop="10dp"
-    android:paddingBottom="10dp"
-    android:paddingLeft="15dp"
-    android:id="@+id/password"
-    android:drawableLeft="@drawable/password_icon4"
-    android:drawablePadding="10dp"
-    android:inputType="textPassword"
 
-    />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etPasswordLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"
+            app:hintTextAppearance="@style/HintText"
+android:layout_marginTop="5dp"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingStart="10dp"
+                android:id="@+id/password"
+
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+            android:text="forgot your password ?"
+            android:textSize="13dp"
+            android:layout_gravity="left"
+            android:textColor="#000"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/forgotText"
+            />
+
+
 
 <Button
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/button_background"
+    android:background="@drawable/loginbtn_bg"
 
-    android:layout_marginTop="15sp"
+    android:layout_marginTop="30sp"
     android:text="LOGIN"
     android:padding="10dp"
     android:id="@+id/login"/>
@@ -87,7 +118,7 @@ tools:context=".LoginActivity">
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="New to Shoppers? Register"
+    android:text="New to Shopavo? Register"
     android:layout_marginTop="15dp"
     android:id="@+id/register_user"/>
 
@@ -104,6 +135,84 @@ tools:context=".LoginActivity">
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="12dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/login_bg"
+        android:elevation="20dp"
+        android:layout_centerVertical="true"
+
+        android:id="@+id/ForgotLinear"
+        android:visibility="invisible"
+
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LOGIN"
+            android:textStyle="bold"
+            android:textColor="@color/MainColor"
+            android:textSize="28dp"
+            android:layout_marginBottom="15dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="We will send email for you to reset your password "
+            android:textSize="13dp"
+            android:layout_gravity="left"
+            android:textColor="#000"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etForgotEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/HintText"
+            android:layout_marginTop="20dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:paddingStart="10dp"
+                android:id="@+id/emailForgot"
+
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/loginbtn_bg"
+
+            android:layout_marginTop="30sp"
+            android:text="SEND"
+            android:padding="10dp"
+            android:id="@+id/SendReset"/>
+
+    </LinearLayout>
 
 
 

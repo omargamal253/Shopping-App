@@ -18,7 +18,8 @@ import androidx.annotation.NonNull;
         import com.google.android.gms.tasks.OnFailureListener;
         import com.google.android.gms.tasks.OnSuccessListener;
         import com.google.android.gms.tasks.Task;
-        import com.google.firebase.auth.AuthResult;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.AuthResult;
         import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -28,10 +29,10 @@ import com.google.firebase.database.DatabaseReference;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText username;
-    private EditText phone;
-    private EditText email;
-    private EditText password;
+    private TextInputEditText username;
+    private TextInputEditText phone;
+    private TextInputEditText email;
+    private TextInputEditText password;
     private Button register;
     private TextView loginUser;
 

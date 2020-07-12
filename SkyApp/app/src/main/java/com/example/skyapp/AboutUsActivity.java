@@ -18,7 +18,7 @@ public class AboutUsActivity extends AppCompatActivity {
                 toolbar = findViewById(R.id.AboutUs_Toolbar);
         setSupportActionBar(toolbar);
 
-                toolbar.setTitle("About us");
+                toolbar.setTitle("Contact");
                 setSupportActionBar(toolbar);
                 getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

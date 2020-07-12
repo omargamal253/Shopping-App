@@ -3,8 +3,7 @@
     package="com.example.skyapp">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
-
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,12 +12,9 @@
         android:roundIcon="@drawable/newapp_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
-
-
-        <activity android:name=".AboutUsActivity"></activity>
-        <activity android:name=".StartScreenActivity"></activity>
+        <activity android:name=".OrderCheckout"></activity>
+        <activity android:name=".AboutUsActivity" />
+        <activity android:name=".StartScreenActivity" />
         <activity android:name=".MyOrdersActivity" />
         <activity android:name=".OrdersActivity" />
         <activity android:name=".FashionActivity" />
@@ -30,9 +26,9 @@
         <activity android:name=".CardActivity" />
         <activity android:name=".AddItemActivity" />
         <activity android:name=".ProductActivity" />
-        <activity android:name=".MainActivity"
-            android:windowSoftInputMode="adjustResize"
-            />
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".StartActivity">
@@ -43,30 +39,26 @@
             </intent-filter>
         </activity>
 
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
 
-
-        <meta-data android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"/>
-
-        <activity android:name="com.facebook.FacebookActivity"
-            android:configChanges=
-                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name" />
         <activity
             android:name="com.facebook.CustomTabActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-
-
-
     </application>
-
-
 
 </manifest>

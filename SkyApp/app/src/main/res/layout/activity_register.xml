@@ -35,69 +35,95 @@
             android:textSize="28dp"
             android:layout_marginBottom="15dp"
             />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edit_text_background"
-        android:layout_marginTop="15dp"
-        android:hint="Username"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:paddingLeft="15dp"
-        android:id="@+id/username"
-        android:drawableLeft="@drawable/name_icon"
-        android:drawablePadding="10dp"
 
 
-        />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etUsernameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/HintText"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="Username"
+                android:inputType="text"
+                android:paddingStart="10dp"
 
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edit_text_background"
-        android:layout_marginTop="15dp"
-        android:hint="Email"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:paddingLeft="15dp"        android:id="@+id/email"
-        android:drawableLeft="@drawable/email_icon"
-android:inputType="textEmailAddress"
-        android:drawablePadding="10dp"
-
-        />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edit_text_background"
-        android:layout_marginTop="15dp"
-        android:hint="Password"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:paddingLeft="15dp"
-        android:id="@+id/password"
-        android:drawableLeft="@drawable/password_icon4"
-        android:inputType="textPassword"
-        android:drawablePadding="10dp"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edit_text_background"
-        android:layout_marginTop="15dp"
-        android:hint="Phone"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:paddingLeft="15dp"
-        android:id="@+id/phone"
-        android:drawableLeft="@drawable/call_icon"
-        android:inputType="phone"
-        android:drawablePadding="10dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etEMailLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/HintText"
+            >
 
-        />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:paddingStart="10dp"
+
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etPasswordLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"
+            app:hintTextAppearance="@style/HintText"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingStart="10dp"
+
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phoneLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/HintText"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="Email"
+                android:inputType="phone"
+                android:paddingStart="10dp"
+
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
 
     <Button
@@ -105,7 +131,7 @@ android:inputType="textEmailAddress"
         android:layout_height="wrap_content"
         android:background="@drawable/button_background"
         android:layout_marginTop="15sp"
-
+        android:textColor="@color/MainColor"
         android:text="REGISTER"
         android:padding="10dp"
         android:id="@+id/register"/>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="250dp"
+    android:layout_height="230dp"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/drawer_header_background"
+    android:background="@drawable/sky_bg"
     tools:context=".MainActivity"
 
     >
@@ -12,10 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingLeft="16dp"
-        android:paddingBottom="16dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:paddingRight="30dp"
         >
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -24,33 +23,33 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/profil_icon_url"
-            android:layout_marginLeft="25dp"
             app:civ_border_width="2dp"
-            app:civ_border_color="#53B4FF"/>
+            app:civ_border_color="#53B4FF"
+
+            />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=" -- "
-            android:textColor="#C5292323"
-            android:textSize="26sp"
+            android:textColor="#B3292323"
+            android:textSize="23sp"
             android:textStyle="bold"
             android:fontFamily="sans-serif-condensed"
             android:id="@+id/user_username"
             android:layout_marginTop="5dp"
-            android:layout_marginLeft="10dp"
-
+ android:textAlignment="center"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="--"
             android:textColor="#fff"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:fontFamily="sans-serif-condensed"
             android:id="@+id/user_email"
             android:layout_marginTop="3dp"
-
+            android:textAlignment="center"
             />
 
 

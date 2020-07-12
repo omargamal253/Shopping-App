@@ -183,6 +183,10 @@ View view = navigationView.getHeaderView(0);
             Intent intent = new Intent(MainActivity.this, CardActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
+        if(menuItem.getTitle().equals("My Orders")){
+            Intent intent = new Intent(MainActivity.this, MyOrdersActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
 
         if(menuItem.getTitle().equals("My Wishlist")){
             FavoriteFragment favoriteFragment = new FavoriteFragment();
@@ -194,7 +198,7 @@ View view = navigationView.getHeaderView(0);
             bottomNavigationView.setSelectedItemId(R.id.nav_heart);
 
         }
-        if(menuItem.getTitle().equals("About Us")){
+        if(menuItem.getTitle().equals("Contact")){
                         Intent intent = new Intent(MainActivity.this, AboutUsActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
                     }

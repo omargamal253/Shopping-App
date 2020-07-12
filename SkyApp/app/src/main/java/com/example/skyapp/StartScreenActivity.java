@@ -3,6 +3,7 @@ package com.example.skyapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,11 +15,18 @@ import com.example.skyapp.Adapter.FireBase;
 
 public class StartScreenActivity extends AppCompatActivity {
     LazyLoader lazyLoader;
+    ProgressDialog pd ;
     Handler handler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_screen);
+        pd = new ProgressDialog(this);
+        pd.show();
+        pd.setContentView(R.layout.progress_dialog);
+        pd.getWindow().setBackgroundDrawableResource(R.color.transparent);
+
+
         lazyLoader = findViewById(R.id.LazyLoader);
 
         LazyLoader  loader = new LazyLoader(this, 30, 20, ContextCompat.getColor(this, R.color.loader_selected),
@@ -42,11 +50,11 @@ public class StartScreenActivity extends AppCompatActivity {
 
 
             }
-        },4000);
+        },10);
 
 
         lazyLoader.addView(loader);
-        lazyLoader.setVisibility(View.VISIBLE);
+        lazyLoader.setVisibility(View.INVISIBLE);
 
     }
 }

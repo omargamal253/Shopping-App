@@ -124,8 +124,9 @@ public class CardActivity extends AppCompatActivity {
             @Override
             public void onClick(final View v) {
 
-
-                if (myAdapter.products.size() > 0) {
+                Intent intent = new Intent(CardActivity.this ,OrderCheckout.class   );
+                startActivity(intent);
+             /*   if (myAdapter.products.size() > 0) {
                     DialogInterface.OnClickListener diOnClickListener = new DialogInterface.OnClickListener() {
                         @SuppressLint("ResourceAsColor")
                         @Override
@@ -134,23 +135,9 @@ public class CardActivity extends AppCompatActivity {
                                 case DialogInterface.BUTTON_POSITIVE:
 
                                     CreateOrder(myAdapter.TotalPrice, myAdapter.products, myAdapter.productQtu);
-                                   /* Toast.makeText(CardActivity.this, "The Order was made Successfully ", Toast.LENGTH_SHORT).show();
 
-                                    for (int i = 0; i < myAdapter.products.size(); i++) {
-                                        FireBase.RemoveProductFromCard(myAdapter.products.get(i));
-                                    }
 
-                                    myAdapter.products.clear();
-                                    myAdapter.notifyDataSetChanged();
-                                    myAdapter.TotalPrice = 0;
 
-                                    Snackbar snackbar = Snackbar.make(v, "Order Successful Accepted", Snackbar.LENGTH_SHORT);
-                                    snackbar.setBackgroundTint(R.color.colorPrimaryDark);
-                                    snackbar.show();
-
-                                    FireBase.NumOf_Products_InCard = 0;
-                                    FireBase.GetNumOf_Products_InCard();*/
-                                   // finish();
                                     break;
 
                                 case DialogInterface.BUTTON_NEGATIVE:
@@ -167,7 +154,11 @@ public class CardActivity extends AppCompatActivity {
                     builder.show();
 
                 }else
-                    Toast.makeText(CardActivity.this, "The card is empty ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CardActivity.this, "Your card is empty ", Toast.LENGTH_SHORT).show();
+
+
+
+                */
 
             }
         });
@@ -175,6 +166,8 @@ public class CardActivity extends AppCompatActivity {
 
 
         CardEmpty = findViewById(R.id.CardEmptyOrNot);
+        if(myAdapter.products.size()==0) CardActivity.CardEmpty.setVisibility(View.VISIBLE);
+        else CardActivity.CardEmpty.setVisibility(View.INVISIBLE);
 
 
     }
