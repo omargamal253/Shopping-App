@@ -8,9 +8,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +25,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -33,6 +37,7 @@ public class SuperMarketActivity extends AppCompatActivity {
     RecyclerAdapter Adapter;
     ArrayList<Product> products = new ArrayList<>() ;
     CircularDotsLoader circularDotsLoader;
+    SearchView searchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +47,8 @@ public class SuperMarketActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         toolbar.setTitle("Supermarket");
+        toolbar.setTitleTextColor(Color.parseColor("#FFF8F3"));
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -82,7 +89,83 @@ public class SuperMarketActivity extends AppCompatActivity {
 
 
 
+              searchView = findViewById(R.id.SearchView);
+              searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                  @Override
+                  public boolean onQueryTextSubmit(String query) {
+                 //     Log.d("------------------------ ",query);
+
+                      return true;
+                  }
+
+                  @Override
+                  public boolean onQueryTextChange(String newText) {
+
+                    //   Log.d("------------------------ ",newText);
+
+                      if(newText.equals("")){
+                          Adapter.products.clear();
+                          Adapter.notifyDataSetChanged();
+                          getMyList("Supermarket", Adapter);
+
+                      }else{
+                          if(newText.length()%3  ==0) {
+
+                              searchProducts(newText, "Supermarket", Adapter);
+                          }
+                      }
+
+                      return true;
+                  }
+              });
+
     }
+
+
+    public static void searchProducts(String s ,String category , RecyclerAdapter Adapter) {
+
+        final  RecyclerAdapter MyAdapt = Adapter;
+
+        Query query = FirebaseDatabase.getInstance().getReference().child("products").child(category)
+                .orderByKey().startAt(s).endAt(s + "\uf8ff");
+
+
+        // Read from the database
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            //query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                MyAdapt.products.clear();
+                for(DataSnapshot data :  dataSnapshot.getChildren()){
+                    Product product  = data.getValue(Product.class);
+                    if (product!=null){
+                        //products.add(product);
+                        MyAdapt.addNewData(product);
+
+                    }
+                    //  Toast.makeText(getContext(), product.getImage_url() ,Toast.LENGTH_SHORT).show();
+
+
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                //Toast.makeText(.this, "fail to load list",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+
+    }
+
+
+
+
     private void getMyList(String category , RecyclerAdapter Adapter) {
 
         final  RecyclerAdapter MyAdapt = Adapter;

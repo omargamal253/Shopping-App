@@ -8,5 +8,12 @@
         android:color="@color/MainColor"
         />
 
+   <!-- <gradient
+        android:startColor="#89f7fe "
+        android:endColor="#66a6ff"
+
+
+        />
+-->
 
 </shape>

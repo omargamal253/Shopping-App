@@ -109,7 +109,7 @@ android:layout_marginTop="5dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/loginbtn_bg"
-
+android:textColor="#fff"
     android:layout_marginTop="30sp"
     android:text="LOGIN"
     android:padding="10dp"

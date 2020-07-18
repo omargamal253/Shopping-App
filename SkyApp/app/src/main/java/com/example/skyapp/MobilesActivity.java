@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +35,7 @@ public class MobilesActivity extends AppCompatActivity {
     RecyclerAdapter Adapter;
     ArrayList<Product> products = new ArrayList<>() ;
     CircularDotsLoader circularDotsLoader;
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,8 @@ public class MobilesActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         toolbar.setTitle("Mobiles");
+        toolbar.setTitleTextColor(Color.parseColor("#FFF8F3"));
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -80,6 +85,36 @@ public class MobilesActivity extends AppCompatActivity {
                                         circularDotsLoader.setVisibility(View.INVISIBLE);
                             }
         },1500);
+
+        searchView = findViewById(R.id.SearchView);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                //     Log.d("------------------------ ",query);
+
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                //   Log.d("------------------------ ",newText);
+
+                if(newText.equals("")){
+                    Adapter.products.clear();
+                    Adapter.notifyDataSetChanged();
+                    getMyList("Mobiles", Adapter);
+
+                }else{
+                    if(newText.length()%3  ==0) {
+
+                        SuperMarketActivity.searchProducts(newText, "Mobiles", Adapter);
+                    }
+                }
+
+                return true;
+            }
+        });
 
 
 

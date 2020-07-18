@@ -228,7 +228,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
 
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:id="@+id/line_2"
             android:layout_below="@+id/Wish_Relative"/>
 
@@ -240,7 +240,7 @@
             android:textSize="18dp"
             android:textColor="#000"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:id="@+id/User_Email"
             android:layout_below="@+id/line_2"
             />

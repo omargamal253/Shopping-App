@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,12 +45,15 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<MyCardHolder>{
    public ArrayList<Integer>  productQtu=new ArrayList<>();
 
     public double TotalPrice;
-    public RecyclerCardAdapter(Context c, ArrayList<Product> products) {
+    int mode;
+    public RecyclerCardAdapter(Context c, ArrayList<Product> products , int mode) {
         this.c = c;
         this.products = products;
         TotalPrice=0;
-
-
+this.mode=mode;
+        if(mode==2){
+            productQtu=new ArrayList<>(CardActivity.myAdapter.productQtu);
+        }
     }
     public void addNewData(Product product){
         boolean add = true;
@@ -60,7 +64,8 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<MyCardHolder>{
         }
         if(add == true)  {
             products.add(product);
-            productQtu.add(1);
+
+            if(mode==1) productQtu.add(1);
             double price_before = product.getPrice();
             double discount =   product.getDiscount() ;
             double price_after =  price_before - (price_before * (  discount/100));
@@ -76,8 +81,15 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<MyCardHolder>{
     @NonNull
     @Override
     public MyCardHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_item, null) ;
+        if(mode==1)
         return new MyCardHolder(view) ;
+        else{
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.summary_item, null) ;
+            return new MyCardHolder(view) ;
+        }
     }
 
     @Override
@@ -91,7 +103,10 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<MyCardHolder>{
             holder.discount.setText(String.valueOf(products.get(position).getDiscount() + "% OFF"));
             //  holder.price_before.setText(String.valueOf(products.get(position).getPrice()));
             double price_before = products.get(position).getPrice();
+        if(  holder.price_before !=null ) {
             holder.price_before.setText( String.format("%,.2f",price_before) + " EGP");
+            holder.price_before.setPaintFlags(holder.price_before.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
+        }
             double discount =   products.get(position).getDiscount() ;
             double price_after =  price_before - (price_before * (  discount/100));
 
@@ -102,7 +117,7 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<MyCardHolder>{
         }
         else {
             holder.discount.setVisibility(View.INVISIBLE);
-            holder.price_before.setVisibility(View.INVISIBLE);
+            if(  holder.price_before !=null ) {  holder.price_before.setVisibility(View.INVISIBLE); }
             holder.price_after.setText(  String.valueOf(products.get(position).getPrice()));
 
         }
@@ -112,28 +127,39 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<MyCardHolder>{
 
         }
 
-        holder.ProductQty.setText(String.valueOf(holder.UserQTY));
+        if(mode==2){
+            holder.ProductQty.setText(String.valueOf(productQtu.get(position)));
+        }
+        else holder.ProductQty.setText(String.valueOf(holder.UserQTY));
+
+        if(holder.AddQty !=null) {
 
 
-        holder.AddQty.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                holder.UserQTY++;
-                productQtu.set(position,holder.UserQTY);
-                holder.ProductQty.setText(String.valueOf(holder.UserQTY));
-               //TotalPrice+=Double.valueOf(holder.price_after.getText().toString()) ;
+            holder.AddQty.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    holder.UserQTY++;
+                    productQtu.set(position, holder.UserQTY);
+
+                    holder.ProductQty.setText(String.valueOf(holder.UserQTY));
+                    //TotalPrice+=Double.valueOf(holder.price_after.getText().toString()) ;
 
 
-                double price_before = products.get(position).getPrice();
+                    double price_before = products.get(position).getPrice();
 
-                double discount =   products.get(position).getDiscount() ;
-                double price_after =  price_before - (price_before * (  discount/100));
+                    double discount = products.get(position).getDiscount();
+                    double price_after = price_before - (price_before * (discount / 100));
 
-                TotalPrice+=price_after;
-                CardActivity.TotalTextView.setText(String.format("%,.2f",TotalPrice)+" EGP");
+                    TotalPrice += price_after;
+                    CardActivity.TotalTextView.setText(String.format("%,.2f", TotalPrice) + " EGP");
 
-            }
-        });
+                }
+            });
+
+        }
+
+        if(holder.SubtractQty!=null){
+
 
         holder.SubtractQty.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -156,7 +182,7 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<MyCardHolder>{
                 }
             }
         });
-
+        }
 
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("UserFav").child(user.getUid());
@@ -164,9 +190,11 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<MyCardHolder>{
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.child(products.get(position).getTitle()+products.get(position).getBrand()+products.get(position).getColor()).exists()){
-                    holder.FavProduct.setImageResource(R.drawable.ic_fav);
-                    holder.AddedToFav =true;
+                    if(holder.FavProduct!=null) {
+                        holder.FavProduct.setImageResource(R.drawable.ic_fav);
 
+                        holder.AddedToFav = true;
+                    }
                 }
             }
 
@@ -176,22 +204,27 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<MyCardHolder>{
             }
         });
 
-        holder.FavProduct.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("ResourceAsColor")
-            @Override
-            public void onClick(View v) {
-                if(holder.AddedToFav ==false){
-                    holder.FavProduct.setImageResource(R.drawable.ic_fav);
 
-                    Snackbar snackbar =Snackbar.make(v ,products.get(position).getTitle()+" Saved to your Favorites ",Snackbar.LENGTH_SHORT);
-                    snackbar.setBackgroundTint(R.color.colorPrimaryDark);
-                    snackbar.show();
-                     FireBase.AddToUser_Fav(products.get(position));
-                     holder.AddedToFav =true;
+        if(holder.FavProduct!=null) {
+            holder.FavProduct.setOnClickListener(new View.OnClickListener() {
+                @SuppressLint("ResourceAsColor")
+                @Override
+                public void onClick(View v) {
+                    if (holder.AddedToFav == false) {
+                        holder.FavProduct.setImageResource(R.drawable.ic_fav);
 
+                        Snackbar snackbar = Snackbar.make(v, products.get(position).getTitle() + " Saved to your Favorites ", Snackbar.LENGTH_SHORT);
+                        snackbar.setBackgroundTint(R.color.colorPrimaryDark);
+                        snackbar.show();
+                        FireBase.AddToUser_Fav(products.get(position));
+                        holder.AddedToFav = true;
+
+                    }
                 }
-            }
-        });
+            });
+        }
+        if(holder.RemoveFromCard!=null){
+
         holder.RemoveFromCard.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
             @Override
@@ -230,20 +263,26 @@ public class RecyclerCardAdapter extends RecyclerView.Adapter<MyCardHolder>{
 
         });
 
+        }
+
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClickListener(View v, int position) {
 
-
-                Intent intent = new Intent( c, ProductActivity.class);
+                if (mode == 1) {
+                Intent intent = new Intent(c, ProductActivity.class);
                 intent.putExtra("ProductObject", products.get(position));
+                 intent.putExtra("AddedToCardOrNot", holder.AddedToCard);
+                    intent.putExtra("AddedToFavOrNot",holder.AddedToFav);
+
                 Pair[] pairs = new Pair[2];
-                pairs[0]= new Pair<View , String>(holder.mImageView,"ImageTransition");
-                pairs[1]= new Pair<View , String>(holder.mTitle,"TitleTransition");
+                pairs[0] = new Pair<View, String>(holder.mImageView, "ImageTransition");
+                pairs[1] = new Pair<View, String>(holder.mTitle, "TitleTransition");
                 /* pairs[2]= new Pair<View , String>(holder.mTitle,"PriceTransition");*/
 
-                ActivityOptions   options = ActivityOptions.makeSceneTransitionAnimation(  (CardActivity)c ,pairs);
-                c.startActivity(intent , options.toBundle());
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation((CardActivity) c, pairs);
+                c.startActivity(intent, options.toBundle());
+            }
             }
         });
 

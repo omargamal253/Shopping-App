@@ -2,12 +2,245 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.skyapp.CheckoutFragments.PaymentFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.skyapp.CheckoutFragments.PaymentFragment"
+    android:background="#eee"
+
+    >
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:background="#eee"
+        android:orientation="vertical"
+        android:paddingTop="150dp"
+
+        >
+
+        <!--  android:background="#CCFFFF"-->
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/AddressRelative"
+            android:padding="5dp"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Payment method "
+                android:textSize="14dp"
+                android:layout_centerVertical="true"
+
+                android:paddingLeft="5dp"
+                />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="#fff"
+            android:layout_below="@+id/AddressRelative"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+
+            android:paddingLeft="10dp"
+            android:paddingTop="20dp"
+           android:id="@+id/CreditRelative"
+            >
+
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/credit_card"
+                    android:id="@+id/CreditIcon"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/CreditIcon"
+                    android:text="Credit Or Debit Cards"
+                    android:textSize="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/CreditText"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/CreditIcon"
+                    android:text="installment are available for eligible banks"
+                    android:textSize="11dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_below="@+id/CreditText"
+                    />
+
+<ImageView
+    android:layout_width="15dp"
+    android:layout_height="15dp"
+    android:src="@drawable/next_"
+    android:layout_alignParentRight="true"
+    android:layout_marginRight="8dp"
+android:layout_centerVertical="true"    />
+
+
+        </RelativeLayout>
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="#fff"
+            android:layout_below="@+id/CreditRelative"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="20dp"
+            android:id="@+id/CashRelative"
+            >
+
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/cash"
+                android:id="@+id/CashIcon"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/CashIcon"
+                android:text="Cash On Delivery (COD)"
+                android:textSize="15dp"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/CashText"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/CashIcon"
+                android:text="Pay online for contact less"
+                android:textSize="11dp"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/CashText"
+                />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/next_"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="8dp"
+                android:layout_centerVertical="true"    />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/VoucherRelative"
+            android:padding="5dp"
+            android:layout_below="@+id/CashRelative"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Use a Voucher "
+                android:textSize="14dp"
+                android:layout_centerVertical="true"
+
+                android:paddingLeft="5dp"
+                />
+
+        </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#fff"
+        android:layout_below="@+id/VoucherRelative"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+
+        android:paddingLeft="10dp"
+
+        android:id="@+id/VoucherCodeRelative"
+
+        >
+
+<!--
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/VoucherLayout"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/HintText"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/VoucherText"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:background="@drawable/edit_text_voucher_bg"
+                android:hint="Enter Voucher Code"
+                android:inputType="text"
+                android:paddingStart="10dp"
+                android:textSize="15dp"
+
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+-->
+
+        <EditText
+                android:id="@+id/VoucherText"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:background="@drawable/edit_text_voucher_bg"
+                android:hint="Enter Voucher Code"
+                android:inputType="text"
+                android:paddingStart="10dp"
+                android:textSize="15dp"
+               android:layout_centerVertical="true"
+android:enabled="false"
+                />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/complete_btn_bg"
+            android:text="APPLY"
+            android:textColor="#fff"
+            android:id="@+id/ApplyVoucher"
+
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/VoucherText"
+            android:layout_centerVertical="true"
+
+
+            />
+
+
+    </RelativeLayout>
+
+    </RelativeLayout>
 
 </FrameLayout>

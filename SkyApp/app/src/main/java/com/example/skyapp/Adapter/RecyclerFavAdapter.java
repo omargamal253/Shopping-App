@@ -109,14 +109,19 @@ public class RecyclerFavAdapter  extends RecyclerView.Adapter<MyFavHolder> {
                                                 @SuppressLint("ResourceAsColor")
                                                 @Override
                                                 public void onClick(View v) {
-                                                    FireBase.AddToUser_Card(products.get(position));
+                                                    if (holder.AddedToCard == false) {
 
-                                                    Snackbar snackbar =Snackbar.make(v ,products.get(position).getTitle()+" Added to your card",Snackbar.LENGTH_SHORT);
-                                                    snackbar.setBackgroundTint(R.color.colorPrimaryDark);
 
-                                                    snackbar.show();
-                                                    holder.AddToCardImg.setImageResource(R.drawable.ic_added_tocard);
-                                                    FireBase.GetNumOf_Products_InCard();
+                                                        FireBase.AddToUser_Card(products.get(position));
+
+                                                        Snackbar snackbar = Snackbar.make(v, products.get(position).getTitle() + " Added to your card", Snackbar.LENGTH_SHORT);
+                                                        snackbar.setBackgroundTint(R.color.colorPrimaryDark);
+
+                                                        snackbar.show();
+                                                        holder.AddToCardImg.setImageResource(R.drawable.ic_added_tocard);
+                                                        FireBase.GetNumOf_Products_InCard();
+                                                        holder.AddedToCard =true;
+                                                    }
 
                                                 }
                                             }
@@ -156,7 +161,8 @@ public class RecyclerFavAdapter  extends RecyclerView.Adapter<MyFavHolder> {
 
                 Intent intent = new Intent( c, ProductActivity.class);
                 intent.putExtra("ProductObject", products.get(position));
-
+                intent.putExtra("AddedToCardOrNot", holder.AddedToCard);
+                intent.putExtra("AddedToFavOrNot",holder.AddedToFav);
 
                 Pair[] pairs = new Pair[2];
                 pairs[0]= new Pair<View , String>(holder.mImageView,"ImageTransition");

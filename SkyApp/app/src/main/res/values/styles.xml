@@ -20,4 +20,9 @@
         <item name="android:textColor">@color/MainColor</item>
     </style>
 
+<style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+    <item name="colorControlNormal"> #FFF8F3</item>
+</style>
+
+
 </resources>

@@ -1,0 +1,143 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.skyapp.CheckoutFragments.SummaryFragment"
+    android:background="#eee"
+    >
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#eee"
+
+        android:paddingTop="150dp"
+
+        >
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+
+            android:id="@+id/SummaryRecyclerView"
+            android:layout_above="@+id/R_PROCEED_TO_PAYMENT"
+            />
+
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/R_PROCEED_TO_PAYMENT"
+
+            android:background="#fff"
+            android:padding="10dp"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+android:layout_alignParentBottom="true"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SubTotal"
+                android:textColor="#000"
+                android:id="@+id/subTotalText"
+                android:textSize="16dp"
+                android:layout_marginLeft="10dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="4,453 EGP"
+                android:textColor="#000"
+                android:textSize="16dp"
+                android:id="@+id/subTotal"
+                android:layout_marginRight="5dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shipping"
+                android:textColor="#000"
+                android:id="@+id/ShippingText"
+                android:textSize="16dp"
+                android:layout_below="@+id/subTotalText"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="199 EGP"
+                android:textColor="@color/MainColor"
+                android:textSize="16dp"
+                android:id="@+id/Shipping"
+                android:layout_below="@+id/subTotalText"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:textStyle="bold"
+
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:background="#404040"
+                android:layout_margin="6dp"
+                android:id="@+id/line_"
+                android:layout_below="@+id/ShippingText"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total"
+                android:textColor="#000"
+                android:id="@+id/TotalText"
+                android:textSize="16dp"
+                android:layout_below="@+id/line_"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="4,652 EGP"
+                android:textColor="@color/MainColor"
+                android:textSize="16dp"
+                android:id="@+id/Total"
+                android:layout_below="@+id/line_"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:textStyle="bold"
+
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/complete_btn_bg"
+                android:text="PLACE A ORDER"
+                android:textColor="#fff"
+                android:id="@+id/PLACE_A_ORDER"
+                android:layout_below="@+id/TotalText"
+                android:layout_marginTop="10dp"
+
+                />
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+</FrameLayout>

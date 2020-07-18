@@ -2,6 +2,7 @@ package com.example.skyapp.Adapter;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,6 +23,8 @@ public class MyOrderHolder  extends RecyclerView.ViewHolder implements  View.OnC
     Button AcceptOrderBtn;
 
     ItemClickListener itemClickListener;
+    ImageView deleteMyOrder;
+
 
     public MyOrderHolder(@NonNull View itemView) {
         super(itemView);
@@ -32,6 +35,7 @@ public class MyOrderHolder  extends RecyclerView.ViewHolder implements  View.OnC
         this.totalPrice= itemView.findViewById(R.id.TotalPrice);
         this.AcceptOrderBtn = itemView.findViewById(R.id.AcceptOrder);
         this.OrderDate = itemView.findViewById(R.id.OrderDate);
+        this.deleteMyOrder=itemView.findViewById(R.id.deleteMyOrder);
 
         itemView.setOnClickListener(this);
 

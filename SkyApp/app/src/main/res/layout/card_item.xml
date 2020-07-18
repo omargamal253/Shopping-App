@@ -51,22 +51,59 @@ app:layout_optimizationLevel="chains"
         android:textSize="12dp"
         android:maxHeight="70dp"
         android:layout_toRightOf="@+id/imageIv3"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:transitionName="TitleTransition"
+        android:maxLines="3"
 
         />
+
+    <TextView
+        android:id="@+id/SoldBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="Sold By:"
+        android:textColor="#000"
+        android:textSize="10dp"
+        android:maxHeight="70dp"
+        android:layout_toRightOf="@+id/imageIv3"
+        android:transitionName="TitleTransition"
+        android:layout_below="@+id/titleIv3"
+        android:layout_marginTop="5dp"
+
+        />
+
+
+    <TextView
+        android:id="@+id/SoldByText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="Shopavo"
+        android:textColor="#000"
+        android:textSize="10dp"
+        android:maxHeight="70dp"
+        android:layout_toRightOf="@+id/SoldBy"
+        android:transitionName="TitleTransition"
+        android:layout_below="@+id/titleIv3"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+
+        />
+
 
     <TextView
         android:id="@+id/PriceBefore2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/titleIv3"
+        android:layout_below="@+id/SoldBy"
         android:layout_marginLeft="10dp"
         android:text="Price"
         android:textColor="#a9a9a9"
         android:textSize="10dp"
         android:layout_marginTop="5dp"
         android:layout_toRightOf="@+id/imageIv3"
+
 
         />
 
@@ -90,6 +127,8 @@ app:layout_optimizationLevel="chains"
     android:layout_below="@+id/imageIv3"
     android:background="#FFFFFF"
     android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+
     android:layout_marginTop="10dp"
     android:id="@+id/line_"/>
 

@@ -76,6 +76,8 @@ DrawerLayout drawerLayout ;
 
 
         toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitleTextColor(Color.parseColor("#FFF8F3"));
+
 
         setSupportActionBar(toolbar);
 
@@ -86,6 +88,8 @@ DrawerLayout drawerLayout ;
 
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this
                 , drawerLayout,toolbar,R.string.open,R.string.close);
+
+        drawerToggle.getDrawerArrowDrawable().setColor(Color.parseColor("#FFF8F3"));
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
 

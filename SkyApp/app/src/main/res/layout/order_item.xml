@@ -13,20 +13,32 @@
     <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-        android:background="#7A00FF00"
+        android:background="@drawable/sky_bg"
 
         android:padding="5dp"
+
         >
 
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:src="@drawable/main2_appicon"
+            android:id="@+id/AppLogo"
+            />
+
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Order Description"
             android:id="@+id/Order_Description"
-            android:textSize="15dp"
+            android:textSize="17dp"
             android:textStyle="bold"
             android:layout_marginBottom="2dp"
-            android:textColor="#1E90FF"
+            android:textColor="#fff"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/AppLogo"
+
+
             />
 
         <TextView
@@ -35,6 +47,9 @@
             android:text="Date : "
             android:id="@+id/Date"
             android:layout_below="@+id/Order_Description"
+            android:textColor="#fff"
+            android:layout_marginTop="5dp"
+
             />
         <TextView
             android:layout_width="wrap_content"
@@ -43,6 +58,9 @@
             android:layout_below="@+id/Order_Description"
             android:layout_toRightOf="@+id/Date"
             android:text="Default"
+            android:textColor="#fff"
+            android:layout_marginTop="5dp"
+
             />
 
         <TextView
@@ -51,6 +69,7 @@
     android:text="Number Of Products : "
     android:id="@+id/numText"
     android:layout_below="@+id/Date"
+            android:textColor="#fff"
     />
 
     <TextView
@@ -61,7 +80,7 @@
         android:layout_toRightOf="@+id/numText"
         android:layout_marginLeft="10dp"
         android:layout_below="@+id/Date"
-
+        android:textColor="#fff"
         />
         <TextView
             android:layout_width="wrap_content"
@@ -69,6 +88,7 @@
             android:text="Total Price : "
             android:id="@+id/total_price"
             android:layout_below="@+id/numText"
+            android:textColor="#fff"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -78,6 +98,7 @@
             android:layout_toEndOf="@+id/total_price"
             android:layout_below="@+id/numText"
 
+            android:textColor="#fff"
 
 
             />
@@ -89,6 +110,8 @@
             android:id="@+id/products_Title_Qty"
             android:layout_below="@+id/total_price"
             android:text="Dell G3 16 giga ra"
+            android:textColor="#fff"
+
             />
         <TextView
             android:layout_width="wrap_content"
@@ -98,7 +121,7 @@
             android:textSize="15dp"
             android:textStyle="bold"
             android:layout_below="@+id/products_Title_Qty"
-            android:textColor="#1E90FF"
+            android:textColor="#fff"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="2dp"
 
@@ -109,17 +132,28 @@
             android:text="User"
             android:layout_below="@+id/User_Description"
             android:id="@+id/User_Info"
+            android:textColor="#fff"
+
             />
 
         <Button
             android:layout_width="80dp"
             android:layout_height="40dp"
-            android:text="Accepted"
+            android:text="Accept"
             android:layout_below="@+id/User_Info"
             android:layout_alignParentEnd="true"
             android:id="@+id/AcceptOrder"
+            android:background="@drawable/login_bg"
 />
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_close_24"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/deleteMyOrder"
+            android:layout_margin="3dp"
+            />
 
 
 </RelativeLayout>

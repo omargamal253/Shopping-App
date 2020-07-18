@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -96,6 +97,7 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<MyHolder> {
           //  holder.price_before.setText(String.valueOf(products.get(position).getPrice()));
             double price_before = products.get(position).getPrice();
             holder.price_before.setText( String.format("%,.2f",price_before) + " EGP");
+            holder.price_before.setPaintFlags(holder.price_before.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
             double discount =   products.get(position).getDiscount() ;
             double price_after =  price_before - (price_before * (  discount/100));
 
@@ -139,10 +141,12 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<MyHolder> {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.child(products.get(position).getTitle()+products.get(position).getBrand()+products.get(position).getColor()).exists()){
-                    holder.AddToCard.setText("Added");
+                    if(holder.AddToCard!=null)
+                        holder.AddToCard.setText("Added");
                     holder.AddedToCard =true;
                 }else{
-                    holder.AddToCard.setText("Add TO CARD");
+                    if(holder.AddToCard!=null)
+                        holder.AddToCard.setText("Add TO CARD");
                     holder.AddedToCard =false;
                 }
             }
@@ -153,21 +157,25 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<MyHolder> {
             }
         });
 
-
+if(holder.AddToCard!=null)
         holder.AddToCard.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
-              FireBase.AddToUser_Card(products.get(position));
+                if (holder.AddedToCard == false) {
 
-                Snackbar snackbar =Snackbar.make(v ,products.get(position).getTitle()+" Added to your card",Snackbar.LENGTH_SHORT);
-                snackbar.setBackgroundTint(R.color.colorPrimaryDark);
+                    FireBase.AddToUser_Card(products.get(position));
+
+                    Snackbar snackbar = Snackbar.make(v,  "New Product Added to your cart", Snackbar.LENGTH_SHORT);
+                    snackbar.setBackgroundTint(R.color.colorPrimaryDark);
 
 
-                snackbar.show();
-                  holder.AddToCard.setText("Added");
-                FireBase.GetNumOf_Products_InCard();
+                    snackbar.show();
+                    holder.AddToCard.setText("Added");
+                    FireBase.GetNumOf_Products_InCard();
+                    holder.AddedToCard =true;
 
+                }
             }
         }
         );
@@ -179,7 +187,7 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<MyHolder> {
                 if(holder.AddedToFav ==false){
                     holder.HomeFav.setImageResource(R.drawable.ic_fav);
 
-                    Snackbar snackbar =Snackbar.make(v ,products.get(position).getTitle()+" Saved to your Favorites ",Snackbar.LENGTH_SHORT);
+                    Snackbar snackbar =Snackbar.make(v ,"New Product Saved to your Favorites ",Snackbar.LENGTH_SHORT);
                     snackbar.setBackgroundTint(R.color.colorPrimaryDark);
                     snackbar.show();
                     FireBase.AddToUser_Fav(products.get(position));

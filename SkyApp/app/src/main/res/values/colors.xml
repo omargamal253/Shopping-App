@@ -6,5 +6,6 @@
     <color name="blueWhite">#45d9fd</color>
     <color name="MainColor">#2DAEFF</color>
     <color name="transparent">#00000000</color>
+    <color name="dark">#83000000</color>
 
 </resources>

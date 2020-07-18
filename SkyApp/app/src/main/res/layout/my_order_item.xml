@@ -16,17 +16,24 @@
         android:background="#B3000000"
         android:padding="5dp"
         >
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:src="@drawable/main2_appicon"
+            android:id="@+id/AppLogo"
+            />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Order Description"
             android:id="@+id/Order_Description"
             android:textSize="17dp"
             android:textStyle="bold"
             android:layout_marginBottom="2dp"
-            android:textColor="#00FF00"
+            android:textColor="@color/MainColor"
             android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/AppLogo"
 
             />
 
@@ -38,6 +45,7 @@
             android:layout_below="@+id/Order_Description"
             android:textColor="#00FFFF"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -47,6 +55,8 @@
             android:layout_toRightOf="@+id/Date"
             android:text="Default"
             android:textColor="#fff"
+            android:layout_marginTop="5dp"
+
             />
 
         <TextView
@@ -110,6 +120,14 @@
             />
 
 
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_baseline_close_24"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/deleteMyOrder"
+            android:layout_margin="3dp"
+            />
 
     </RelativeLayout>
 

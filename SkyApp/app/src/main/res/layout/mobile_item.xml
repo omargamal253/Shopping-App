@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="260dp"
         android:animateLayoutChanges="true"
-        android:background="#B3000000"
+        android:background="#fff"
         >
 
         <ImageView
@@ -26,6 +26,7 @@
             android:layout_centerInParent="true"
             android:layout_marginTop="10dp"
             android:transitionName="ImageTransition"
+
 
             />
         <TextView
@@ -47,11 +48,13 @@
             android:layout_marginStart="10dp"
             android:layout_below="@+id/discount2"
             android:text="Title"
-            android:textColor="#fff"
+            android:textColor="#000"
             android:textSize="12dp"
             android:layout_marginTop="15dp"
             android:maxHeight="70dp"
             android:transitionName="TitleTransition"
+
+            android:maxLines="3"
 
             />
 
@@ -76,7 +79,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:text="Price"
-            android:textColor="#fff"
+            android:textColor="#000"
             android:textSize="12dp"
             android:textStyle="bold"
             />
@@ -84,7 +87,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="30sp"
-            android:background="@drawable/addcard_background2"
+            android:background="@drawable/add_btn"
             android:layout_alignParentBottom="true"
             android:text="Add To Cart"
             android:id="@+id/AddToCart_btn"
@@ -99,7 +102,8 @@
     <RelativeLayout
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:background="#FFDFDF"
+        android:background="#89FFDFDF"
+
         android:layout_alignParentBottom="true"
         android:id="@+id/Home_Fav2"
 

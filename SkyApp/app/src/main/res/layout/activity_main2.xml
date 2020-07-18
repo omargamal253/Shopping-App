@@ -136,7 +136,6 @@
         app:menu="@menu/drawer_menu"
         app:itemIconTint= "#000"
         app:itemTextColor="#696969"
-
         >
 
     </com.google.android.material.navigation.NavigationView>

@@ -14,7 +14,7 @@ import com.example.skyapp.R;
 public class MyFavHolder extends RecyclerView.ViewHolder implements  View.OnClickListener {
     ImageView mImageView;
     TextView mTitle ,  price_after  ;
-    boolean AddedToCard;
+    boolean AddedToCard,AddedToFav;
 
     ImageView AddToCardImg, RemoveFromFav;
 
@@ -29,6 +29,7 @@ public class MyFavHolder extends RecyclerView.ViewHolder implements  View.OnClic
         RemoveFromFav = itemView.findViewById(R.id.RemoveFromFav);
 
         AddedToCard=false;
+        AddedToFav=true;
         itemView.setOnClickListener(this);
     }
 

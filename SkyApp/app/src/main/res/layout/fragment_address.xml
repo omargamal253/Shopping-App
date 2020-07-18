@@ -8,28 +8,25 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <ScrollView
-
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="150dp"
         android:background="#eee"
         android:orientation="vertical"
->
+        android:paddingTop="140dp"
+        >
 
+        <!-- android:background="#CCFFFF"
+            android:textColor="#000"
+        android:textStyle="bold"
+         -->
 
 
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="40dp"
-    android:background="#CCFFFF"
+    android:layout_height="30dp"
     android:id="@+id/AddressRelative"
     android:padding="5dp"
 
@@ -40,8 +37,7 @@
         android:text="Address Details"
         android:textSize="14dp"
         android:layout_centerVertical="true"
-        android:textColor="#000"
-        android:textStyle="bold"
+
         android:paddingLeft="5dp"
         />
 
@@ -63,11 +59,13 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:paddingBottom="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="30dp"
             android:layout_below="@+id/AddressRelative"
             android:layout_margin="5dp"
             android:id="@+id/AddressEditText"
             android:background="@drawable/login_bg"
+            android:layout_marginTop="10dp"
             >
 
 
@@ -124,38 +122,6 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/CountryLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:hintTextAppearance="@style/HintAddressText"
-        app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/blueWhite"
-        android:layout_below="@+id/FirstNameLayout"
-        >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Country"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:hint="Egypt"
-
-            android:enabled="false"
-            android:inputType="text"
-            android:paddingStart="10dp"
-
-            android:textSize="15dp"
-
-            >
-
-        </com.google.android.material.textfield.TextInputEditText>
-
-
-
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/cityLayout"
@@ -164,7 +130,7 @@
         app:hintTextAppearance="@style/HintAddressText"
         app:boxBackgroundMode="outline"
         app:boxStrokeColor="@color/blueWhite"
-        android:layout_below="@+id/CountryLayout"
+        android:layout_below="@+id/FirstNameLayout"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -235,7 +201,7 @@
                 android:layout_below="@+id/buildingLayout"
                 android:textSize="17dp"
                 android:textColor="#000"
-                android:layout_marginTop="17dp"
+                android:layout_marginTop="18dp"
                 android:id="@+id/Text20"
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="4dp"
@@ -258,7 +224,7 @@
                     android:id="@+id/Phone"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:hint="Mobile phone number"
+                    android:hint="Mobile phone number*"
                     android:inputType="phone"
                     android:paddingStart="10dp"
 
@@ -279,6 +245,7 @@
     android:background="#fff"
     android:padding="10dp"
     android:orientation="vertical"
+    android:layout_marginTop="5dp"
 
 
     >
@@ -288,7 +255,7 @@
         android:text="SubTotal"
         android:textColor="#000"
         android:id="@+id/subTotalText"
-        android:textSize="17dp"
+        android:textSize="16dp"
 android:layout_marginLeft="10dp"
         />
 
@@ -298,7 +265,7 @@ android:layout_marginLeft="10dp"
         android:layout_alignParentRight="true"
         android:text="4,453 EGP"
         android:textColor="#000"
-        android:textSize="17dp"
+        android:textSize="16dp"
         android:id="@+id/subTotal"
 android:layout_marginRight="5dp"
         />
@@ -309,7 +276,7 @@ android:layout_marginRight="5dp"
         android:text="Shipping"
         android:textColor="#000"
         android:id="@+id/ShippingText"
-        android:textSize="17dp"
+        android:textSize="16dp"
         android:layout_below="@+id/subTotalText"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
@@ -323,21 +290,19 @@ android:layout_marginRight="5dp"
         android:layout_alignParentRight="true"
         android:text="199 EGP"
         android:textColor="@color/MainColor"
-        android:textSize="17dp"
+        android:textSize="16dp"
         android:id="@+id/Shipping"
         android:layout_below="@+id/subTotalText"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
-
+android:textStyle="bold"
 
         />
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
+        android:layout_height="0.3dp"
         android:background="#404040"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_margin="6dp"
         android:id="@+id/line_"
         android:layout_below="@+id/ShippingText"/>
 
@@ -347,7 +312,7 @@ android:layout_marginRight="5dp"
         android:text="Total"
         android:textColor="#000"
         android:id="@+id/TotalText"
-        android:textSize="17dp"
+        android:textSize="16dp"
         android:layout_below="@+id/line_"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
@@ -360,12 +325,12 @@ android:layout_marginRight="5dp"
         android:layout_alignParentRight="true"
         android:text="4,652 EGP"
         android:textColor="@color/MainColor"
-        android:textSize="17dp"
+        android:textSize="16dp"
         android:id="@+id/Total"
         android:layout_below="@+id/line_"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
-
+        android:textStyle="bold"
 
         />
 
@@ -375,9 +340,9 @@ android:layout_marginRight="5dp"
             android:background="@drawable/complete_btn_bg"
             android:text="PROCEED TO PAYMENT"
             android:textColor="#fff"
-            android:id="@+id/CompleteOrder"
+            android:id="@+id/PROCEED_TO_PAYMENT"
             android:layout_below="@+id/TotalText"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
 
             />
 </RelativeLayout>
@@ -391,5 +356,5 @@ android:layout_marginRight="5dp"
 
 
 
-    </ScrollView>
+
 </FrameLayout>

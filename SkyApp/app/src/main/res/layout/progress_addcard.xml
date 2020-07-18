@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+android:gravity="center"
+    >
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="25dp"
+        android:background="@drawable/bg_progress"
+        android:gravity="center"
+        >
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/blue_right_ic"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shopping Cart"
+            android:textSize="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/MainColor"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your product has been added to cart"
+            android:textSize="16dp"
+            android:maxWidth="200dp"
+            android:layout_margin="10dp"
+android:textAlignment="center"
+            android:textColor="#000"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:text="Back"
+                android:id="@+id/BackBtn"
+                android:background="@drawable/bachbtn_bg"
+                android:textColor="#fff"
+                android:layout_marginRight="5dp"
+
+                />
+
+
+
+            <Button
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/loginbtn_bg"
+            android:textColor="#fff"
+            android:text="GO CART"
+            android:id="@+id/GO_CART"
+                android:layout_toRightOf="@+id/BackBtn"
+
+            />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

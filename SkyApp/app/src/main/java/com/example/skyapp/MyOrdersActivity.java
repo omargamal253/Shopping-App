@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.skyapp.Adapter.RecyclerOrderAdapter;
@@ -31,7 +32,6 @@ public class MyOrdersActivity extends AppCompatActivity {
 
     RecyclerView mreRecyclerView;
     RecyclerOrderAdapter myAdapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +68,7 @@ public class MyOrdersActivity extends AppCompatActivity {
 
 
         getMyList(myAdapter);
+
 
 
     }

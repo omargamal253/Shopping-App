@@ -22,10 +22,13 @@ public class StartScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_screen);
         pd = new ProgressDialog(this);
+
         pd.show();
         pd.setContentView(R.layout.progress_dialog);
         pd.getWindow().setBackgroundDrawableResource(R.color.transparent);
 
+
+        pd.setCancelable(false);
 
         lazyLoader = findViewById(R.id.LazyLoader);
 
@@ -50,7 +53,7 @@ public class StartScreenActivity extends AppCompatActivity {
 
 
             }
-        },10);
+        },20);
 
 
         lazyLoader.addView(loader);

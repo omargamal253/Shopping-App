@@ -20,7 +20,7 @@ public class MyCardHolder extends RecyclerView.ViewHolder implements  View.OnCli
      TextView mTitle , price_before , price_after  , discount;
     TextView RemoveFromCard ;
     ImageView FavProduct , AddQty, SubtractQty;
-    boolean AddedToFav;
+    boolean AddedToFav, AddedToCard;
     EditText ProductQty ;
     int UserQTY;
     ItemClickListener itemClickListener;
@@ -43,6 +43,7 @@ public class MyCardHolder extends RecyclerView.ViewHolder implements  View.OnCli
         ProductQty = itemView.findViewById(R.id.EditText_Qty);
          UserQTY=1;
         AddedToFav =false;
+        AddedToCard=true;
 
 
         itemView.setOnClickListener(this);

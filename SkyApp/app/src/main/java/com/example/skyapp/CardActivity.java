@@ -17,9 +17,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -49,7 +51,7 @@ import java.util.HashMap;
 public class CardActivity extends AppCompatActivity {
     Toolbar toolbar;
     RecyclerView mreRecyclerView;
-    RecyclerCardAdapter myAdapter;
+  public static   RecyclerCardAdapter myAdapter;
     ArrayList<Product> products = new ArrayList<>() ;
 
     public static TextView TotalTextView;
@@ -61,7 +63,9 @@ public class CardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card);
         toolbar = findViewById(R.id.CardToolbar);
-        toolbar.setTitle("Card");
+        toolbar.setTitle("Cart");
+        toolbar.setTitleTextColor(Color.parseColor("#FFF8F3"));
+
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -79,7 +83,7 @@ public class CardActivity extends AppCompatActivity {
         );
         mreRecyclerView.setLayoutManager(layoutManager);
         mreRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        myAdapter = new RecyclerCardAdapter( this, products);
+        myAdapter = new RecyclerCardAdapter( this, products , 1);
         mreRecyclerView.setAdapter(myAdapter);
         TotalTextView = findViewById(R.id.Total);
         TotalTextView.setText(String.format("%,.2f",new Double(0))+" EGP");
@@ -118,15 +122,20 @@ public class CardActivity extends AppCompatActivity {
             }
         });
 
+
         CompleteOrderBtn = findViewById(R.id.CompleteOrder);
 
         CompleteOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
 
-                Intent intent = new Intent(CardActivity.this ,OrderCheckout.class   );
-                startActivity(intent);
-             /*   if (myAdapter.products.size() > 0) {
+                if (myAdapter.products.size() > 0) {
+                    Intent intent = new Intent(CardActivity.this ,OrderCheckout.class   );
+                    startActivity(intent);
+                }else Toast.makeText(CardActivity.this, "Your card is empty ", Toast.LENGTH_SHORT).show();
+
+
+                 /*   if (myAdapter.products.size() > 0) {
                     DialogInterface.OnClickListener diOnClickListener = new DialogInterface.OnClickListener() {
                         @SuppressLint("ResourceAsColor")
                         @Override
@@ -156,8 +165,6 @@ public class CardActivity extends AppCompatActivity {
                 }else
                     Toast.makeText(CardActivity.this, "Your card is empty ", Toast.LENGTH_SHORT).show();
 
-
-
                 */
 
             }
@@ -168,6 +175,8 @@ public class CardActivity extends AppCompatActivity {
         CardEmpty = findViewById(R.id.CardEmptyOrNot);
         if(myAdapter.products.size()==0) CardActivity.CardEmpty.setVisibility(View.VISIBLE);
         else CardActivity.CardEmpty.setVisibility(View.INVISIBLE);
+
+
 
 
     }

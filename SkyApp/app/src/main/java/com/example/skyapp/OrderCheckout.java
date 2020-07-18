@@ -6,24 +6,31 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Display;
+import android.view.DragEvent;
 import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.skyapp.CheckoutFragments.AddressFragment;
+import com.example.skyapp.CheckoutFragments.PaymentFragment;
+import com.example.skyapp.CheckoutFragments.SummaryFragment;
 import com.ydn.viewpagerwithicons.StateViewPager;
 
 public class OrderCheckout extends AppCompatActivity {
     Toolbar toolbar;
     private static final int NUM_PAGES = 4;
-    private StateViewPager mPager;
+    public static StateViewPager mPager;
     private PagerAdapter mPagerAdapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +41,8 @@ public class OrderCheckout extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         toolbar.setTitle("Checkout");
+        toolbar.setTitleTextColor(Color.parseColor("#FFF8F3"));
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -54,6 +63,9 @@ public class OrderCheckout extends AppCompatActivity {
         mPager.setAdapter(mPagerAdapter);
         setConfiguration();
 
+
+
+
     }
 
 
@@ -73,23 +85,32 @@ public class OrderCheckout extends AppCompatActivity {
 
 
             mPager.setIntermediateIconSize(30, 4);
+
+            mPager.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    return true;
+                }
+            });
+
 //58B70A
 
         mPager.setNumberOfIcons(3)
                 //.setOrientation(LinearLayout.HORIZONTAL)
 
-                .setMargins(48, 25, 55, 55)
+                .setMargins(45, 25, 35, 55)
                 //.setGravity(Gravity.TOP)
 
-                .setIconSize(38, 38)
-                .setSelectedIconSize(47, 47)
+                .setIconSize(48, 48)
+                .setSelectedIconSize(60, 60)
+
                 .setOnIconClickListener(new StateViewPager.OnIconClickListener() {
                     @Override
                     public void onIconClick(int iconNum) {
-                        mPager.setPage(iconNum, true);
+                 //       mPager.setPage(iconNum, true);
                     }
                 })
-                .setMarginBetweenIcons(20)
+                .setMarginBetweenIcons(15)
                 //.setIntermediateIconSize(30, 4)
                 .setShowCheckmarks(true, true, false)
                 .setCheckmarkColors(Color.WHITE, Color.WHITE, 0)
@@ -126,9 +147,9 @@ public class OrderCheckout extends AppCompatActivity {
                 case 0:
                     return new AddressFragment();
                 case 1:
-                    return new AddressFragment();
+                    return new PaymentFragment();
                 case 2:
-                    return new AddressFragment();
+                    return new SummaryFragment();
 
             }
             return new AddressFragment();

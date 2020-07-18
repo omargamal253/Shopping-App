@@ -146,6 +146,7 @@ public class LoginActivity extends AppCompatActivity {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                                     if (!user.isEmailVerified()) {
                                             EmailVerify.setVisibility(View.VISIBLE);
+                                        pd.dismiss();
                                        } else {
 
                                                    if (task.isSuccessful()) {

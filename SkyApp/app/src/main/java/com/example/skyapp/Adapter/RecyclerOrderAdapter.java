@@ -20,6 +20,8 @@ import com.example.skyapp.model.Order;
 import com.example.skyapp.model.Product;
 import com.example.skyapp.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
@@ -129,9 +131,13 @@ int layout ;
 
                 UserInfo += "UserName : " + CurrentUser.getUser_username() + "\n";
                 UserInfo += "Email : " + CurrentUser.getUser_email() + "\n";
+
+                UserInfo+= "Address : "+ orders.get(position).getCity() +" "+ orders.get(position).getStreet()+" "+orders.get(position).getBuildingNum()+"\n";
+
                 UserInfo += "Phone : " + CurrentUser.getUser_phone();
 
-               if(UserInfo!=null&& holder.User_Description!=null) holder.User_Description.setText(UserInfo);
+
+                if(UserInfo!=null&& holder.User_Description!=null) holder.User_Description.setText(UserInfo);
 
 
             }
@@ -146,13 +152,15 @@ int layout ;
 
 
         final ProgressDialog pd = new ProgressDialog(c);
-        pd.setMessage("Please Wail!");
+
 
 
         if (holder.AcceptOrderBtn != null){
             holder.AcceptOrderBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View v) {
+
+
                     DialogInterface.OnClickListener diOnClickListener = new DialogInterface.OnClickListener() {
                         @SuppressLint("ResourceAsColor")
                         @Override
@@ -160,6 +168,9 @@ int layout ;
                             switch (which) {
                                 case DialogInterface.BUTTON_POSITIVE:
                                     pd.show();
+                                    pd.setContentView(R.layout.progress_dialog);
+                                    pd.getWindow().setBackgroundDrawableResource(R.color.transparent);
+                                    pd.setCancelable(false);
 
                                     final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -206,6 +217,116 @@ int layout ;
             });
 
     }
+
+
+        holder.deleteMyOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+
+
+                if(layout==1){
+                    pd.show();
+                    pd.setContentView(R.layout.progress_dialog);
+                    pd.getWindow().setBackgroundDrawableResource(R.color.transparent);
+                    pd.setCancelable(false);
+
+                    final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                    FirebaseDatabase.getInstance().getReference().child("Orders")
+                            .child(user.getUid() + (int) orders.get(position).getTotalPrice() + orders.get(position).getNumOfItem())
+                            .removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @SuppressLint("ResourceAsColor")
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                orders.remove(position);
+                                ProductsInfo.remove(position);
+                                notifyDataSetChanged();
+                                pd.dismiss();
+                                Snackbar snackbar = Snackbar.make(v, "Order Successful Accepted", Snackbar.LENGTH_SHORT);
+                                snackbar.setBackgroundTint(R.color.colorPrimaryDark);
+                                snackbar.show();
+
+
+                            } else {
+                                Toast.makeText(c, "Check your network connection ", Toast.LENGTH_LONG).show();
+                            }
+                        }
+
+                    });
+
+
+
+                }
+
+                if(layout==2){
+                    pd.show();
+                    pd.setContentView(R.layout.progress_dialog);
+                    pd.getWindow().setBackgroundDrawableResource(R.color.transparent);
+                    pd.setCancelable(false);
+
+                    final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+      /*              FirebaseDatabase.getInstance().getReference().child("MyOrders")
+                            .child(user.getUid() ).child(user.getUid() + (int) orders.get(position).getTotalPrice() + orders.get(position).getNumOfItem())
+
+                            .removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @SuppressLint("ResourceAsColor")
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                orders.remove(position);
+                                ProductsInfo.remove(position);
+                                notifyDataSetChanged();
+                                pd.dismiss();
+                                Snackbar snackbar = Snackbar.make(v, "Order removed", Snackbar.LENGTH_SHORT);
+                                snackbar.setBackgroundTint(R.color.colorPrimaryDark);
+                                snackbar.show();
+
+
+                            } else {
+                                Toast.makeText(c, "Check your network connection ", Toast.LENGTH_LONG).show();
+                            }
+                        }
+
+                    });
+*/
+
+                    FirebaseDatabase.getInstance().getReference().child("MyOrders")
+                            .child(user.getUid() ).child(user.getUid() + (int) orders.get(position).getTotalPrice() + orders.get(position).getNumOfItem())
+
+                            .removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @SuppressLint("ResourceAsColor")
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            orders.remove(position);
+                            ProductsInfo.remove(position);
+                            notifyDataSetChanged();
+                            pd.dismiss();
+                            Snackbar snackbar = Snackbar.make(v, "Order removed", Snackbar.LENGTH_SHORT);
+                            snackbar.setBackgroundTint(R.color.colorPrimaryDark);
+                            snackbar.show();
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(c, e.getMessage(), Toast.LENGTH_LONG).show();
+
+                        }
+                    });
+
+
+                }
+
+
+
+            }
+        });
+
+
+
+
 
     }
 

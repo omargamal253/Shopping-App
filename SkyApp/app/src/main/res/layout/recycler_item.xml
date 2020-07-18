@@ -2,11 +2,12 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="10dp"
+    app:cardCornerRadius="5dp"
 
     app:cardElevation="3dp"
     app:cardUseCompatPadding="true"
     app:layout_optimizationLevel="chains"
+
 
     >
     <!--  app:cardElevation="3dp"  is used to show the shadow of the CardView. -->
@@ -52,21 +53,60 @@
             android:maxLines="3"
             android:transitionName="TitleTransition"
             android:minLines="3"
+            android:maxHeight="70dp"
+
+            />
+
+
+
+        <TextView
+            android:id="@+id/SoldBy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Sold By:"
+            android:textColor="#000"
+            android:textSize="10dp"
+            android:maxHeight="70dp"
+            android:transitionName="TitleTransition"
+            android:layout_below="@+id/titleIv3"
+            android:layout_marginTop="5dp"
+
+            />
+
+
+        <TextView
+            android:id="@+id/SoldByText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="Shopavo"
+            android:textColor="#000"
+            android:textSize="10dp"
+            android:maxHeight="70dp"
+            android:layout_toRightOf="@+id/SoldBy"
+            android:transitionName="TitleTransition"
+            android:layout_below="@+id/titleIv3"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
 
 
             />
+
+
 
         <TextView
             android:id="@+id/PriceBefore2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/titleIv3"
+            android:layout_below="@+id/SoldBy"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:text="Price"
             android:textColor="#a9a9a9"
-            android:textSize="10dp"
+            android:textSize="11dp"
             android:layout_marginTop="5dp"
+
             />
 
         <TextView
@@ -78,16 +118,16 @@
             android:layout_marginLeft="10dp"
             android:text="Price"
             android:textColor="#000"
-            android:textSize="12dp"
+            android:textSize="13dp"
             android:textStyle="bold"
             android:transitionName="PriceTransition"
 
             />
-
+<!--
         <Button
             android:layout_width="165dp"
             android:layout_height="30sp"
-            android:background="@drawable/addcart_background"
+            android:background="@drawable/add_btn"
             android:layout_alignParentBottom="true"
             android:text="Add To Cart"
             android:id="@+id/AddToCart_btn"
@@ -96,25 +136,17 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             />
-        <RelativeLayout
-            android:layout_width="35dp"
-            android:layout_height="30dp"
-            android:background="#89FFDFDF"
-            android:layout_toRightOf="@+id/AddToCart_btn"
-            android:layout_toEndOf="@+id/AddToCart_btn"
-            android:layout_alignParentBottom="true"
-
-            >
+-->
 
         <ImageView
             android:layout_width="30dp"
             android:layout_height="35dp"
             android:src="@drawable/ic_fav_border"
-            android:layout_alignParentBottom="true"
-
-            android:id="@+id/Home_Fav"/>
-
-        </RelativeLayout>
+android:layout_alignParentRight="true"
+            android:id="@+id/Home_Fav"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="2dp"
+            />
 
     </RelativeLayout>
 

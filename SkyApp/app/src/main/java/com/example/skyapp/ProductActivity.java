@@ -4,12 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -36,7 +42,7 @@ public class ProductActivity extends AppCompatActivity implements Serializable {
     boolean AddedToCard, AddedToFav;
     ImageView ProductImage, ProductFav;
     Button AddToCardBtn, CallBtn;
-
+ProgressDialog pd ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +61,8 @@ public class ProductActivity extends AppCompatActivity implements Serializable {
         AddedToFav = getIntent().getBooleanExtra("AddedToFavOrNot", false);
 
         toolbar.setTitle(product.getTitle());
+        toolbar.setTitleTextColor(Color.parseColor("#FFF8F3"));
+
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -82,6 +90,10 @@ public class ProductActivity extends AppCompatActivity implements Serializable {
         AddToCardBtn = findViewById(R.id.AddProductToCard);
         CallBtn = findViewById(R.id.CallButton);
 
+        LayoutInflater layoutInflater = (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final View DialogView  =layoutInflater.inflate(R.layout.progress_addcard,null);
+        pd = new ProgressDialog(this);
+
 
         ProductTitle.setText(product.getTitle());
         ProductBrand.setText(product.getBrand());
@@ -92,6 +104,7 @@ public class ProductActivity extends AppCompatActivity implements Serializable {
         double price_after = price_before - (price_before * (discount / 100));
 
         ProductPriceBefore.setText(String.format("%,.2f", price_before) + " EGP");
+        ProductPriceBefore.setPaintFlags(ProductPriceBefore.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
         ProductPriceAfter.setText(String.format("%,.2f", price_after) + " EGP");
         ProductDiscount.setText("-" + String.valueOf(product.getDiscount()) + "%");
         ProductDescription.setText(product.getDescription());
@@ -133,19 +146,29 @@ public class ProductActivity extends AppCompatActivity implements Serializable {
             @Override
             public void onClick(View v) {
                 if (AddedToCard == false) {
+
                     FireBase.AddToUser_Card(product);
                     AddToCardBtn.setText("Added to your Card");
                     AddedToCard = true;
-                    Snackbar snackbar = Snackbar.make(v, product.getTitle() + " Saved to your Card ", Snackbar.LENGTH_SHORT);
+                  /*  Snackbar snackbar = Snackbar.make(v, product.getTitle() + " Saved to your Card ", Snackbar.LENGTH_SHORT);
                     //    snackbar.setActionTextColor(R.color.MainColor);
                     snackbar.setBackgroundTint(R.color.colorPrimaryDark);
-                    snackbar.show();
+                    snackbar.show();*/
 
                     HomeFragment.DealsAdapter.notifyDataSetChanged();
                     HomeFragment.BestSealsAdapter.notifyDataSetChanged();
                     if(FavoriteFragment.FavAdapter!=null)
                     FavoriteFragment.FavAdapter.notifyDataSetChanged();
                     FireBase.GetNumOf_Products_InCard();
+
+                    pd.show();
+                    pd.setContentView(DialogView);
+               //    pd.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                    pd.getWindow(). setBackgroundDrawableResource(R.color.transparent);
+
+
+                    pd.setCancelable(false);
+
 
 
                 }
@@ -171,6 +194,28 @@ public class ProductActivity extends AppCompatActivity implements Serializable {
                 startActivity(intent);
       }
   });
+
+
+
+
+
+        Button AddToCard=DialogView.findViewById(R.id.GO_CART);
+        AddToCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProductActivity.this , CardActivity.class );
+                startActivity(intent);
+                fileList();
+            }
+        });
+
+        Button BackBtn=DialogView.findViewById(R.id.BackBtn);
+        BackBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pd.dismiss();
+            }
+        });
 
 
 
