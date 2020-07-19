@@ -51,7 +51,7 @@ public class OrdersActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        toolbar.setTitle("Orders");
+        toolbar.setTitle("Users Orders");
         toolbar.setTitleTextColor(Color.parseColor("#FFF8F3"));
 
         setSupportActionBar(toolbar);

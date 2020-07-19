@@ -53,7 +53,7 @@ public class StartScreenActivity extends AppCompatActivity {
 
 
             }
-        },20);
+        },4000);
 
 
         lazyLoader.addView(loader);

@@ -454,7 +454,7 @@
             android:layout_toRightOf="@+id/CallButton"
             android:background="@drawable/complete_btn_bg"
             android:drawableLeft="@drawable/ic_add_shopping_cart_black_white_24dp"
-            android:text="ADD TO CARD"
+            android:text="ADD TO CART"
             android:textAlignment="center"
              android:textColor="#fff"
             android:paddingLeft="5dp"

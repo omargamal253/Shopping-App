@@ -146,7 +146,7 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<MyHolder> {
                     holder.AddedToCard =true;
                 }else{
                     if(holder.AddToCard!=null)
-                        holder.AddToCard.setText("Add TO CARD");
+                        holder.AddToCard.setText("Add TO CART");
                     holder.AddedToCard =false;
                 }
             }

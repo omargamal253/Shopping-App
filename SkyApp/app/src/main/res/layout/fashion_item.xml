@@ -86,7 +86,7 @@ android:maxLines="3"
         <Button
             android:layout_width="160dp"
             android:layout_height="30sp"
-            android:background="@drawable/addcart_background"
+            android:background="@drawable/complete_btn_bg"
             android:text="Add To Cart"
             android:id="@+id/AddToCart_btn"
             android:textColor="#fff"

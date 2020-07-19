@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -45,7 +46,9 @@ public class MyOrdersActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        toolbar.setTitle("Orders");
+        toolbar.setTitle("My Orders");
+        toolbar.setTitleTextColor(Color.parseColor("#FFF8F3"));
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);

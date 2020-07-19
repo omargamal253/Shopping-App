@@ -11,12 +11,18 @@
                             android:endColor="#C600FF7F"
 
                             />
--->
-
-                        <gradient
+                             <gradient
                             android:startColor="#E600FF7F"
                             android:centerColor="#6ef29b"
                             android:endColor="#C600FF7F"
+
+                            />
+-->
+
+                        <gradient
+                            android:startColor="#3DDD84"
+                            android:centerColor="#3ACF7C"
+                            android:endColor="#3ACF7C"
 
                             />
 

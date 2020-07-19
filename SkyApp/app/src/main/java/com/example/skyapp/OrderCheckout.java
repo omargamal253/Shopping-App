@@ -121,7 +121,7 @@ public class OrderCheckout extends AppCompatActivity {
                         "Address",
                         "Payment",
                         "Summary"})
-                .setIconColors(Color.parseColor("#E600FF7F"), Color.parseColor("#E600FF7F"), Color.parseColor("#2DAEFF"))
+                .setIconColors(Color.parseColor("#3DDD84"), Color.parseColor("#3DDD84"), Color.parseColor("#2DAEFF"))
                 .setRectangularIcons(false, false, false)
                 .setBorderSizes(0, 0, 0)
                 .setTextColors(Color.GRAY, Color.GRAY, Color.GRAY)
