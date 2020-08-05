@@ -135,37 +135,7 @@ public class CardActivity extends AppCompatActivity {
                 }else Toast.makeText(CardActivity.this, "Your card is empty ", Toast.LENGTH_SHORT).show();
 
 
-                 /*   if (myAdapter.products.size() > 0) {
-                    DialogInterface.OnClickListener diOnClickListener = new DialogInterface.OnClickListener() {
-                        @SuppressLint("ResourceAsColor")
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            switch (which) {
-                                case DialogInterface.BUTTON_POSITIVE:
 
-                                    CreateOrder(myAdapter.TotalPrice, myAdapter.products, myAdapter.productQtu);
-
-
-
-                                    break;
-
-                                case DialogInterface.BUTTON_NEGATIVE:
-                                    break;
-
-                            }
-                        }
-                    };
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(CardActivity.this);
-                    builder.setMessage(" Complete Your Order ").setPositiveButton("Yes", diOnClickListener)
-                            .setNegativeButton("No", diOnClickListener);
-
-                    builder.show();
-
-                }else
-                    Toast.makeText(CardActivity.this, "Your card is empty ", Toast.LENGTH_SHORT).show();
-
-                */
 
             }
         });

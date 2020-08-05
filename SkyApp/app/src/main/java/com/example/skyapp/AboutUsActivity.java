@@ -39,26 +39,6 @@ public class AboutUsActivity extends AppCompatActivity {
         });
 
 
-/*
-        ProgressDialog pd = new ProgressDialog(this);
-        LayoutInflater inflater = (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View DialogView  =inflater.inflate(R.layout.progress_successful,null);
-        pd.setContentView(DialogView);
-        pd.getWindow().setBackgroundDrawableResource(R.color.transparent);
-        ImageView OkProgress=DialogView.findViewById(R.id.OkProgress);
-        OkProgress.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AboutUsActivity.this , MainActivity.class   );
-                startActivity(intent);
-                finish();
-
-            }
-        });
-
-
-
-        pd.show();*/
 
 
     }

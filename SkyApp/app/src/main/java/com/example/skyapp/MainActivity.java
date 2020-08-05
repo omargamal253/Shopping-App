@@ -103,14 +103,7 @@ View view = navigationView.getHeaderView(0);
 
         SetDrawerHeader setDrawerHeader = new SetDrawerHeader(view);
 
-/*
-      Username = findViewById(R.id.user_username);
-        Email = findViewById(R.id.user_email);
 
-        Username.setText("CurrentUser.getUsername()");
-        Email.setText("CurrentUser.getEmail()");
-
-*/
         set_AdminBlock_Visible(false);
                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 

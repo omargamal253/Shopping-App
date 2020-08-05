@@ -79,25 +79,8 @@ public class SetDrawerHeader {
 
             }
         });
-       // Username.setText(String.valueOf(users.size()));
 
 
-        //Username.setText((String) map.get("username"));
-      //  Email.setText((String) map.get("email"));
-   // Username.setText(CurrentUser.getUser_username());
-
-       // if(map!=null&&map.containsKey("user_email")) Email.setText((String)map.get("user_email"));
-
-    //Email.setText(CurrentUser.getUser_email());
-     //   Log.e("Users",map.toString());;
-
-
-
-       /* try {
-            Picasso.get().load(user.getPhotoUrl()).into(userImage);
-        }catch (Exception e){
-
-        }*/
 
 
     }

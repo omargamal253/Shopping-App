@@ -30,8 +30,10 @@ tools:context=".AddItemActivity">
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:src="@drawable/ic_close"
-                android:id="@+id/close"/>
+                android:src="@drawable/ic_baseline_close_24"
+                android:id="@+id/close"
+
+                />
 
 
             <TextView
@@ -42,7 +44,7 @@ tools:context=".AddItemActivity">
                 android:textSize="18sp"
                 android:layout_alignParentEnd="true"
                 android:layout_marginRight="15dp"
-                android:textColor="#333333"
+                android:textColor="#FFF8F3"
                 android:layout_centerVertical="true"
                 android:onClick="AddProduct"
                 />

@@ -166,9 +166,6 @@ public class AddItemActivity extends AppCompatActivity {
 
         FireBase.AddProductTo_FireBase(product, Category);
 
-        //FireBase.AddProductTo_FireBase(product, "Best Sales");
-        //product.getTitle()+product.getBrand()+product.getColor()
-       // title.getText().toString()+br and.getText().toString()+color.getText().toString()
 
     }
 
